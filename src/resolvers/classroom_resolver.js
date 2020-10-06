@@ -1,31 +1,31 @@
 const classroomResolver = {
     Query: {
         allClassrooms: function(_, __, { dataSources }) {
-            return dataSources.classroomApi.getallClassrooms();
+            return dataSources.classroomAPI.getallClassrooms();
         },
 
         allAssignements: function(_, __, { dataSources }) {
-            return dataSources.classroomApi.getallAssignemets();
+            return dataSources.classroomAPI.getallAssignemets();
         },
 
         AssignementsByProfessor: function(_, {professorID}, { dataSources }) {
-            return dataSources.classroomApi.getallAssignemetsByProfessor();
+            return dataSources.classroomAPI.getallAssignemetsByProfessor();
         },
 
         AssignementsByCourse: function(_, {courseID}, { dataSources }) {
-            return dataSources.classroomApi.getallAssignemetsByCourse(courseID);
+            return dataSources.classroomAPI.getallAssignemetsByCourse(courseID);
         },
         AssignementsByClassroom: function(_, {classroomID}, { dataSources }) {
-            return dataSources.classroomApi.getallAssignemetsByClassroom(classroomID);
+            return dataSources.classroomAPI.getallAssignemetsByClassroom(classroomID);
         },
     },
 
     Mutation: {
         createClassroom: function(_, { classroom }, { dataSources }) {
-            return dataSources.classroomApi.createClassroom(classroom);
+            return dataSources.classroomAPI.createClassroom(classroom);
         },
         createAssignement: function(_, { assignement }, { dataSources }) {
-            return dataSources.classroomApi.createAssignement(assignement);
+            return dataSources.classroomAPI.createAssignement(assignement);
         },
     }
 };

@@ -3,12 +3,12 @@ const { gql } = require('apollo-server');
 const classroomTypeDefs = gql `
     type Classroom {
         id: String!
-        capacity: Int!
+        capacidad: Int!
         description: String!
     }
 
     type ClassroomInfo{
-        capacity: Int!
+        capacidad: Int!
         description: String!
     }
     
@@ -18,6 +18,7 @@ const classroomTypeDefs = gql `
         salon : String!
         horario : String!
         profesor : String!
+        materia : String!
     }
     
     type AssignementInfo {
@@ -25,11 +26,12 @@ const classroomTypeDefs = gql `
         salon : String!
         horario : String!
         profesor : String!
+        materia : String!
     }
 
     input ClassroomInput {
-        grade: Int!
-        letter: String!
+        capacidad: Int!
+        description: String!
     }
 
     input AssignamentInput {
@@ -37,6 +39,7 @@ const classroomTypeDefs = gql `
         salon : String!
         horario : String!
         profesor : String!
+        materia : String!
     }
 `;
 

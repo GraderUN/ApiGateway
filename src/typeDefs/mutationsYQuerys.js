@@ -17,8 +17,8 @@ const generalTypeDefs = gql `
     }
 
     type Mutation {
-        createClassroom(classroom: CourseInput!): Classroom
-        createAssignement(assignement: AssignamentInput!): Assignement
+        createClassroom(classroom: ClassroomInput!): String
+        createAssignement(assignement: AssignamentInput!): String
         createCourse(course: CourseInput!): Courses!
         deleteCourse(id: String!): Course!
         createStudent(student: StudentInput!): Student!

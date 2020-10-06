@@ -4,36 +4,26 @@ const serverConfig = require('../server');
 function ClassroomsMapping(data) {
     var newData = [];
     for (i = 0; i < data.length; i++)
-        newData[i] = { id: data[i].id, capacity: data[i].capacity, description: data[i].description }
+        newData[i] = { capacidad: data[i].capacidad, description: data[i].description }
     return newData;
 }
 
 function ClassroomMapping(data) {
-    return { capacity: data.capacity, description: data.description };
-}
-
-function ClassroomCreatedMapping(data) {
-    return { id: data.id, capacity: data.capacity, description: data.description };
+    return { capacidad: data.capacidad, description: data.description };
 }
 function AssignementsMapping(data) {
     var newData = [];
     for (i = 0; i < data.length; i++)
-        newData[i] = { id: data[i].id, course: data[i].course, classroom: data[i].classroom,
-        proffesor: data[i].proffesor , horario: data[i].horario, materia: data[i].materia
+        newData[i] = { id: data[i].id, curso: data[i].curso, salon: data[i].salon,
+        profesor: data[i].profesor , horario: data[i].horario, materia: data[i].materia
         }
     return newData;
 }
 
 function AssignementMapping(data) {
-    return { course: data.course, classroom: data.classroom,
-        proffesor: data.proffesor , horario: data.horario, materia: data.materia };
+    return { curso: data.curso, salon: data.salon,
+        profesor: data.profesor , horario: data.horario, materia: data.materia };
 }
-
-function AssignementCreatedMapping(data){
-    return {course: data.course, classroom: data.classroom,
-        professor: data.professor , horario: data.horario, materia: data.materia };
-}
-
 class ClassroomApi extends RESTDataSource {
     constructor() {
         super();
@@ -45,7 +35,7 @@ class ClassroomApi extends RESTDataSource {
     }
 
     async createClassroom(classroom) {
-        return ClassroomCreatedMapping(await this.post(`/classroom`, ClassroomMapping(classroom)));
+        return (await this.post(`/classroom`, ClassroomMapping(classroom)));
     }
 
     async getallAssignemets() {
@@ -53,7 +43,7 @@ class ClassroomApi extends RESTDataSource {
     }
 
     async createAssignement(assignement) {
-        return ClassroomCreatedMapping(await this.post(`/assignations`, ClassroomMapping(assignement)));
+        return (await this.post(`/assignations`, AssignementMapping(assignement)));
     }
 
     async getallAssignemetsByProfessor(proffesorID) {
