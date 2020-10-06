@@ -13,7 +13,12 @@ const generalTypeDefs = gql `
         courseById(id: String!): Course!
         allStudents: [Student]!
         studentById(id: String!): Student!
-        
+
+        PromedioEstudianteMateriaPeriodo(datosEstudianteMateriaPeriodo : datosEstudianteMateriaPeriodo!): Float!
+        PromedioEstudianteMateria(datosEstudianteMateria : datosEstudianteMateria!): Float!
+        PromedioEstudiante(datosEstudiante : datosEstudiante!): Float!
+        promedioCurso(datosCurso: datosCurso!): Float!
+        estadisticasCurso(notasIdCurso: Int!): [estadisticas]!
     }
 
     type Mutation {

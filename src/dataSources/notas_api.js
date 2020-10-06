@@ -10,13 +10,13 @@ class NotasAPI extends RESTDataSource {
   }
 
   async getPromedioEstudianteMateriaPeriodo(datosEstudianteMateriaPeriodo) {
-    console.log("datosEstudianteMateriaPeriodo:")
-    console.log(datosEstudianteMateriaPeriodo)
-    return (await this.get(`/promedioEstudianteMateriaPeriodo/${datosEstudianteMateriaPeriodo.notasIdEstudiante}/${datosEstudianteMateriaPeriodo.notasIdMateria}/${datosEstudianteMateriaPeriodo.notasPeriodo}`));
+    return (await this.get(`/promedioEstudianteMateriaPeriodo/${datosEstudianteMateriaPeriodo.notasIdEstudiante}
+    /${datosEstudianteMateriaPeriodo.notasIdMateria}/${datosEstudianteMateriaPeriodo.notasPeriodo}`));
   }
 
   async getPromedioEstudianteMateria(datosEstudianteMateria) {
-    return (await this.get(`/promedioEstudianteMateria/${datosEstudianteMateria.notasIdEstudiante}/${datosEstudianteMateria.notasIdMateria}`));
+    return (await this.get(`/promedioEstudianteMateria/${datosEstudianteMateria.notasIdEstudiante}
+    /${datosEstudianteMateria.notasIdMateria}`));
   }
 
   async getPromedioEstudiante(datosEstudiante) {
