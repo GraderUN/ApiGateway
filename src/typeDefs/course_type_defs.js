@@ -36,11 +36,11 @@ const coursesTypeDefs = gql `
         courseById(id: String!): Course!
         allStudents: [Student]!
         studentById(id: String!): Student!
-        
+
         allUsers: [User]!
         userById(id: Int!): User!
-        
-        PromedioEstudianteMateriaPeriodo(datosEstudiante : datosEstudiante!): Float!
+
+        PromedioEstudianteMateriaPeriodo(datosEstudiante : datosEstudianteMateriaPeriodo!): Float!
         PromedioEstudianteMateria(notasIdEstudiante: Int!,
             notasIdMateria: Int!): Float!
         PromedioEstudiante(notasIdEstudiante: Int!): Float!

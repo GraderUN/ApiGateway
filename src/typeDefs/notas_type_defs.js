@@ -12,11 +12,24 @@ const notasTypeDefs = gql`
         notasPeriodo: Int!
         NotasComentarios: String
     }
-
-    input datosEstudiante {
+    
+    input datosEstudianteMateriaPeriodo {
         notasIdEstudiante: Int!
         notasIdMateria: Int!
         notasPeriodo: Int!
+    }
+
+    input datosEstudianteMateria {
+        notasIdEstudiante: Int!
+        notasIdMateria: Int!
+    }
+
+    input datosEstudiante {
+        notasIdEstudiante: Int!
+    }
+    
+    input datosCurso {
+        notasIdCurso: Int!
     }
     
     type estadisticas {

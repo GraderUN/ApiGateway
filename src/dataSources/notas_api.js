@@ -9,22 +9,22 @@ class NotasAPI extends RESTDataSource {
     this.baseURL = `http://${serverConfig.notasUrl}:${serverConfig.notasPort}`;
   }
 
-  async getPromedioEstudianteMateriaPeriodo(datosEstudiante) {
-    console.log("datosEstudiante:")
-    console.log(datosEstudiante)
-    return (await this.get(`/promedioEstudianteMateriaPeriodo/${datosEstudiante.notasIdEstudiante}/${datosEstudiante.notasIdMateria}/${datosEstudiante.notasPeriodo}`));
+  async getPromedioEstudianteMateriaPeriodo(datosEstudianteMateriaPeriodo) {
+    console.log("datosEstudianteMateriaPeriodo:")
+    console.log(datosEstudianteMateriaPeriodo)
+    return (await this.get(`/promedioEstudianteMateriaPeriodo/${datosEstudianteMateriaPeriodo.notasIdEstudiante}/${datosEstudianteMateriaPeriodo.notasIdMateria}/${datosEstudianteMateriaPeriodo.notasPeriodo}`));
   }
 
-  async getPromedioEstudianteMateria() {
-    return (await this.get(`/promedioEstudianteMateria/${estudianteId}/${notasIdMateria}`));
+  async getPromedioEstudianteMateria(datosEstudianteMateria) {
+    return (await this.get(`/promedioEstudianteMateria/${datosEstudianteMateria.notasIdEstudiante}/${datosEstudianteMateria.notasIdMateria}`));
   }
 
-  async getPromedioEstudiante() {
-    return (await this.get(`/promedioEstudiante/${estudianteId}`));
+  async getPromedioEstudiante(datosEstudiante) {
+    return (await this.get(`/promedioEstudiante/${datosEstudiante.notasIdEstudiante}`));
   }
 
-  async getPromedioCurso() {
-    return (await this.get(`/promedioCurso/${cursoId}`));
+  async getPromedioCurso(datosCurso) {
+    return (await this.get(`/promedioCurso/${datosCurso.notasIdCurso}`));
   }
 }
 

@@ -1,19 +1,19 @@
 const notasResolver = {
     Query: {
-       PromedioEstudianteMateriaPeriodo: function(_, {datosEstudiante}, { dataSources }) {
-        return dataSources.NotasAPI.getPromedioEstudianteMateriaPeriodo(datosEstudiante);
+       PromedioEstudianteMateriaPeriodo: function(_, {datosEstudianteMateriaPeriodo}, { dataSources }) {
+        return dataSources.NotasAPI.getPromedioEstudianteMateriaPeriodo(datosEstudianteMateriaPeriodo);
        },
 
-        PromedioEstudianteMateria: function(_, {notasIdEstudiante, notasIdMateria}, { dataSources }) {
-            return dataSources.NotasAPI.getPromedioEstudianteMateria(notasIdEstudiante, notasIdMateria);
+        PromedioEstudianteMateria: function(_, {datosEstudianteMateria}, { dataSources }) {
+            return dataSources.NotasAPI.getPromedioEstudianteMateria(datosEstudianteMateria);
         },
 
-        PromedioEstudiante: function(_, {notasIdEstudiante}, { dataSources }) {
-            return dataSources.NotasAPI.getPromedioEstudiante(notasIdEstudiante);
+        PromedioEstudiante: function(_, {datosEstudiante}, { dataSources }) {
+            return dataSources.NotasAPI.getPromedioEstudiante(datosEstudiante);
         },
 
-        promedioCurso: function(_, {notasIdCurso}, { dataSources }) {
-            return dataSources.NotasAPI.getPromedioCurso(notasIdCurso);
+        promedioCurso: function(_, {datosCurso}, { dataSources }) {
+            return dataSources.NotasAPI.getPromedioCurso(datosCurso);
         },
 
     },
