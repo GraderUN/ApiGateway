@@ -12,24 +12,20 @@ const notasTypeDefs = gql`
         notasPeriodo: Int!
         NotasComentarios: String
     }
+    
     type estadisticas {
         promedio: Int!
         otraCosa: Int!
     }
 
     type Query {
-        getPromedioEstudianteMateriaPeriodo(notasIdEstudiante: Int!,
+        PromedioEstudianteMateriaPeriodo(notasIdEstudiante: Int!,
             notasIdMateria: Int!, notasPeriodo: Int!): Float!
-        getPromedioEstudianteMateria(notasIdEstudiante: Int!,
+        PromedioEstudianteMateria(notasIdEstudiante: Int!,
             notasIdMateria: Int!): Float!
-        getPromedioEstudiante(notasIdEstudiante: Int!): Float!
+        PromedioEstudiante(notasIdEstudiante: Int!): Float!
         promedioCurso(notasIdCurso: Int!): Float!
         estadisticasCurso(notasIdCurso: Int!): [estadisticas]!
-        allUsers: [User]!
-    }
-
-    type Mutation {
-        
     }
 `;
 

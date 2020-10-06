@@ -1,59 +1,39 @@
 const { RESTDataSource } = require('apollo-datasource-rest');
-//import { url, port, entryPoint } from '../server.js';
 const serverConfig = require('../server');
 
-
-class UserAPI extends RESTDataSource {
-  constructor() {
-    super();
-    this.baseURL = `http://${serverConfig.url}:${serverConfig.port}/${serverConfig.entryPoint}`;
-    
-  }
-
-  //Realiza una peticion get para obtener todos los usuarios
-  async getAllUser() {
-    const response = await this.get('users');
-    return Array.isArray(response)
-      ? response.map(user => this.userReducer(user))
-      : [];
-  }
-
-  //Peticion get para obtener un usu
-  async getUserbyId(id){
-    const response = await this.get(`users/${id}`);
-    return this.userReducer(response);
-  }
-
-  async createUser(user){
-    user = new Object(JSON.parse(JSON.stringify(user)));
-    const response = await this.post('users', user);
-    return this.userReducer(response);
-  }
-
-
-  async updateUser(id, user){
-    user = new Object(JSON.parse(JSON.stringify(user)));
-    const response = await this.put(`users/${id}`, user);
-    return this.userReducer(response);
-  }
-
-  async deleteUser(id){
-    const response = await this.delete(`users/${id}`);
-    return this.userReducer(response);
-  }
-
-  //Le da el formato necesario a la salida
-  userReducer(user) {
-    return {
-      id: user.id || 0,
-      firstName: user.firstName,  
-      lastName: user.lastName,
-      username: user.username,
-      password: user.password
-    };
-  }
-
-  
+function NotasMapping(data) {
+  var newData = [];
+  for (let i = 0; i < data.length; i++)
+    newData[i] = { notasId: data[i].notasId, notasIdCurso:data[i].notasIdCursoEstudiante,
+      notasIdEstudiante: data[i].notasIdCursoEstudiante, notasIdMateria:data[i].notasIdMateria,
+      notasIdProfesor:data[i].notasIdProfesor, notasValor: data[i].otasValor,
+      notasPorcentaje: data[i].notasPorcentaje, notasPeriodo:data[i].notasPeriodo,
+      NotasComentarios:data[i].NotasComentarios}
+  return newData;
 }
 
-module.exports = UserAPI;
+
+class NotasAPI extends RESTDataSource {
+  constructor() {
+    super();
+    this.baseURL = `http://${serverConfig.notasUrl}:${serverConfig.notasPort}`;
+  }
+
+  async getPromedioEstudianteMateriaPeriodo(id) {
+    return NotasMapping(await this.get(`/promedioEstudianteMateriaPeriodo/${estudianteId}/${notasIdMateria}/${notasPeriodo}`));
+  }
+
+  async getPromedioEstudianteMateria() {
+    return NotasMapping(await this.get(`/promedioEstudianteMateria/${estudianteId}/${notasIdMateria}`));
+  }
+
+  async getPromedioEstudiante() {
+    return NotasMapping(await this.get(`/promedioEstudiante/${estudianteId}`));
+  }
+
+  async getPromedioCurso() {
+    return NotasMapping(await this.get(`/promedioCurso/${cursoId}`));
+  }
+}
+
+module.exports = NotasAPI;

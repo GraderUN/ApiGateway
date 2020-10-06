@@ -1,11 +1,24 @@
 const notasResolver = {
     Query: {
-        allNotas: (_, __, { dataSources }) => dataSources.userAPI.getAllUser(),
-        notaById: (_, { id }, { dataSources }) => dataSources.userAPI.getUserbyId(id)
+       PromedioEstudianteMateriaPeriodo: function(_, {notasIdEstudiante, notasIdMateria, notasPeriodo},
+                                                  { dataSources }) {
+        return dataSources.NotasAPI.getPromedioEstudianteMateriaPeriodo(notasIdEstudiante, notasIdMateria, notasPeriodo);
+       },
+
+        PromedioEstudianteMateria: function(_, {notasIdEstudiante, notasIdMateria}, { dataSources }) {
+            return dataSources.NotasAPI.getPromedioEstudianteMateria(notasIdEstudiante, notasIdMateria);
+        },
+
+        PromedioEstudiante: function(_, {notasIdEstudiante}, { dataSources }) {
+            return dataSources.NotasAPI.getPromedioEstudiante(notasIdEstudiante);
+        },
+
+        promedioCurso: function(_, {notasIdCurso}, { dataSources }) {
+            return dataSources.NotasAPI.getPromedioCurso(notasIdCurso);
+        },
+
     },
     Mutation: {
-        crearNota: function(_, {  }, { }) {
-        },
 
     }
 };
