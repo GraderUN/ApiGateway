@@ -16,16 +16,6 @@ const userTypeDefs = gql`
         password: String!
     }
 
-    type Query {
-        allUsers: [User]!
-        userById(id: Int!): User!
-    }
-
-    type Mutation {
-        createUser(user: UserInput!): User!
-        updateUser(id: Int!, user: UserInput!): User!
-        deleteUser(id: Int!): Int
-    }
 `;
 
 module.exports = userTypeDefs; 

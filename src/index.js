@@ -14,7 +14,7 @@ const server = new ApolloServer({
     resolvers,
     dataSources: () => ({
         coursesAPI: new CoursesAPI(),
-        notasAPI: new NotasAPI()
+        NotasAPI: new NotasAPI()
     })
 });
 

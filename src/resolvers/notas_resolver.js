@@ -1,8 +1,7 @@
 const notasResolver = {
     Query: {
-       PromedioEstudianteMateriaPeriodo: function(_, {notasIdEstudiante, notasIdMateria, notasPeriodo},
-                                                  { dataSources }) {
-        return dataSources.NotasAPI.getPromedioEstudianteMateriaPeriodo(notasIdEstudiante, notasIdMateria, notasPeriodo);
+       PromedioEstudianteMateriaPeriodo: function(_, {datosEstudiante}, { dataSources }) {
+        return dataSources.NotasAPI.getPromedioEstudianteMateriaPeriodo(datosEstudiante);
        },
 
         PromedioEstudianteMateria: function(_, {notasIdEstudiante, notasIdMateria}, { dataSources }) {

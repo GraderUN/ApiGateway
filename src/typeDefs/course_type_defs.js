@@ -36,6 +36,16 @@ const coursesTypeDefs = gql `
         courseById(id: String!): Course!
         allStudents: [Student]!
         studentById(id: String!): Student!
+        
+        allUsers: [User]!
+        userById(id: Int!): User!
+        
+        PromedioEstudianteMateriaPeriodo(datosEstudiante : datosEstudiante!): Float!
+        PromedioEstudianteMateria(notasIdEstudiante: Int!,
+            notasIdMateria: Int!): Float!
+        PromedioEstudiante(notasIdEstudiante: Int!): Float!
+        promedioCurso(notasIdCurso: Int!): Float!
+        estadisticasCurso(notasIdCurso: Int!): [estadisticas]!
     }
 
     input CourseInput {
@@ -54,6 +64,10 @@ const coursesTypeDefs = gql `
         createStudent(student: StudentInput!): Student!
         updateStudent(student: StudentInput!): Student!
         deleteStudent(id: String!): Student!
+
+        createUser(user: UserInput!): User!
+        updateUser(id: Int!, user: UserInput!): User!
+        deleteUser(id: Int!): Int
     }
 `;
 

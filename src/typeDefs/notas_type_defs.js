@@ -12,20 +12,16 @@ const notasTypeDefs = gql`
         notasPeriodo: Int!
         NotasComentarios: String
     }
+
+    input datosEstudiante {
+        notasIdEstudiante: Int!
+        notasIdMateria: Int!
+        notasPeriodo: Int!
+    }
     
     type estadisticas {
         promedio: Int!
         otraCosa: Int!
-    }
-
-    type Query {
-        PromedioEstudianteMateriaPeriodo(notasIdEstudiante: Int!,
-            notasIdMateria: Int!, notasPeriodo: Int!): Float!
-        PromedioEstudianteMateria(notasIdEstudiante: Int!,
-            notasIdMateria: Int!): Float!
-        PromedioEstudiante(notasIdEstudiante: Int!): Float!
-        promedioCurso(notasIdCurso: Int!): Float!
-        estadisticasCurso(notasIdCurso: Int!): [estadisticas]!
     }
 `;
 
