@@ -19,7 +19,7 @@ function authRequestMapping(data) {
 class authAPI extends RESTDataSource {
     constructor() {
         super();
-        this.baseURL = `http://${serverConfig.auth}}:${serverConfig.authPort}`;
+        this.baseURL = `http://${serverConfig.authUrl}:${serverConfig.authPort}`;
     }
 
     async authRequest(token) {
