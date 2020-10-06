@@ -4,7 +4,7 @@ const data = require('./resolvers');
 
 const typeDefs = require('./typeDefs');
 
-const UserAPI = require('./dataSources/user_api');
+const CoursesAPI = require('./dataSources/courses_api');
 
 const resolvers = require('./resolvers');
 
@@ -12,10 +12,10 @@ const server = new ApolloServer({
     typeDefs,
     resolvers,
     dataSources: () => ({
-        userAPI: new UserAPI()
+        coursesAPI: new CoursesAPI()
     })
 });
 
-server.listen({ port: data.port }).then(({ url }) => {
+server.listen({ port: 5000 }).then(({ url }) => {
     console.log(`🚀 Server ready at ${url}`);
 });
