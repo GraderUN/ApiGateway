@@ -36,6 +36,7 @@ const coursesTypeDefs = gql `
         courseById(id: String!): Course!
         allStudents: [Student]!
         studentById(id: String!): Student!
+        authRequest(token: String!): String!
     }
 
     input CourseInput {
@@ -54,6 +55,9 @@ const coursesTypeDefs = gql `
         createStudent(student: StudentInput!): Student!
         updateStudent(student: StudentInput!): Student!
         deleteStudent(id: String!): Student!
+        deleteUser(user: deleteUser!): String!
+        createUser(user: User!): String!
+        updateEmail(update: updateEmail!): Boolean!
     }
 `;
 

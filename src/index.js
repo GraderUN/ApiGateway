@@ -6,13 +6,16 @@ const typeDefs = require('./typeDefs');
 
 const CoursesAPI = require('./dataSources/courses_api');
 
+const AuthAPI = require('./dataSources/auth_api');
+
 const resolvers = require('./resolvers');
 
 const server = new ApolloServer({
     typeDefs,
     resolvers,
     dataSources: () => ({
-        coursesAPI: new CoursesAPI()
+        coursesAPI: new CoursesAPI(),
+        authAPI: new AuthAPI()
     })
 });
 
