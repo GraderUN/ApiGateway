@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:Entrega_3" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:Entrega_3" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:jdacostabe" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:sanhernandezmon" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="30a4c6d2-b2bb-48f2-b27c-a7c8a957830f" name="Default Changelist" comment="getPromedioEstudianteMateria, getPromedioEstudiante, getPromedioCurso" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Entrega_3/jdacostabe/CousosMs" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="ProjectId" id="1iT7DCdeULGlp9idIZEqG7ig2Kq" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\universidad\S8\Arqui\Api_Gateway\src\dataSources" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\universidad\S8\Arqui\Api_Gateway\src\dataSources" />
+      <recent name="D:\universidad\S8\Arqui\Api_Gateway\src\resolvers" />
+      <recent name="D:\universidad\S8\Arqui\Api_Gateway\src\typeDefs" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="30a4c6d2-b2bb-48f2-b27c-a7c8a957830f" name="Default Changelist" comment="" />
+      <created>1601919605826</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1601919605826</updated>
+      <workItem from="1601919609311" duration="22112000" />
+      <workItem from="1601996759688" duration="2296000" />
+    </task>
+    <task id="LOCAL-00001" summary="notas filse added">
+      <created>1601953338120</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1601953338120</updated>
+    </task>
+    <task id="LOCAL-00002" summary="somethign added">
+      <created>1601953720936</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1601953720936</updated>
+    </task>
+    <task id="LOCAL-00003" summary="All notes added">
+      <created>1601964287963</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1601964287963</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Working the first">
+      <created>1601966614134</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1601966614134</updated>
+    </task>
+    <task id="LOCAL-00005" summary="getPromedioEstudianteMateria, getPromedioEstudiante, getPromedioCurso">
+      <created>1601998012144</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1601998012144</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="notas filse added" />
+    <MESSAGE value="somethign added" />
+    <MESSAGE value="All notes added" />
+    <MESSAGE value="Working the first" />
+    <MESSAGE value="getPromedioEstudianteMateria, getPromedioEstudiante, getPromedioCurso" />
+    <option name="LAST_COMMIT_MESSAGE" value="getPromedioEstudianteMateria, getPromedioEstudiante, getPromedioCurso" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="990" y="278" key="FileChooserDialogImpl" timestamp="1601950544608">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="990" y="278" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601950544608" />
+    <state x="109" y="125" key="MergeDialog" timestamp="1601953875598">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="109" y="125" key="MergeDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601953875598" />
+    <state x="1054" y="285" key="MultipleFileMergeDialog" timestamp="1601953875605">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1054" y="285" key="MultipleFileMergeDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601953875605" />
+    <state x="461" y="165" key="SettingsEditor" timestamp="1601945962590">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601945962590" />
+    <state x="552" y="256" key="Vcs.Push.Dialog.v2" timestamp="1601998015121">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601998015121" />
+    <state x="777" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1601943924271">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="777" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601943924271" />
+    <state x="996" y="0" width="931" height="1047" key="dock-window-1" timestamp="1601964268330">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="996" y="0" width="931" height="1047" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601964268330" />
+    <state x="902" y="0" width="1025" height="1047" key="dock-window-2" timestamp="1601964268331">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="902" y="0" width="1025" height="1047" key="dock-window-2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601964268331" />
+    <state x="952" y="-8" width="976" height="1056" key="dock-window-3" timestamp="1601964268331">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="952" y="-8" width="976" height="1056" key="dock-window-3/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601964268331" />
+    <state x="952" y="-8" width="976" height="1056" key="dock-window-4" timestamp="1601966604287">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="952" y="-8" width="976" height="1056" key="dock-window-4/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601966604287" />
+    <state x="664" y="207" width="585" height="534" key="find.popup" timestamp="1601996972459">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="664" y="207" width="585" height="534" key="find.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601996972459" />
+    <state x="1196" y="236" key="git4idea.branch.GitSmartOperationDialog" timestamp="1601953711081">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1196" y="236" key="git4idea.branch.GitSmartOperationDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601953711081" />
+  </component>
+</project>
