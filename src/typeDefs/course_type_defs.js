@@ -30,14 +30,6 @@ const coursesTypeDefs = gql `
         id_students: [Student]!
     }
 
-
-    type Query {
-        allCourses: [Courses]!
-        courseById(id: String!): Course!
-        allStudents: [Student]!
-        studentById(id: String!): Student!
-    }
-
     input CourseInput {
         grade: Int!
         letter: String!
@@ -46,14 +38,6 @@ const coursesTypeDefs = gql `
     input StudentInput {
         id: String!
         id_course: String!
-    }
-
-    type Mutation {
-        createCourse(course: CourseInput!): Courses!
-        deleteCourse(id: String!): Course!
-        createStudent(student: StudentInput!): Student!
-        updateStudent(student: StudentInput!): Student!
-        deleteStudent(id: String!): Student!
     }
 `;
 
