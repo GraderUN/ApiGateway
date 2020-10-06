@@ -27,15 +27,6 @@ const classroomTypeDefs = gql `
         profesor : String!
     }
 
-    type Query {
-        allClassrooms: [Clasroom]!
-        allAssignements: [Assignement]!
-        AssignementsByProffesor(proffesor: String!): [Assignement]!
-        AssignementsByCourse(course: String!): [Assignement]!
-        AssignementsByClassroom(classroom: String!): [Assignement]!
-        
-    }
-
     input ClassroomInput {
         grade: Int!
         letter: String!
@@ -46,11 +37,6 @@ const classroomTypeDefs = gql `
         salon : String!
         horario : String!
         profesor : String!
-    }
-
-    type Mutation {
-        createClassroom(classroom: CourseInput!): Classroom
-        assignClassroom(assignement: AssignamentInput!): Assignement
     }
 `;
 
