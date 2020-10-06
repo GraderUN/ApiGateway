@@ -30,24 +30,6 @@ const coursesTypeDefs = gql `
         id_students: [Student]!
     }
 
-
-    type Query {
-        allCourses: [Courses]!
-        courseById(id: String!): Course!
-        allStudents: [Student]!
-        studentById(id: String!): Student!
-
-        allUsers: [User]!
-        userById(id: Int!): User!
-
-        PromedioEstudianteMateriaPeriodo(datosEstudiante : datosEstudianteMateriaPeriodo!): Float!
-        PromedioEstudianteMateria(notasIdEstudiante: Int!,
-            notasIdMateria: Int!): Float!
-        PromedioEstudiante(notasIdEstudiante: Int!): Float!
-        promedioCurso(notasIdCurso: Int!): Float!
-        estadisticasCurso(notasIdCurso: Int!): [estadisticas]!
-    }
-
     input CourseInput {
         grade: Int!
         letter: String!
@@ -56,18 +38,6 @@ const coursesTypeDefs = gql `
     input StudentInput {
         id: String!
         id_course: String!
-    }
-
-    type Mutation {
-        createCourse(course: CourseInput!): Courses!
-        deleteCourse(id: String!): Course!
-        createStudent(student: StudentInput!): Student!
-        updateStudent(student: StudentInput!): Student!
-        deleteStudent(id: String!): Student!
-
-        createUser(user: UserInput!): User!
-        updateUser(id: Int!, user: UserInput!): User!
-        deleteUser(id: Int!): Int
     }
 `;
 
