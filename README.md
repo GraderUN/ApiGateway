@@ -1,5 +1,5 @@
 # ApiGateway
-In this repo is being developed the business logic from the app
+In this repo is being developed the business logic for the app
 
 ```
 docker build apigateway .

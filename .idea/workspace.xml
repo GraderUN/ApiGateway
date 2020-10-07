@@ -30,9 +30,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30a4c6d2-b2bb-48f2-b27c-a7c8a957830f" name="Default Changelist" comment="dockerfile :tada:">
+    <list default="true" id="30a4c6d2-b2bb-48f2-b27c-a7c8a957830f" name="Default Changelist" comment="morales cagandola">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,17 +87,19 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="sourceFilePath" value="Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Docker.Dockerfile" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -108,7 +111,9 @@
       <updated>1601919605826</updated>
       <workItem from="1601919609311" duration="22112000" />
       <workItem from="1601996759688" duration="2296000" />
-      <workItem from="1602042406780" duration="1940000" />
+      <workItem from="1602042406780" duration="3845000" />
+      <workItem from="1602097050242" duration="3174000" />
+      <workItem from="1602104254713" duration="1868000" />
     </task>
     <task id="LOCAL-00001" summary="notas filse added">
       <created>1601953338120</created>
@@ -173,7 +178,35 @@
       <option name="project" value="LOCAL" />
       <updated>1602043632460</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="intento dockerizar 1">
+      <created>1602044376307</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1602044376307</updated>
+    </task>
+    <task id="LOCAL-00011" summary="intento dockerizar 2">
+      <created>1602044605818</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1602044605818</updated>
+    </task>
+    <task id="LOCAL-00012" summary="intento dockerizar 3 :rocket:">
+      <created>1602045651617</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1602045651617</updated>
+    </task>
+    <task id="LOCAL-00013" summary="morales cagandola">
+      <created>1602098852310</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1602098852311</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,12 +234,25 @@
     <MESSAGE value="ready to deploy :rocket:" />
     <MESSAGE value="sarch :hammer:" />
     <MESSAGE value="dockerfile :tada:" />
-    <option name="LAST_COMMIT_MESSAGE" value="dockerfile :tada:" />
+    <MESSAGE value="intento dockerizar 1" />
+    <MESSAGE value="intento dockerizar 2" />
+    <MESSAGE value="intento dockerizar 3 :rocket:" />
+    <MESSAGE value="morales cagandola" />
+    <option name="LAST_COMMIT_MESSAGE" value="morales cagandola" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="990" y="278" key="FileChooserDialogImpl" timestamp="1601950544608">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="275" y="22" key="#Docker" timestamp="1602101551391">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="275" y="22" key="#Docker/0.0.1366.728@0.0.1366.728" timestamp="1602101551391" />
+    <state x="137" y="0" width="1092" height="728" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602101677902">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="137" y="0" width="1092" height="728" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1602101677902" />
+    <state x="704" y="195" key="FileChooserDialogImpl" timestamp="1602101655814">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="704" y="195" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1602101655814" />
     <state x="990" y="278" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601950544608" />
     <state x="109" y="125" key="MergeDialog" timestamp="1601953875598">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -220,15 +266,15 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601945962590" />
-    <state x="393" y="179" key="Vcs.Push.Dialog.v2" timestamp="1602043702569">
+    <state x="393" y="179" key="Vcs.Push.Dialog.v2" timestamp="1602098860519">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="393" y="179" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1602043702569" />
+    <state x="393" y="179" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1602098860519" />
     <state x="552" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602034803642" />
-    <state x="553" y="306" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602041674021">
+    <state x="553" y="306" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602104744453">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="553" y="306" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1602041674021" />
+    <state x="553" y="306" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1602104744453" />
     <state x="777" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602012560550" />
     <state x="996" y="0" width="931" height="1047" key="dock-window-1" timestamp="1601964268330">
       <screen x="0" y="0" width="1920" height="1040" />
