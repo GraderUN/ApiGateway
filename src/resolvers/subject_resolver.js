@@ -21,8 +21,8 @@ module.exports = {
         deleteSubject: function(_, { id }, { dataSources }) {
             return dataSources.subjectAPI.deleteSubject(id);
         },
-        putContent: function(_, { id, data }, { dataSources }) {
-            return dataSources.subjectAPI.putContent(id, data);
+        putContent: function(_, { id, content }, { dataSources }) {
+            return dataSources.subjectAPI.putContent(id, content);
         },
         postTeacher: function(_, { data }, { dataSources }) {
             return dataSources.subjectAPI.postTeacher(data);
