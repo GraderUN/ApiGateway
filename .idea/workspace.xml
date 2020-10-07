@@ -43,8 +43,6 @@
       <change beforePath="$PROJECT_DIR$/src/dataSources/notas_api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataSources/notas_api.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resolvers/notas_resolver.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/resolvers/notas_resolver.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/typeDefs/mutationsYQuerys.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/typeDefs/mutationsYQuerys.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/typeDefs/notas_type_defs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/typeDefs/notas_type_defs.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +52,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Entrega_3/jdacostabe/CousosMs" />
+        <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -98,6 +96,7 @@
       <updated>1601919605826</updated>
       <workItem from="1601919609311" duration="22112000" />
       <workItem from="1601996759688" duration="2296000" />
+      <workItem from="1602100037747" duration="1222000" />
     </task>
     <task id="LOCAL-00001" summary="notas filse added">
       <created>1601953338120</created>
@@ -185,10 +184,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601945962590" />
-    <state x="552" y="256" key="Vcs.Push.Dialog.v2" timestamp="1602034803642">
+    <state x="552" y="256" key="Vcs.Push.Dialog.v2" timestamp="1602036476995">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602034803642" />
+    <state x="552" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602036476995" />
     <state x="777" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602012560550">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

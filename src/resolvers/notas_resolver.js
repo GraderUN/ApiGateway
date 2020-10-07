@@ -13,6 +13,8 @@ const notasResolver = {
         },
 
         promedioCurso: function(_, {datosCurso}, { dataSources }) {
+            let res = dataSources.coursesAPI.getCourseById(notasIdCurso.notasIdCurso.toString());
+
             return dataSources.NotasAPI.getPromedioCurso(datosCurso);
         },
 

@@ -4,7 +4,7 @@ module.exports = {
 
     classroomUrl: process.env.COURSES_URL || 'ec2-18-207-254-125.compute-1.amazonaws.com',
     classromPort: process.env.AUTH_PORT || '8080',
-    notasUrl: process.env.NOTAS_URL || 'ec2-34-239-166-87.compute-1.amazonaws.com',
+    notasUrl: process.env.NOTAS_URL || 'ec2-34-229-63-32.compute-1.amazonaws.com',
     notasPort: process.env.NOTAS_PORT || '3000',
 
     authUrl: process.env.AUTH_URL || 'ec2-3-237-0-162.compute-1.amazonaws.com',
