@@ -34,7 +34,7 @@ const classroomTypeDefs = gql `
         description: String!
     }
 
-    input AssignamentInput {
+    input AssignementInput {
         curso : String!
         salon : String!
         horario : String!

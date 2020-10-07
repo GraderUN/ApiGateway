@@ -29,7 +29,7 @@ module.exports = gql`
 
     type Mutation {
         createClassroom(classroom: ClassroomInput!): String
-        createAssignement(assignement: AssignamentInput!): String
+        createAssignement(assignement: AssignementInput!): String
         createCourse(course: CourseInput!): Courses!
         deleteCourse(id: String!): Course!
         createStudent(student: StudentInput!): Student!
