@@ -1,125 +1,208 @@
-﻿architecture { 
- 
+architecture { 
         software_system: Grader; 
-        author: Etwo; 
+        author: 2E; 
  
         architectural_views { 
  
                 decomposition_view :: 
  
-                        elements { 
-                                module Estudiante; 
-                                module Docente; 
-                                module Institucion; 
-                                 
-                                submodule HojaDeVidaEstudiante; 
-                                submodule AnioEscolarEstudiante; 
-                                submodule SolicitudesEstudiante; 
-                                 
-                                submodule Administrativo; 
-                                submodule Estadisticas; 
-                                submodule InformacionInstitucional; 
-                                 
-                                submodule HojaDeVidadocente; 
-                                submodule AnioEscolarDocente; 
-                                submodule SolicitudesDocente; 
-                                 
-                                functionality ConsultarDatosPersonales;
-                                functionality ConsultarHistorialNotas;
-                                functionality VerEstadisticas;
-                                 
-                                functionality ConsultarCalificaciones;
-                                functionality VerCalendario;
-                                functionality DescargarRecibosDePago;
-                                 
-                                functionality SolicitarCertificadoEstudio;
-                                functionality SolicitarReunionConDocente;
-                                functionality SolicitarReunionDirectivos;
+                        elements {
+                                module Notas; 
+                                module Clases; 
+                                module InformacionPersonal;
+                                module GestionAcademica;
+                                module Autenticacion;
+                                
+                                submodule NotasEstudiantes;
+                                submodule NotasProfesores;
+                                submodule NotasAdministrativos; 
+                                
+                                submodule ClasesEstudiantes;
+                                submodule ClasesProfesores;
+                                submodule ClasesAdministrativos;
+                                
+                                submodule InformacionEstudiantes; 
+                                submodule InformacionProfesores;
+                                submodule InformacionAdministrativos;
+                                
+                                submodule SolicitudesEstudiantes; 
+                                submodule SolicitudesProfesores;
+                                submodule GestionAdministrativos;
+                                
+                                functionality VerNotasParciales;
+                                functionality VerBoletines;
+                                functionality VerPromedioCurso;
+                                functionality VerPuestoDelCurso;
+                                
+                                functionality VerListaDeEstudiantes;
+                                functionality AsignarNotasParciales;
+                                functionality ActualizarNotasParciales; 
+                                functionality ConsolidarNotasDefinitivas;
+                                
+                                functionality GenerarBoletines;
+                                functionality GenerarEstadisticas;
+                                
+                                functionality VerHorario;
+                                functionality VerContenidos;
+                                functionality VerMiCurso;
+                                functionality VerMateria;
+                                
+                                functionality GestionarSalones;
+                                functionality GestionarCursos;
+                                functionality GestionarContenidos;
+                                functionality GestionarMateria;
+                                functionality AsignarProfesorMateria;
+                                
+                                functionality VerInformacionProfesores;
+                                functionality BuscarProfesores;
+                                functionality VerHistorialAcademico;
+                                functionality VerDatosPersonalesYAcudiente;
+                                
+                                functionality VerInformacionEstudiantes;
+                                functionality BuscarEstudiantes;
+                                functionality VerDatosPersonales;
+                                
+                                functionality GestionarDatosInstitucionales;
+                                functionality VerInformacionAdiministrativos;
+                                
+                                functionality SolicitarCetificadosDeEstudio;
+                                functionality SolicitarReuniones;
                                 functionality SolicitarCertificadoNotas;
-                                 
-                                functionality AgregarDocente;
-                                functionality AgregarEstudiante;
-                                functionality AgregarCurso;
-                                 
-                                functionality ConsultarEstadisticasPorCurso; 
-                                functionality ConsultarEstadisticasPorDocente; 
-                                functionality ConsultarEstadisticasPorEstudiante; 
-                                 
-                                functionality AdministrarCorreosInstitucionales; 
-                                functionality AdministrarImagenInstitucional; 
-                                functionality AdministrarDatosInstitucionales; 
-                                 
-                                functionality ConsultarDatosPersonales; 
-                                functionality ConsultarHistorialDeCursosDictados; 
-                                functionality ConsultarEstadisticas; 
-                                 
-                                functionality ConsultarCursosActuales; 
-                                functionality ConsultarCalendario; 
-                                functionality AsignarNotas; 
-                                 
-                                functionality SolicitarCertificadoLaboral; 
-                                functionality SolicitarReunionConPadres; 
-                                functionality SolicitarReunionDirectivos; 
+                                functionality SolicitarModificacionInformacionPersonal;
+                                
+                                functionality SolicitarSalonesYRecursos;
+                                functionality SolicitarCertificadoLaboral;
+                                functionality SolicitarModificacionInformacionPersonal;
+                                
+                                functionality ProcesarSolicitudes;
+                                
+                                functionality AutenticarSesion;
+                                functionality ActualizarDatosAcceso;
+                                functionality BorrarDatosAcceso;
                         } 
  
                         relations { 
-                                sm: HojaDeVidaEstudiante is_part_of m: Estudiante; 
-                                sm: AnioEscolarEstudiante is_part_of m: Estudiante; 
-                                sm: SolicitudesEstudiante is_part_of m: Estudiante; 
-                                 
-                                sm: Administrativo is_part_of m: Institucion; 
-                                sm: Estadisticas is_part_of m: Institucion; 
-                                sm: InformacionInstitucional is_part_of m: Institucion; 
-                                 
-                                 
-                                sm: HojaDeVidadocente is_part_of m: Docente; 
-                                sm: AnioEscolarDocente is_part_of m: Docente; 
-                                sm: SolicitudesDocente is_part_of m: Docente; 
-                                 
-                                 
-                                f: ConsultarDatosPersonales is_part_of sm: HojaDeVidaEstudiante; 
-                                f: ConsultarHistorialNotas is_part_of sm: HojaDeVidaEstudiante; 
-                                f: VerEstadisticas is_part_of sm: HojaDeVidaEstudiante; 
-                                 
-                                f: ConsultarCalificaciones is_part_of sm: AnioEscolarEstudiante; 
-                                f: VerCalendario is_part_of sm: AnioEscolarEstudiante; 
-                                f: DescargarRecibosDePago is_part_of sm: AnioEscolarEstudiante; 
-                                 
-                                f: SolicitarCertificadoEstudio is_part_of sm: SolicitudesEstudiante; 
-                                f: SolicitarReunionConDocente is_part_of sm: SolicitudesEstudiante; 
-                                f: SolicitarReunionDirectivos is_part_of sm: SolicitudesEstudiante; 
-                                f: SolicitarCertificadoNotas is_part_of sm: SolicitudesEstudiante; 
-                                 
-                                 
-                                f: AgregarDocente is_part_of sm: Administrativo; 
-                                f: AgregarEstudiante is_part_of sm: Administrativo; 
-                                f: AgregarCurso is_part_of sm: Administrativo; 
-                                 
-                                f: ConsultarEstadisticasPorCurso is_part_of sm: Estadisticas; 
-                                f: ConsultarEstadisticasPorDocente is_part_of sm: Estadisticas; 
-                                f: ConsultarEstadisticasPorEstudiante is_part_of sm: Estadisticas; 
-                                 
-                                f: AdministrarCorreosInstitucionales is_part_of sm: InformacionInstitucional; 
-                                f: AdministrarImagenInstitucional is_part_of sm: InformacionInstitucional; 
-                                f: AdministrarDatosInstitucionales is_part_of sm: InformacionInstitucional; 
- 
- 
-                                f: ConsultarDatosPersonales is_part_of sm: HojaDeVidadocente; 
-                                f: ConsultarHistorialDeCursosDictados is_part_of sm: HojaDeVidadocente; 
-                                f: ConsultarEstadisticas is_part_of sm: HojaDeVidadocente; 
-                                 
-                                f: ConsultarCursosActuales is_part_of sm: AnioEscolarDocente; 
-                                f: ConsultarCalendario is_part_of sm: AnioEscolarDocente; 
-                                f: AsignarNotas is_part_of sm: AnioEscolarDocente; 
-                                 
-                                f: SolicitarCertificadoLaboral is_part_of sm: SolicitudesDocente; 
-                                f: SolicitarReunionConPadres is_part_of sm: SolicitudesDocente; 
-                                f: SolicitarReunionDirectivos is_part_of sm: SolicitudesDocente; 
- 
+                                sm: NotasEstudiantes is_part_of m: Notas; 
+                                sm: NotasProfesores is_part_of m: Notas; 
+                                sm: NotasAdministrativos is_part_of m: Notas; 
+				 
+                                sm: ClasesEstudiantes is_part_of m: Clases; 
+                                sm: ClasesProfesores is_part_of m: Clases; 
+                                sm: ClasesAdministrativos is_part_of m: Clases; 				 
+				 
+                                sm: InformacionEstudiantes is_part_of m: InformacionPersonal; 
+                                sm: InformacionProfesores is_part_of m: InformacionPersonal; 
+                                sm: InformacionAdministrativos is_part_of m: InformacionPersonal; 
+
+                                sm: SolicitudesEstudiantes is_part_of m: GestionAcademica; 
+                                sm: SolicitudesProfesores is_part_of m: GestionAcademica; 
+                                sm: GestionAdministrativos is_part_of m: GestionAcademica;
+				 
+                                f: VerNotasParciales is_part_of sm: NotasEstudiantes; 
+                                f: VerBoletines is_part_of sm: NotasEstudiantes; 
+                                f: VerPromedioCurso is_part_of sm: NotasEstudiantes; 
+                                f: VerPuestoDelCurso is_part_of sm: NotasEstudiantes; 
+
+                                f: VerListaDeEstudiantess is_part_of sm: NotasProfesores; 
+                                f: AsignarNotasParciales is_part_of sm: NotasProfesores; 
+                                f: ActualizarNotasParciales is_part_of sm: NotasProfesores; 
+                                f: ConsolidarNotasDefinitivas is_part_of sm: NotasProfesores; 
+
+                                f: GenerarBoletines is_part_of sm: NotasAdministrativos;
+                                f: GenerarEstadisticas is_part_of sm: NotasAdministrativos;
+
+                                f: VerHorario is_part_of sm: ClasesEstudiantes; 
+                                f: VerContenidos is_part_of sm: ClasesEstudiantes; 
+                                f: VerMiCurso is_part_of sm: ClasesEstudiantes;
+                                f: VerMateria is_part_of sm: ClasesEstudiantes;
+
+                                f: VerHorario is_part_of sm: ClasesProfesores; 
+                                f: VerContenidos is_part_of sm: ClasesProfesores; 
+                                f: VerMiCurso is_part_of sm: ClasesProfesores;
+                                f: VerMateria is_part_of sm: ClasesProfesores;
+
+                                f: GestionarSalones is_part_of sm: ClasesAdministrativos;
+                                f: GestionarCursos is_part_of sm: ClasesAdministrativos;
+                                f: GestionarContenidos is_part_of sm: ClasesAdministrativos;
+                                f: GestionarMateria is_part_of sm: ClasesAdministrativos;
+                                f: AsignarProfesorMateria is_part_of sm: ClasesAdministrativos;
+
+                                f: VerInformacionProfesores is_part_of sm: InformacionEstudiantes; 
+                                f: BuscarProfesores is_part_of sm: InformacionEstudiantes; 
+                                f: VerHistorialAcademico is_part_of sm: InformacionEstudiantes; 
+                                f: VerDatosPersonalesYAcudiente is_part_of sm: InformacionEstudiantes;
+
+                                f: VerInformacionEstudiantes is_part_of sm: InformacionProfesores; 
+                                f: BuscarEstudiantes is_part_of sm: InformacionProfesores; 
+                                f: VerDatosPersonales is_part_of sm: InformacionProfesores; 
+
+                                f: GestionarDatosInstitucionales is_part_of sm: InformacionAdministrativos;
+                                f: VerInformacionAdiministrativos is_part_of sm: InformacionAdministrativos; 
+
+                                f: SolicitarCetificadosDeEstudio is_part_of sm: SolicitudesEstudiantes; 
+                                f: SolicitarReuniones is_part_of sm: SolicitudesEstudiantes; 
+                                f: SolicitarCertificadoNotas is_part_of sm: SolicitudesEstudiantes; 
+                                f: SolicitarModificacionInformacionPersonal is_part_of sm: SolicitudesEstudiantes; 
+
+                                f: SolicitarSalonesYRecursos is_part_of sm: SolicitudesProfesores; 
+                                f: SolicitarCertificadoLaboral is_part_of sm: SolicitudesProfesores; 
+                                f: SolicitarReuniones is_part_of sm: SolicitudesProfesores; 
+                                f: SolicitarModificacionInformacionPersonal is_part_of sm: SolicitudesProfesores; 
+
+                                f: ProcesarSolicitudes is_part_of sm: GestionAdministrativos; 
+
+                                f: AutenticarSesion is_part_of m: Autenticacion; 
+                                f: ActualizarDatosAcceso is_part_of m: Autenticacion; 
+                                f: BorrarDatosAcceso is_part_of m: Autenticacion; 
                         } 
                 :: 
+ 
+                component_and_connector_view :: 
+                  
+                        elements {
+                                programming_languages { 
+                                        java; 
+                                        python; 
+                                        js; 
+                                        kotlin; 
+                                        ruby; 
+                                } 
+ 
+                                db_systems { 
+                                        mysql; 
+                                } 
+ 
+                                component_types { 
+                                        frontend; 
+                                        backend; 
+                                        database; 
+                                } 
+ 
+                                component frontend ss_fe (programming_language js); 
+                                component backend ss_be (programming_language java); 
+                                component database ss_db (db_system mysql); 
+                                connector rest; 
+                                connector jdbc; 
+                        } 
+ 
+                        relations { 
+                                attachment (rest: ss_fe, ss_be); 
+                                attachment (jdbc: ss_be, ss_db); 
+                        } 
+                        
+		                :: 
+        } 
+} 
+ 
 
-
+architecture { 
+        
+ 
+        software_system: Grader; 
+        author: Etwo; 
+ 
+        architectural_views {
+ 
                 component_and_connector_view ::
 
 
