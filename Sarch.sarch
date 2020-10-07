@@ -266,6 +266,54 @@ component_and_connector_view ::
                                 attachment (rest: api_gateway, autenticacion);
                         }
                 ::
+		
+		data_model_view ::
+
+			nosql data_model cursos_salones {
+
+				elements {
+
+					data_entity estudiantes {
+						attributes {
+							string id;
+						}
+					}
+
+					data_entity cursos{
+						attributes {
+							string id;
+							int grado;
+							string letra;
+						}
+					}
+
+					data_entity salones_asignados{
+						attributes {
+							string id;
+							string horario_asignacion;
+						}
+					}
+
+					data_entity salones{
+						attributes {
+							string id;
+							string descripcion;
+						}
+					}
+
+					data_entity profesor{
+						attributes {
+							string id;
+						}
+					}
+				}
+
+				relations {
+					aggregation (cursos, salones_asignados);
+					aggregation (profesor, salones_asignados);
+					aggregation (salones, salones_asignados);
+					association (estudiantes, cursos);
+				}
         } 
 } 
  
