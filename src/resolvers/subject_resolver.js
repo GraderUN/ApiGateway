@@ -6,29 +6,29 @@ module.exports = {
             dataSources.subjectAPI.getSubject(id),
         getContent: (_, { id }, { dataSources }) =>
             dataSources.subjectAPI.getContent(id),
-        getSubjectTeachers: (_, __, { dataSources }) =>
-            dataSources.subjectAPI.getSubjectTeachers(),
-        getTeacherSubjects: (_, __, { dataSources }) =>
-            dataSources.subjectAPI.getTeacherSubjects(),
+        getSubjectTeachers: (_, { id }, { dataSources }) =>
+            dataSources.subjectAPI.getSubjectTeachers(id),
+        getTeacherSubjects: (_, { id }, { dataSources }) =>
+            dataSources.subjectAPI.getTeacherSubjects(id),
     },
     Mutation: {
-        postSubject: function(_, { subject }, { dataSources }) {
-            return dataSources.classroomAPI.postSubject(subject);
+        postSubject: function(_, { data }, { dataSources }) {
+            return dataSources.subjectAPI.postSubject(data);
         },
-        putSubject: function(_, { id, subject }, { dataSources }) {
-            return dataSources.classroomAPI.putSubject(id, subject);
+        putSubject: function(_, { id, data }, { dataSources }) {
+            return dataSources.subjectAPI.putSubject(id, data);
         },
         deleteSubject: function(_, { id }, { dataSources }) {
-            return dataSources.classroomAPI.deleteSubject(id);
+            return dataSources.subjectAPI.deleteSubject(id);
         },
-        putContent: function(_, { id, content }, { dataSources }) {
-            return dataSources.classroomAPI.putContent(id, content);
+        putContent: function(_, { id, data }, { dataSources }) {
+            return dataSources.subjectAPI.putContent(id, data);
         },
-        postTeacher: function(_, { teacher }, { dataSources }) {
-            return dataSources.classroomAPI.postTeacher(teacher);
+        postTeacher: function(_, { data }, { dataSources }) {
+            return dataSources.subjectAPI.postTeacher(data);
         },
-        deleteTeacher: function(_, { teacher }, { dataSources }) {
-            return dataSources.classroomAPI.deleteTeacher(teacher);
+        deleteTeacher: function(_, { data }, { dataSources }) {
+            return dataSources.subjectAPI.deleteTeacher(data);
         },
     }
 }

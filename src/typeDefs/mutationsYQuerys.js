@@ -23,8 +23,8 @@ module.exports = gql`
         getSubjects: [Subject]!
         getSubject(id: Int!): Subject!
         getContent(id: Int!): Subject!
-        getSubjectTeachers:[Teacher]!
-        getTeacherSubjects: [Teacher]!
+        getSubjectTeachers(id: Int!): [Teacher]!
+        getTeacherSubjects(id: Int!): [Teacher]!
     }
 
     type Mutation {
