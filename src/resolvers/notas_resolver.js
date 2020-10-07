@@ -16,6 +16,11 @@ const notasResolver = {
             return dataSources.NotasAPI.getPromedioCurso(datosCurso);
         },
 
+        estadisticasCurso: function(_, { notasIdCurso }, { dataSources }) {
+           let res = dataSources.coursesAPI.getCourseById(notasIdCurso.notasIdCurso.toString());
+            return dataSources.NotasAPI.getEstadisticasCurso(notasIdCurso);
+        },
+
     },
     Mutation: {
 

@@ -38,9 +38,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30a4c6d2-b2bb-48f2-b27c-a7c8a957830f" name="Default Changelist" comment="getPromedioEstudianteMateria, getPromedioEstudiante, getPromedioCurso">
+    <list default="true" id="30a4c6d2-b2bb-48f2-b27c-a7c8a957830f" name="Default Changelist" comment="Fixed query notas and notas_api.js">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dataSources/notas_api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataSources/notas_api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resolvers/notas_resolver.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/resolvers/notas_resolver.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/typeDefs/mutationsYQuerys.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/typeDefs/mutationsYQuerys.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/typeDefs/notas_type_defs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/typeDefs/notas_type_defs.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +134,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601998012144</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Fixed query notas and notas_api.js">
+      <created>1602012982433</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1602012982433</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -154,7 +165,8 @@
     <MESSAGE value="All notes added" />
     <MESSAGE value="Working the first" />
     <MESSAGE value="getPromedioEstudianteMateria, getPromedioEstudiante, getPromedioCurso" />
-    <option name="LAST_COMMIT_MESSAGE" value="getPromedioEstudianteMateria, getPromedioEstudiante, getPromedioCurso" />
+    <MESSAGE value="Fixed query notas and notas_api.js" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed query notas and notas_api.js" />
   </component>
   <component name="WindowStateProjectService">
     <state x="990" y="278" key="FileChooserDialogImpl" timestamp="1601950544608">
@@ -173,10 +185,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601945962590" />
-    <state x="552" y="256" key="Vcs.Push.Dialog.v2" timestamp="1601998015121">
+    <state x="552" y="256" key="Vcs.Push.Dialog.v2" timestamp="1602034803642">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601998015121" />
+    <state x="552" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602034803642" />
     <state x="777" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602012560550">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -197,10 +209,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="952" y="-8" width="976" height="1056" key="dock-window-4/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601966604287" />
-    <state x="664" y="207" width="585" height="534" key="find.popup" timestamp="1601996972459">
+    <state x="664" y="207" width="585" height="534" key="find.popup" timestamp="1602033767349">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="664" y="207" width="585" height="534" key="find.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601996972459" />
+    <state x="664" y="207" width="585" height="534" key="find.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602033767349" />
     <state x="1196" y="236" key="git4idea.branch.GitSmartOperationDialog" timestamp="1601953711081">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

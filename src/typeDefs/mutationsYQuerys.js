@@ -18,7 +18,7 @@ const generalTypeDefs = gql `
         PromedioEstudianteMateria(datosEstudianteMateria : datosEstudianteMateria!): Float!
         PromedioEstudiante(datosEstudiante : datosEstudiante!): Float!
         promedioCurso(datosCurso: datosCurso!): Float!
-        estadisticasCurso(notasIdCurso: Int!): [estadisticas]!
+        estadisticasCurso(notasIdCurso: datosCurso!): estadisticas!
     }
 
     type Mutation {
