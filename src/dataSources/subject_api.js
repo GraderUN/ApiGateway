@@ -24,22 +24,22 @@ class SubjectAPI extends RESTDataSource {
     }
     // Mutations
     async postSubject(data) {
-        return await this.post('/subject', data);
+        return await this.post('/subject', JSON.stringify(data));
     }
     async putSubject(id, data) {
-        return await this.put(`/subject/${id}`, data);
+        return await this.put(`/subject/${id}`, JSON.stringify(data));
     }
     async deleteSubject(data) {
-        return await this.delete(`/subject/${id}`, data);
+        return await this.delete(`/subject/${id}`, JSON.stringify(data));
     }
-    async putContent(id, content) {
-        return await this.put(`/subject/${id}/content`, content);
+    async putContent(id, data) {
+        return await this.put(`/subject/${id}/content`, JSON.stringify(data));
     }
     async postTeacher(data) {
-        return await this.post('/teacher', data);
+        return await this.post('/teacher', JSON.stringify(data));
     }
     async deleteTeacher(data) {
-        return await this.delete('/teacher', data);
+        return await this.delete('/teacher', JSON.stringify(data));
     }
 }
 module.exports = SubjectAPI;
