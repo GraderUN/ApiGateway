@@ -30,8 +30,9 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30a4c6d2-b2bb-48f2-b27c-a7c8a957830f" name="Default Changelist" comment="sarch :hammer:">
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+    <list default="true" id="30a4c6d2-b2bb-48f2-b27c-a7c8a957830f" name="Default Changelist" comment="dockerfile :tada:">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +66,10 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
@@ -104,7 +108,7 @@
       <updated>1601919605826</updated>
       <workItem from="1601919609311" duration="22112000" />
       <workItem from="1601996759688" duration="2296000" />
-      <workItem from="1602042406780" duration="920000" />
+      <workItem from="1602042406780" duration="1940000" />
     </task>
     <task id="LOCAL-00001" summary="notas filse added">
       <created>1601953338120</created>
@@ -162,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602043248985</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="dockerfile :tada:">
+      <created>1602043632460</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1602043632460</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,7 +200,8 @@
     <MESSAGE value="Fixed query notas and notas_api.js" />
     <MESSAGE value="ready to deploy :rocket:" />
     <MESSAGE value="sarch :hammer:" />
-    <option name="LAST_COMMIT_MESSAGE" value="sarch :hammer:" />
+    <MESSAGE value="dockerfile :tada:" />
+    <option name="LAST_COMMIT_MESSAGE" value="dockerfile :tada:" />
   </component>
   <component name="WindowStateProjectService">
     <state x="990" y="278" key="FileChooserDialogImpl" timestamp="1601950544608">
@@ -208,10 +220,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601945962590" />
-    <state x="393" y="179" key="Vcs.Push.Dialog.v2" timestamp="1602043255734">
+    <state x="393" y="179" key="Vcs.Push.Dialog.v2" timestamp="1602043702569">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="393" y="179" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1602043255734" />
+    <state x="393" y="179" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1602043702569" />
     <state x="552" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602034803642" />
     <state x="553" y="306" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602041674021">
       <screen x="0" y="0" width="1366" height="728" />
