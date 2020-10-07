@@ -6,7 +6,7 @@ const serverConfig = require('../server');
 class NotasAPI extends RESTDataSource {
   constructor() {
     super();
-    this.baseURL = `http://${serverConfig.notasUrl}:${!serverConfig.notasPort}`;
+    this.baseURL = `http://${serverConfig.notasUrl}:${serverConfig.notasPort}`;
   }
 
   async getPromedioEstudianteMateriaPeriodo(datosEstudianteMateriaPeriodo) {

@@ -4,7 +4,7 @@ module.exports = gql`
     type Query {
         allClassrooms: [Classroom]!
         allAssignements: [Assignement]!
-        AssignementsByProfessor(proffesor: String!): [Assignement]!
+        AssignementsByProfessor(professor: String!): [Assignement]!
         AssignementsByCourse(course: String!): [Assignement]!
         AssignementsByClassroom(classroom: String!): [Assignement]!
         allCourses: [Courses]!

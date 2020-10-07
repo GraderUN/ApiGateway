@@ -30,10 +30,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30a4c6d2-b2bb-48f2-b27c-a7c8a957830f" name="Default Changelist" comment="morales cagandola">
+    <list default="true" id="30a4c6d2-b2bb-48f2-b27c-a7c8a957830f" name="Default Changelist" comment="ports and urls only from env variables">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dataSources/notas_api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataSources/notas_api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/typeDefs/mutationsYQuerys.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/typeDefs/mutationsYQuerys.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +113,7 @@
       <workItem from="1601996759688" duration="2296000" />
       <workItem from="1602042406780" duration="3845000" />
       <workItem from="1602097050242" duration="3174000" />
-      <workItem from="1602104254713" duration="1868000" />
+      <workItem from="1602104254713" duration="2957000" />
     </task>
     <task id="LOCAL-00001" summary="notas filse added">
       <created>1601953338120</created>
@@ -206,7 +206,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602098852311</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="ports and urls only from env variables">
+      <created>1602106436127</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1602106436127</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -238,7 +245,8 @@
     <MESSAGE value="intento dockerizar 2" />
     <MESSAGE value="intento dockerizar 3 :rocket:" />
     <MESSAGE value="morales cagandola" />
-    <option name="LAST_COMMIT_MESSAGE" value="morales cagandola" />
+    <MESSAGE value="ports and urls only from env variables" />
+    <option name="LAST_COMMIT_MESSAGE" value="ports and urls only from env variables" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Docker" timestamp="1602101551391">
@@ -266,10 +274,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601945962590" />
-    <state x="393" y="179" key="Vcs.Push.Dialog.v2" timestamp="1602098860519">
+    <state x="393" y="179" key="Vcs.Push.Dialog.v2" timestamp="1602106444238">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="393" y="179" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1602098860519" />
+    <state x="393" y="179" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1602106444238" />
     <state x="552" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602034803642" />
     <state x="553" y="306" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602104744453">
       <screen x="0" y="0" width="1366" height="728" />
@@ -292,9 +300,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="952" y="-8" width="976" height="1056" key="dock-window-4/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601966604287" />
-    <state x="664" y="207" width="585" height="534" key="find.popup" timestamp="1602033767349">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="472" y="145" width="555" height="534" key="find.popup" timestamp="1602106965363">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="472" y="145" width="555" height="534" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1602106965363" />
     <state x="664" y="207" width="585" height="534" key="find.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602033767349" />
     <state x="1196" y="236" key="git4idea.branch.GitSmartOperationDialog" timestamp="1601953711081">
       <screen x="0" y="0" width="1920" height="1040" />
