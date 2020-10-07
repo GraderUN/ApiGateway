@@ -1,8 +1,6 @@
 const { gql } = require('apollo-server');
 
-const generalTypeDefs = gql `
-    
-    
+module.exports = gql`
     type Query {
         allClassrooms: [Classroom]!
         allAssignements: [Assignement]!
@@ -21,6 +19,12 @@ const generalTypeDefs = gql `
         PromedioEstudiante(datosEstudiante : datosEstudiante!): Float!
         promedioCurso(datosCurso: datosCurso!): Float!
         estadisticasCurso(notasIdCurso: datosCurso!): estadisticas!
+        # Subject queries
+        getSubjects: [Subject]!
+        getSubject(id: Int!): Subject!
+        getContent(id: Int!): Subject!
+        getSubjectTeachers:[Teacher]!
+        getTeacherSubjects: [Teacher]!
     }
 
     type Mutation {
@@ -34,7 +38,12 @@ const generalTypeDefs = gql `
         deleteUser(user: deleteUser!): String!
         createUser(user: User!): String!
         updateEmail(update: updateEmail!): Boolean!
-    }
-`;
 
-module.exports = generalTypeDefs;
+        # Subject mutations
+        postSubject(data: SubjectInput!): SubjectResponse!
+        putSubject(data: SubjectInput!): SubjectResponse!
+        deleteSubject(id: Int!): SubjectResponse!
+        putContent(id: Int!, content: String!): SubjectResponse!
+        postTeacher(data: TeacherInput!): SubjectResponse!
+        deleteTeacher(data: TeacherInput!): SubjectResponse!
+    }`;
