@@ -1,6 +1,6 @@
 architecture { 
-        software_system: Grader; 
-        author: 2E; 
+        software_system: GraderUN; 
+        author: Everyone; 
  
         architectural_views { 
  
@@ -103,7 +103,7 @@ architecture {
                                 f: VerPromedioCurso is_part_of sm: NotasEstudiantes; 
                                 f: VerPuestoDelCurso is_part_of sm: NotasEstudiantes; 
 
-                                f: VerListaDeEstudiantess is_part_of sm: NotasProfesores; 
+                                f: VerListaDeEstudiantes is_part_of sm: NotasProfesores; 
                                 f: AsignarNotasParciales is_part_of sm: NotasProfesores; 
                                 f: ActualizarNotasParciales is_part_of sm: NotasProfesores; 
                                 f: ConsolidarNotasDefinitivas is_part_of sm: NotasProfesores; 
@@ -157,71 +157,29 @@ architecture {
                         } 
                 :: 
  
-                component_and_connector_view :: 
-                  
-                        elements {
-                                programming_languages { 
-                                        java; 
-                                        python; 
-                                        js; 
-                                        kotlin; 
-                                        ruby; 
-                                } 
- 
-                                db_systems { 
-                                        mysql; 
-                                } 
- 
-                                component_types { 
-                                        frontend; 
-                                        backend; 
-                                        database; 
-                                } 
- 
-                                component frontend ss_fe (programming_language js); 
-                                component backend ss_be (programming_language java); 
-                                component database ss_db (db_system mysql); 
-                                connector rest; 
-                                connector jdbc; 
-                        } 
- 
-                        relations { 
-                                attachment (rest: ss_fe, ss_be); 
-                                attachment (jdbc: ss_be, ss_db); 
-                        } 
-                        
-		                :: 
-        } 
-} 
- 
-
-architecture { 
-        
- 
-        software_system: Grader; 
-        author: Etwo; 
- 
-        architectural_views {
- 
-                component_and_connector_view ::
+component_and_connector_view ::
 
 
                         elements {
-
 
                                 programming_languages {
                                                 java;
                                                 python;
                                                 js;
                                                 golang;
-                                                rubi;
-                                                c#;
-                                                
+                                                ruby;
+                                                c_sharp;
+												php;
+												rust;
+												vue;
+												flutter;
+            
                                 }
 
 
                                 db_systems {
                                         mysql;
+										mariadb;
                                         firebase;
                                         mongodb;
                                 }
@@ -231,31 +189,83 @@ architecture {
                                         frontend;
                                         backend;
                                         database;
+										authentication;
                                 }
-                                
-                                component backend gestionarSalones (programming_language golang);
-                                component backend gestionarCursos (programming_language C#);
-                                component database cursosysalonesdb (db_system mongodb);
-                                component database ss_db (db_system firebase);
-                                
-connector rest;
-                                connector mongodb-driver;
-                                connector PythonSQL;
+                                component backend consultarNotas(programming_language js);
+								component backend gestionarNotas(programming_language php);
+								component database notas_db(db_system mysql);
+								//
+				                component backend gestionarSalones(programming_language golang);
+                				component backend gestionarCursos(programming_language c_sharp);
+            				    component database cursos_y_salones_db (db_system mongodb);
+								//
+               					component backend gestionarContenidos(programming_language rust);
+								component database gestion_de_materias_db(db_system mongodb);
+                				//
+								component backend gestionarUsuarios(programming_language java);
+								component database gestionar_usuarios_db(db_system mysql);
+								//
+								//
+								component backend gestionarSolicitudes(programming_language ruby);
+								component database gestionar_solicitudes_db(db_system ****NO SE SABE*****);
+								//
+								//
+								component backend autenticacion(programming_language python);
+								component database autenticacion_db(db_system firebase);
+								//
+								component backend api_gateway(programming_language js);
+								//
+								//
+								//
+								component frontend ss_web(programming_language vue);
+								component frontend ss_mobile(programming_language flutter);
+				
+                                connector mongodb_driver;
+                                connector php_sql;
+								connector js_sql;
+								//
+								connector rust;
+								//
+								connector java_sql;
+								connector firebase;
+				
+				
+								connector rest;
                                 connector GraphQL;
                         }
 
 
                         relations {
+			
+                                attachment (js_sql: consultarNotas, notas_db);
+								attachment (php_sql: gestionarNotas, notas_db);
+				
+								attachment (mongodb_driver: gestionarCursos , cursos_y_salones_db);
+                                attachment (mongodb_driver: gestionarSalones , cursos_y_salones_db);
                                 
-attachment (mongodb-driver: gestionarCursos , mongodb);
-                                attachment (mongodb-driver: gestionarSalones , mongodb);
-                                
-                                attachment (GraphQL: ss_web, ss_be);
-                                attachment (GraphQL: ss_mobile, ss_be);
-                                attachment (PythonSQL: ss_be, ss_db);
-                                attachment (PythonSQL: ss_db, ss_be);
-                                attachment (rest: ss_be, ss_auth);
+								attachment (mongodb_driver: gestionarContenidos , gestion_de_materias_db);
+				
+								attachment (java_sql: gestionarUsuarios , gestionar_usuarios_db);
+				
+								attachment (rust: gestionarSolicitudes , gestionar_solicitudes_db);
+				
+								attachment (firebase: autenticacion , autenticacion_db);
+				
+				
+                                attachment (GraphQL: ss_web, api_gateway);
+								attachment (GraphQL: ss_mobile, api_gateway);
+				
+				
+                                attachment (rest: api_gateway, consultarNotas);
+                                attachment (rest: api_gateway, gestionarNotas);
+                                attachment (rest: api_gateway, gestionarCursos);
+                                attachment (rest: api_gateway, gestionarSalones);
+                                attachment (rest: api_gateway, gestionarContenidos);
+                                attachment (rest: api_gateway, gestionarUsuarios);
+                                attachment (rest: api_gateway, gestionarSolicitudes);
+                                attachment (rest: api_gateway, autenticacion);
                         }
                 ::
-        }
-}
+        } 
+} 
+ 
