@@ -9,7 +9,7 @@ const classroomResolver = {
         },
 
         AssignementsByProfessor: function(_, {professorID}, { dataSources }) {
-            return dataSources.classroomAPI.getallAssignemetsByProfessor();
+            return dataSources.classroomAPI.getallAssignemetsByProfessor(professorID);
         },
 
         AssignementsByCourse: function(_, {courseID}, { dataSources }) {
