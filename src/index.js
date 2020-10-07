@@ -9,6 +9,8 @@ const NotasAPI = require('./dataSources/notas_api');
 
 const ClassroomAPI = require('./dataSources/classroom_api')
 
+const AuthAPI = require('./dataSources/auth_api');
+
 const resolvers = require('./resolvers');
 
 const server = new ApolloServer({
@@ -17,7 +19,8 @@ const server = new ApolloServer({
     dataSources: () => ({
         coursesAPI: new CoursesAPI(),
         classroomAPI: new ClassroomAPI(),
-        NotasAPI: new NotasAPI()
+        NotasAPI: new NotasAPI(),
+        authAPI: new AuthAPI()
     })
 });
 
