@@ -1,0 +1,178 @@
+﻿architecture { 
+ 
+        software_system: Grader; 
+        author: Etwo; 
+ 
+        architectural_views { 
+ 
+                decomposition_view :: 
+ 
+                        elements { 
+                                module Estudiante; 
+                                module Docente; 
+                                module Institucion; 
+                                 
+                                submodule HojaDeVidaEstudiante; 
+                                submodule AnioEscolarEstudiante; 
+                                submodule SolicitudesEstudiante; 
+                                 
+                                submodule Administrativo; 
+                                submodule Estadisticas; 
+                                submodule InformacionInstitucional; 
+                                 
+                                submodule HojaDeVidadocente; 
+                                submodule AnioEscolarDocente; 
+                                submodule SolicitudesDocente; 
+                                 
+                                functionality ConsultarDatosPersonales;
+                                functionality ConsultarHistorialNotas;
+                                functionality VerEstadisticas;
+                                 
+                                functionality ConsultarCalificaciones;
+                                functionality VerCalendario;
+                                functionality DescargarRecibosDePago;
+                                 
+                                functionality SolicitarCertificadoEstudio;
+                                functionality SolicitarReunionConDocente;
+                                functionality SolicitarReunionDirectivos;
+                                functionality SolicitarCertificadoNotas;
+                                 
+                                functionality AgregarDocente;
+                                functionality AgregarEstudiante;
+                                functionality AgregarCurso;
+                                 
+                                functionality ConsultarEstadisticasPorCurso; 
+                                functionality ConsultarEstadisticasPorDocente; 
+                                functionality ConsultarEstadisticasPorEstudiante; 
+                                 
+                                functionality AdministrarCorreosInstitucionales; 
+                                functionality AdministrarImagenInstitucional; 
+                                functionality AdministrarDatosInstitucionales; 
+                                 
+                                functionality ConsultarDatosPersonales; 
+                                functionality ConsultarHistorialDeCursosDictados; 
+                                functionality ConsultarEstadisticas; 
+                                 
+                                functionality ConsultarCursosActuales; 
+                                functionality ConsultarCalendario; 
+                                functionality AsignarNotas; 
+                                 
+                                functionality SolicitarCertificadoLaboral; 
+                                functionality SolicitarReunionConPadres; 
+                                functionality SolicitarReunionDirectivos; 
+                        } 
+ 
+                        relations { 
+                                sm: HojaDeVidaEstudiante is_part_of m: Estudiante; 
+                                sm: AnioEscolarEstudiante is_part_of m: Estudiante; 
+                                sm: SolicitudesEstudiante is_part_of m: Estudiante; 
+                                 
+                                sm: Administrativo is_part_of m: Institucion; 
+                                sm: Estadisticas is_part_of m: Institucion; 
+                                sm: InformacionInstitucional is_part_of m: Institucion; 
+                                 
+                                 
+                                sm: HojaDeVidadocente is_part_of m: Docente; 
+                                sm: AnioEscolarDocente is_part_of m: Docente; 
+                                sm: SolicitudesDocente is_part_of m: Docente; 
+                                 
+                                 
+                                f: ConsultarDatosPersonales is_part_of sm: HojaDeVidaEstudiante; 
+                                f: ConsultarHistorialNotas is_part_of sm: HojaDeVidaEstudiante; 
+                                f: VerEstadisticas is_part_of sm: HojaDeVidaEstudiante; 
+                                 
+                                f: ConsultarCalificaciones is_part_of sm: AnioEscolarEstudiante; 
+                                f: VerCalendario is_part_of sm: AnioEscolarEstudiante; 
+                                f: DescargarRecibosDePago is_part_of sm: AnioEscolarEstudiante; 
+                                 
+                                f: SolicitarCertificadoEstudio is_part_of sm: SolicitudesEstudiante; 
+                                f: SolicitarReunionConDocente is_part_of sm: SolicitudesEstudiante; 
+                                f: SolicitarReunionDirectivos is_part_of sm: SolicitudesEstudiante; 
+                                f: SolicitarCertificadoNotas is_part_of sm: SolicitudesEstudiante; 
+                                 
+                                 
+                                f: AgregarDocente is_part_of sm: Administrativo; 
+                                f: AgregarEstudiante is_part_of sm: Administrativo; 
+                                f: AgregarCurso is_part_of sm: Administrativo; 
+                                 
+                                f: ConsultarEstadisticasPorCurso is_part_of sm: Estadisticas; 
+                                f: ConsultarEstadisticasPorDocente is_part_of sm: Estadisticas; 
+                                f: ConsultarEstadisticasPorEstudiante is_part_of sm: Estadisticas; 
+                                 
+                                f: AdministrarCorreosInstitucionales is_part_of sm: InformacionInstitucional; 
+                                f: AdministrarImagenInstitucional is_part_of sm: InformacionInstitucional; 
+                                f: AdministrarDatosInstitucionales is_part_of sm: InformacionInstitucional; 
+ 
+ 
+                                f: ConsultarDatosPersonales is_part_of sm: HojaDeVidadocente; 
+                                f: ConsultarHistorialDeCursosDictados is_part_of sm: HojaDeVidadocente; 
+                                f: ConsultarEstadisticas is_part_of sm: HojaDeVidadocente; 
+                                 
+                                f: ConsultarCursosActuales is_part_of sm: AnioEscolarDocente; 
+                                f: ConsultarCalendario is_part_of sm: AnioEscolarDocente; 
+                                f: AsignarNotas is_part_of sm: AnioEscolarDocente; 
+                                 
+                                f: SolicitarCertificadoLaboral is_part_of sm: SolicitudesDocente; 
+                                f: SolicitarReunionConPadres is_part_of sm: SolicitudesDocente; 
+                                f: SolicitarReunionDirectivos is_part_of sm: SolicitudesDocente; 
+ 
+                        } 
+                :: 
+
+
+                component_and_connector_view ::
+
+
+                        elements {
+
+
+                                programming_languages {
+                                                java;
+                                                python;
+                                                js;
+                                                golang;
+                                                rubi;
+                                                c#;
+                                                
+                                }
+
+
+                                db_systems {
+                                        mysql;
+                                        firebase;
+                                        mongodb;
+                                }
+
+
+                                component_types {
+                                        frontend;
+                                        backend;
+                                        database;
+                                }
+                                
+                                component backend gestionarSalones (programming_language golang);
+                                component backend gestionarCursos (programming_language C#);
+                                component database cursosysalonesdb (db_system mongodb);
+                                component database ss_db (db_system firebase);
+                                
+connector rest;
+                                connector mongodb-driver;
+                                connector PythonSQL;
+                                connector GraphQL;
+                        }
+
+
+                        relations {
+                                
+attachment (mongodb-driver: gestionarCursos , mongodb);
+                                attachment (mongodb-driver: gestionarSalones , mongodb);
+                                
+                                attachment (GraphQL: ss_web, ss_be);
+                                attachment (GraphQL: ss_mobile, ss_be);
+                                attachment (PythonSQL: ss_be, ss_db);
+                                attachment (PythonSQL: ss_db, ss_be);
+                                attachment (rest: ss_be, ss_auth);
+                        }
+                ::
+        }
+}
