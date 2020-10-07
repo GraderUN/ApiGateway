@@ -12,6 +12,10 @@ const notasTypeDefs = gql`
         notasPeriodo: Int!
         NotasComentarios: String
     }
+    type estadisticas {
+        UltimoPuesto: Float!
+        PrimerPuesto: Float!
+    }
     
     input datosEstudianteMateriaPeriodo {
         notasIdEstudiante: Int!
@@ -30,11 +34,6 @@ const notasTypeDefs = gql`
     
     input datosCurso {
         notasIdCurso: Int!
-    }
-    
-    type estadisticas {
-        promedio: Int!
-        otraCosa: Int!
     }
 `;
 

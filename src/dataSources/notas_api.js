@@ -6,17 +6,17 @@ const serverConfig = require('../server');
 class NotasAPI extends RESTDataSource {
   constructor() {
     super();
-    this.baseURL = `http://${serverConfig.notasUrl}:${serverConfig.notasPort}`;
+    this.baseURL = `http://${"localhost"}:${serverConfig.notasPort}`;
   }
 
   async getPromedioEstudianteMateriaPeriodo(datosEstudianteMateriaPeriodo) {
-    console.log("datosEstudianteMateriaPeriodo:")
-    console.log(datosEstudianteMateriaPeriodo)
-    return (await this.get(`/promedioEstudianteMateriaPeriodo/${datosEstudianteMateriaPeriodo.notasIdEstudiante}/${datosEstudianteMateriaPeriodo.notasIdMateria}/${datosEstudianteMateriaPeriodo.notasPeriodo}`));
+    return (await this.get(`/promedioEstudianteMateriaPeriodo/${datosEstudianteMateriaPeriodo.notasIdEstudiante}
+    /${datosEstudianteMateriaPeriodo.notasIdMateria}/${datosEstudianteMateriaPeriodo.notasPeriodo}`));
   }
 
   async getPromedioEstudianteMateria(datosEstudianteMateria) {
-    return (await this.get(`/promedioEstudianteMateria/${datosEstudianteMateria.notasIdEstudiante}/${datosEstudianteMateria.notasIdMateria}`));
+    return (await this.get(`/promedioEstudianteMateria/${datosEstudianteMateria.notasIdEstudiante}
+    /${datosEstudianteMateria.notasIdMateria}`));
   }
 
   async getPromedioEstudiante(datosEstudiante) {
@@ -25,6 +25,10 @@ class NotasAPI extends RESTDataSource {
 
   async getPromedioCurso(datosCurso) {
     return (await this.get(`/promedioCurso/${datosCurso.notasIdCurso}`));
+  }
+
+  async getEstadisticasCurso(notasIdCurso) {
+    return await this.get(`/estadisticasCurso/${notasIdCurso.notasIdCurso}`);
   }
 }
 
