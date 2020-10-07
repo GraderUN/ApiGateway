@@ -46,8 +46,8 @@ class ClassroomApi extends RESTDataSource {
         return (await this.post(`/assignations`, AssignementMapping(assignement)));
     }
 
-    async getallAssignemetsByProfessor(proffesorID) {
-        return AssignementsMapping(await this.get(`/assignations/proffesor/${proffesorID}`));
+    async getallAssignemetsByProfessor(professorID) {
+        return AssignementsMapping(await this.get(`/assignations/professor/${professorID}`));
     }
 
     async getallAssignemetsByCourse(courseID) {
