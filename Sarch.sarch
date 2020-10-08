@@ -308,6 +308,8 @@ component_and_connector_view ::
                             string id;
                         }
                     }
+
+                    
                 }
 
                 relations {
@@ -333,6 +335,8 @@ component_and_connector_view ::
                                 int id_teacher;
                             }
                     }
+
+                    association (subject, teacher);
                 }
             }
             relational data_model auth_database{
