@@ -395,6 +395,67 @@ architecture {
                     aggregation (profesores, solicitud_profesores);
                 }
             }
+            
+            relational data_model graderNotasDB { 
+ 
+				elements { 
+					data_entity tablaCurso { 
+						attributes { 
+							int cursoId ; 
+						} 
+					} 
+					data_entity tablaMateria { 
+						attributes { 
+							int materiaId ; 
+							string materiaNombre ; 
+							int materiaPeriodo ; 
+						} 
+					} 
+					data_entity tablaEstudiante { 
+						attributes { 
+							int estudianteId  ; 
+						} 
+					} 
+					data_entity tablaProfesor { 
+						attributes { 
+							int profesorId ; 
+							int profesorIdMateria ; 
+							int profesorIdCurso ; 
+							 
+						} 
+					} 
+					data_entity tablaCursoXEstudiante { 
+						attributes { 
+							int cursoXEstudianteId  ; 
+							int cursoXEstudianteIdCurso ; 
+							int cursoXEstudianteIdEstudiante ; 
+						} 
+					} 
+					data_entity tablaNotas { 
+						attributes { 
+							int notasId  ; 
+							int notasIdCursoEstudiante ; 
+							int notasIdMateria ; 
+							int notasIdProfesor ; 
+							float notasValor ; 
+							int notasPorcentaje ; 
+							int notasPeriodo ; 
+							string notasComentarios ; 
+						} 
+					} 
+				} 
+ 
+				relations { 
+					one_to_many (tablaCursoXEstudiante, tablaNotas); 
+					one_to_many (tablaMateria, tablaNotas); 
+					one_to_many (tablaProfesor, tablaNotas); 
+					one_to_many (tablaCurso, tablaCursoXEstudiante); 
+					one_to_many (tablaCurso, tablaProfesor); 
+					one_to_many (tablaMateria, tablaProfesor); 
+					one_to_many (tablaEstudiante, tablaCursoXEstudiante); 
+				} 
+				 
+			}
         ::
     }
 }
