@@ -85,11 +85,11 @@ architecture {
                                 sm: NotasEstudiantes is_part_of m: Notas; 
                                 sm: NotasProfesores is_part_of m: Notas; 
                                 sm: NotasAdministrativos is_part_of m: Notas; 
-				 
+
                                 sm: ClasesEstudiantes is_part_of m: Clases; 
                                 sm: ClasesProfesores is_part_of m: Clases; 
-                                sm: ClasesAdministrativos is_part_of m: Clases; 				 
-				 
+                                sm: ClasesAdministrativos is_part_of m: Clases;
+
                                 sm: InformacionEstudiantes is_part_of m: InformacionPersonal; 
                                 sm: InformacionProfesores is_part_of m: InformacionPersonal; 
                                 sm: InformacionAdministrativos is_part_of m: InformacionPersonal; 
@@ -97,7 +97,7 @@ architecture {
                                 sm: SolicitudesEstudiantes is_part_of m: GestionAcademica; 
                                 sm: SolicitudesProfesores is_part_of m: GestionAcademica; 
                                 sm: GestionAdministrativos is_part_of m: GestionAcademica;
-				 
+
                                 f: VerNotasParciales is_part_of sm: NotasEstudiantes; 
                                 f: VerBoletines is_part_of sm: NotasEstudiantes; 
                                 f: VerPromedioCurso is_part_of sm: NotasEstudiantes; 
@@ -169,17 +169,16 @@ component_and_connector_view ::
                                                 golang;
                                                 ruby;
                                                 c_sharp;
-												php;
-												rust;
-												vue;
-												flutter;
-            
+                                                php;
+                                                rust;
+                                                vue;
+                                                flutter;
                                 }
 
 
                                 db_systems {
                                         mysql;
-										mariadb;
+                                        mariadb;
                                         firebase;
                                         mongodb;
                                 }
@@ -189,73 +188,73 @@ component_and_connector_view ::
                                         frontend;
                                         backend;
                                         database;
-										authentication;
+                                        authentication;
                                 }
                                 component backend consultarNotas(programming_language js);
-								component backend gestionarNotas(programming_language php);
-								component database notas_db(db_system mysql);
-								//
-				                component backend gestionarSalones(programming_language golang);
-                				component backend gestionarCursos(programming_language c_sharp);
-            				    component database cursos_y_salones_db (db_system mongodb);
-								//
-               					component backend gestionarContenidos(programming_language rust);
-								component database gestion_de_materias_db(db_system mongodb);
-                				//
-								component backend gestionarUsuarios(programming_language java);
-								component database gestionar_usuarios_db(db_system mysql);
-								//
-								//
-								component backend gestionarSolicitudes(programming_language ruby);
-								component database gestionar_solicitudes_db(db_system ****NO SE SABE*****);
-								//
-								//
-								component backend autenticacion(programming_language python);
-								component database autenticacion_db(db_system firebase);
-								//
-								component backend api_gateway(programming_language js);
-								//
-								//
-								//
-								component frontend ss_web(programming_language vue);
-								component frontend ss_mobile(programming_language flutter);
-				
+                                component backend gestionarNotas(programming_language php);
+                                component database notas_db(db_system mysql);
+                                //
+                                component backend gestionarSalones(programming_language golang);
+                                component backend gestionarCursos(programming_language c_sharp);
+                                component database cursos_y_salones_db (db_system mongodb);
+                                //
+                                   component backend gestionarMaterias(programming_language rust);
+                                component database gestion_de_materias_db(db_system mongodb);
+                                //
+                                component backend gestionarUsuarios(programming_language java);
+                                component database gestionar_usuarios_db(db_system mysql);
+                                //
+                                //
+                                component backend gestionarSolicitudes(programming_language ruby);
+                                component database gestionar_solicitudes_db(db_system ****NO SE SABE*****);
+                                //
+                                //
+                                component backend autenticacion(programming_language python);
+                                component database autenticacion_db(db_system firebase);
+                                //
+                                component backend api_gateway(programming_language js);
+                                //
+                                //
+                                //
+                                component frontend ss_web(programming_language vue);
+                                component frontend ss_mobile(programming_language flutter);
+                
                                 connector mongodb_driver;
                                 connector php_sql;
-								connector js_sql;
-								//
-								connector rust;
-								//
-								connector java_sql;
-								connector firebase;
-				
-				
-								connector rest;
+                                connector js_sql;
+                                //
+                                connector diesel;
+                                //
+                                connector java_sql;
+                                connector firebase;
+                
+                
+                                connector rest;
                                 connector GraphQL;
                         }
 
 
                         relations {
-			
+            
                                 attachment (js_sql: consultarNotas, notas_db);
-								attachment (php_sql: gestionarNotas, notas_db);
-				
-								attachment (mongodb_driver: gestionarCursos , cursos_y_salones_db);
+                                attachment (php_sql: gestionarNotas, notas_db);
+                
+                                attachment (mongodb_driver: gestionarCursos , cursos_y_salones_db);
                                 attachment (mongodb_driver: gestionarSalones , cursos_y_salones_db);
                                 
-								attachment (mongodb_driver: gestionarContenidos , gestion_de_materias_db);
-				
-								attachment (java_sql: gestionarUsuarios , gestionar_usuarios_db);
-				
-								attachment (rust: gestionarSolicitudes , gestionar_solicitudes_db);
-				
-								attachment (firebase: autenticacion , autenticacion_db);
-				
-				
+                                attachment (diesel: gestionarMaterias, gestion_de_materias_db);
+                
+                                attachment (java_sql: gestionarUsuarios , gestionar_usuarios_db);
+                
+                                attachment (rest: gestionarSolicitudes , gestionar_solicitudes_db);
+                
+                                attachment (firebase: autenticacion , autenticacion_db);
+                
+                
                                 attachment (GraphQL: ss_web, api_gateway);
-								attachment (GraphQL: ss_mobile, api_gateway);
-				
-				
+                                attachment (GraphQL: ss_mobile, api_gateway);
+                
+                
                                 attachment (rest: api_gateway, consultarNotas);
                                 attachment (rest: api_gateway, gestionarNotas);
                                 attachment (rest: api_gateway, gestionarCursos);
@@ -267,128 +266,145 @@ component_and_connector_view ::
                         }
                 ::
 
-		data_model_view ::
+        data_model_view ::
 
-			nosql data_model cursos_salones {
+            nosql data_model cursos_salones {
 
-				elements {
+                elements {
 
-					data_entity estudiantes {
-						attributes {
-							string id;
-						}
-					}
+                    data_entity estudiantes {
+                        attributes {
+                            string id;
+                        }
+                    }
 
-					data_entity cursos{
-						attributes {
-							string id;
-							int grado;
-							string letra;
-						}
-					}
+                    data_entity cursos{
+                        attributes {
+                            string id;
+                            int grado;
+                            string letra;
+                        }
+                    }
 
-					data_entity salones_asignados{
-						attributes {
-							string id;
-							string horario;
-							string materia;
-							string profesor;
-						}
-					}
+                    data_entity salones_asignados{
+                        attributes {
+                            string id;
+                            string horario;
+                            string materia;
+                            string profesor;
+                        }
+                    }
 
-					data_entity salones{
-						attributes {
-							string id;
-							string descripcion;
-							int capacidad;
-						}
-					}
+                    data_entity salones{
+                        attributes {
+                            string id;
+                            string descripcion;
+                            int capacidad;
+                        }
+                    }
 
-					data_entity profesor{
-						attributes {
-							string id;
-						}
-					}
-				}
+                    data_entity profesor{
+                        attributes {
+                            string id;
+                        }
+                    }
+                }
 
-				relations {
-					aggregation (cursos, salones_asignados);
-					aggregation (salones, salones_asignados);
-					association (estudiantes, cursos);
-				}
+                relations {
+                    aggregation (cursos, salones_asignados);
+                    aggregation (salones, salones_asignados);
+                    association (estudiantes, cursos);
+                }
         }
-        
-        	relational data_model auth_database{
-        		
-        		elements {
-        		
-        			data_entity auth_data{
-						attributes {
-							string email;
-							string password;
-						}
-					}
-					
-        			data_entity session{
-						attributes {
-							string email;
-							string uid;
-							string token;
-							string created_at;
-						}
-					}
-					relations {
-						aggregation (auth_data, session);
-					}
-					
-        		
-    		}
-		
-		nosql data_model solicitudes_database{
-        		
-        		elements {
-        		
-        			data_entity solicitud_profesores{
-						attributes {
-							string id;
-							string tipo;
-							string fecha;
-							string informacion_adicional;
-						}
-					}
-					
-        			data_entity solicitud_estudiantes{
-						attributes {
-							string id;
-							string tipo;
-							string fecha;
-							string informacion_adicional;
-						}
-					}
-					
-					data_entity estudiantes{
-						attributes {
-							string id;
-						}
-					}
-					
-					data_entity profesores{
-						attributes {
-							string id;
-						}
-					}
-					
-					relations {
-						aggregation (estudiantes, solicitud_estudiantes);
-						aggregation (profesores, solicitud_profesores);
-					}
-					
-        		
-    		}
+            relational data_model gestion_de_materias_db{
+                
+                elements{
 
-    	
-    	}
+                    data_entity subject{
+                            attributes{
+                                int id;
+                                string name;
+                                int content;
+                            }
+                    }
+                    data_entity teacher{
+                            attributes{
+                                int id_subject;
+                                int id_teacher;
+                            }
+                    }
+                }
+            }
+            relational data_model auth_database{
+                
+                elements {
+                
+                    data_entity auth_data{
+                        attributes {
+                            string email;
+                            string password;
+                        }
+                    }
+                    
+                    data_entity session{
+                        attributes {
+                            string email;
+                            string uid;
+                            string token;
+                            string created_at;
+                        }
+                    }
+                    relations {
+                        aggregation (auth_data, session);
+                    }
+                    
+                
+            }
+        
+        nosql data_model solicitudes_database{
+                
+                elements {
+                
+                    data_entity solicitud_profesores{
+                        attributes {
+                            string id;
+                            string tipo;
+                            string fecha;
+                            string informacion_adicional;
+                        }
+                    }
+                    
+                    data_entity solicitud_estudiantes{
+                        attributes {
+                            string id;
+                            string tipo;
+                            string fecha;
+                            string informacion_adicional;
+                        }
+                    }
+                    
+                    data_entity estudiantes{
+                        attributes {
+                            string id;
+                        }
+                    }
+                    
+                    data_entity profesores{
+                        attributes {
+                            string id;
+                        }
+                    }
+                    
+                    relations {
+                        aggregation (estudiantes, solicitud_estudiantes);
+                        aggregation (profesores, solicitud_profesores);
+                    }
+                    
+                
+            }
+
+        
+        }
 
         
 } 
- 
