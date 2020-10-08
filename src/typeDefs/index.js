@@ -1,3 +1,4 @@
+const gestionNotasTypeDefs = require('./gestion_notas_type_defs');
 const courseTypeDefs = require('./course_type_defs');
 const notasTypeDefs = require('./notas_type_defs');
 const classroomTypeDefs = require('./classroom_type_defs');
@@ -12,6 +13,7 @@ const schemasArrays = [
     notasTypeDefs,
     subjectTypeDefs,
     authTypeDefs,
+    gestionNotasTypeDefs,
 ];
 
 module.exports = schemasArrays;
