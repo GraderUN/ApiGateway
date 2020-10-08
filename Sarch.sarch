@@ -290,7 +290,9 @@ component_and_connector_view ::
 					data_entity salones_asignados{
 						attributes {
 							string id;
-							string horario_asignacion;
+							string horario;
+							string materia;
+							string profesor;
 						}
 					}
 
@@ -298,6 +300,7 @@ component_and_connector_view ::
 						attributes {
 							string id;
 							string descripcion;
+							int capacidad;
 						}
 					}
 
@@ -310,7 +313,6 @@ component_and_connector_view ::
 
 				relations {
 					aggregation (cursos, salones_asignados);
-					aggregation (profesor, salones_asignados);
 					aggregation (salones, salones_asignados);
 					association (estudiantes, cursos);
 				}
@@ -337,6 +339,48 @@ component_and_connector_view ::
 					}
 					relations {
 						aggregation (auth_data, session);
+					}
+					
+        		
+    		}
+		
+		nosql data_model solicitudes_database{
+        		
+        		elements {
+        		
+        			data_entity solicitud_profesores{
+						attributes {
+							string id;
+							string tipo;
+							string fecha;
+							string informacion_adicional;
+						}
+					}
+					
+        			data_entity solicitud_estudiantes{
+						attributes {
+							string id;
+							string tipo;
+							string fecha;
+							string informacion_adicional;
+						}
+					}
+					
+					data_entity estudiantes{
+						attributes {
+							string id;
+						}
+					}
+					
+					data_entity profesores{
+						attributes {
+							string id;
+						}
+					}
+					
+					relations {
+						aggregation (estudiantes, solicitud_estudiantes);
+						aggregation (profesores, solicitud_profesores);
 					}
 					
         		
