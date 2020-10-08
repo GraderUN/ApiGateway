@@ -1,0 +1,13 @@
+{
+  "name": "ApiGateway",
+  "version": "1.0.0",
+
+  "dependencies": {
+    "apollo-server": "^2.18.2",
+    "graphql": "^15.3.0",
+    "lodash": "^4.17.20"
+  },
+  "devDependencies": {
+    "apollo-datasource-rest": "^0.9.4"
+  }
+}

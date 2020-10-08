@@ -1,8 +1,19 @@
-//Se llama al typedef (esquema) de cada submodulo
 const notasTypeDefs = require('./gestion_notas_type_defs');
+const courseTypeDefs = require('./course_type_defs');
+const notasTypeDefs = require('./notas_type_defs');
+const classroomTypeDefs = require('./classroom_type_defs');
+const generalTypeDefs = require('./mutationsYQuerys');
+const authTypeDefs = require('./auth_type_defs');
+const subjectTypeDefs = require('./subject_type_defs');
 
-//Se unen
-const schemasArrays = [notasTypeDefs];
+const schemasArrays = [
+    generalTypeDefs,
+    courseTypeDefs,
+    classroomTypeDefs,
+    notasTypeDefs,
+    subjectTypeDefs,
+    authTypeDefs,
+    notasTypeDefs,
+];
 
-//Se exportan
-module.exports = schemasArrays; 
+module.exports = schemasArrays;
