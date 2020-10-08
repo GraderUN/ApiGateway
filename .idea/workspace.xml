@@ -8,41 +8,32 @@
       </path>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:Entrega_3" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:Entrega_3" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:jdacostabe" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="GROUP_NODE:sanhernandezmon" type="e8cecc67:BranchNodeDescriptor" />
       </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30a4c6d2-b2bb-48f2-b27c-a7c8a957830f" name="Default Changelist" comment="Fixed query notas and notas_api.js">
+    <list default="true" id="30a4c6d2-b2bb-48f2-b27c-a7c8a957830f" name="Default Changelist" comment="ports and urls only from env variables">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dataSources/notas_api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataSources/notas_api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resolvers/notas_resolver.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/resolvers/notas_resolver.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/typeDefs/mutationsYQuerys.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/typeDefs/mutationsYQuerys.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +43,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="Entrega_3/jdacostabe/CousosMs" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -64,6 +55,9 @@
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectId" id="1iT7DCdeULGlp9idIZEqG7ig2Kq" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -71,7 +65,13 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -86,6 +86,21 @@
       <recent name="D:\universidad\S8\Arqui\Api_Gateway\src\typeDefs" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="sourceFilePath" value="Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Docker.Dockerfile" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -96,7 +111,9 @@
       <updated>1601919605826</updated>
       <workItem from="1601919609311" duration="22112000" />
       <workItem from="1601996759688" duration="2296000" />
-      <workItem from="1602100037747" duration="1222000" />
+      <workItem from="1602042406780" duration="3845000" />
+      <workItem from="1602097050242" duration="3174000" />
+      <workItem from="1602104254713" duration="2957000" />
     </task>
     <task id="LOCAL-00001" summary="notas filse added">
       <created>1601953338120</created>
@@ -140,7 +157,63 @@
       <option name="project" value="LOCAL" />
       <updated>1602012982433</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="ready to deploy :rocket:">
+      <created>1602042449272</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1602042449272</updated>
+    </task>
+    <task id="LOCAL-00008" summary="sarch :hammer:">
+      <created>1602043248985</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1602043248985</updated>
+    </task>
+    <task id="LOCAL-00009" summary="dockerfile :tada:">
+      <created>1602043632460</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1602043632460</updated>
+    </task>
+    <task id="LOCAL-00010" summary="intento dockerizar 1">
+      <created>1602044376307</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1602044376307</updated>
+    </task>
+    <task id="LOCAL-00011" summary="intento dockerizar 2">
+      <created>1602044605818</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1602044605818</updated>
+    </task>
+    <task id="LOCAL-00012" summary="intento dockerizar 3 :rocket:">
+      <created>1602045651617</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1602045651617</updated>
+    </task>
+    <task id="LOCAL-00013" summary="morales cagandola">
+      <created>1602098852310</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1602098852311</updated>
+    </task>
+    <task id="LOCAL-00014" summary="ports and urls only from env variables">
+      <created>1602106436127</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1602106436127</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,12 +238,29 @@
     <MESSAGE value="Working the first" />
     <MESSAGE value="getPromedioEstudianteMateria, getPromedioEstudiante, getPromedioCurso" />
     <MESSAGE value="Fixed query notas and notas_api.js" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed query notas and notas_api.js" />
+    <MESSAGE value="ready to deploy :rocket:" />
+    <MESSAGE value="sarch :hammer:" />
+    <MESSAGE value="dockerfile :tada:" />
+    <MESSAGE value="intento dockerizar 1" />
+    <MESSAGE value="intento dockerizar 2" />
+    <MESSAGE value="intento dockerizar 3 :rocket:" />
+    <MESSAGE value="morales cagandola" />
+    <MESSAGE value="ports and urls only from env variables" />
+    <option name="LAST_COMMIT_MESSAGE" value="ports and urls only from env variables" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="990" y="278" key="FileChooserDialogImpl" timestamp="1601950544608">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="275" y="22" key="#Docker" timestamp="1602101551391">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="275" y="22" key="#Docker/0.0.1366.728@0.0.1366.728" timestamp="1602101551391" />
+    <state x="137" y="0" width="1092" height="728" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602101677902">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="137" y="0" width="1092" height="728" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1602101677902" />
+    <state x="704" y="195" key="FileChooserDialogImpl" timestamp="1602101655814">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="704" y="195" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1602101655814" />
     <state x="990" y="278" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601950544608" />
     <state x="109" y="125" key="MergeDialog" timestamp="1601953875598">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -184,13 +274,15 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601945962590" />
-    <state x="552" y="256" key="Vcs.Push.Dialog.v2" timestamp="1602036476995">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="393" y="179" key="Vcs.Push.Dialog.v2" timestamp="1602106444238">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="552" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602036476995" />
-    <state x="777" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602012560550">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="393" y="179" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1602106444238" />
+    <state x="552" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602034803642" />
+    <state x="553" y="306" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602104744453">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="553" y="306" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1602104744453" />
     <state x="777" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602012560550" />
     <state x="996" y="0" width="931" height="1047" key="dock-window-1" timestamp="1601964268330">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -208,9 +300,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="952" y="-8" width="976" height="1056" key="dock-window-4/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601966604287" />
-    <state x="664" y="207" width="585" height="534" key="find.popup" timestamp="1602033767349">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="472" y="145" width="555" height="534" key="find.popup" timestamp="1602106965363">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="472" y="145" width="555" height="534" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1602106965363" />
     <state x="664" y="207" width="585" height="534" key="find.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602033767349" />
     <state x="1196" y="236" key="git4idea.branch.GitSmartOperationDialog" timestamp="1601953711081">
       <screen x="0" y="0" width="1920" height="1040" />

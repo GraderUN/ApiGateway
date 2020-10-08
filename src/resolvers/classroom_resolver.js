@@ -8,8 +8,8 @@ const classroomResolver = {
             return dataSources.classroomAPI.getallAssignemets();
         },
 
-        AssignementsByProfessor: function(_, {professorID}, { dataSources }) {
-            return dataSources.classroomAPI.getallAssignemetsByProfessor();
+        AssignementsByProfessor: function(_, {professor}, { dataSources }) {
+            return dataSources.classroomAPI.getallAssignemetsByProfessor(professor);
         },
 
         AssignementsByCourse: function(_, {courseID}, { dataSources }) {

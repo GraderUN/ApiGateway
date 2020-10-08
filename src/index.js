@@ -1,26 +1,24 @@
-//Permite crear el servidor -> Similar a lo que hace express pero mas limitado
 const { ApolloServer } = require('apollo-server');
-const data = require('./resolvers');
-
 const typeDefs = require('./typeDefs');
+const resolvers = require('./resolvers');
 
 const CoursesAPI = require('./dataSources/courses_api');
 const NotasAPI = require('./dataSources/notas_api');
-
-const ClassroomAPI = require('./dataSources/classroom_api')
-
+const ClassroomAPI = require('./dataSources/classroom_api');
+const SubjectAPI = require('./dataSources/subject_api');
 const AuthAPI = require('./dataSources/auth_api');
-
-const resolvers = require('./resolvers');
+const notasGestionAPI = require('./dataSources/gestion_notas_api');
 
 const server = new ApolloServer({
     typeDefs,
     resolvers,
     dataSources: () => ({
+        notasGestionAPI: new notasGestionAPI(),
         coursesAPI: new CoursesAPI(),
         classroomAPI: new ClassroomAPI(),
         NotasAPI: new NotasAPI(),
-        authAPI: new AuthAPI()
+        authAPI: new AuthAPI(),
+        subjectAPI: new SubjectAPI(),
     })
 });
 
