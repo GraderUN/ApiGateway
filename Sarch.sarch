@@ -325,7 +325,7 @@ architecture {
                 }
 
                 relations {
-                    association (subject, teacher);
+                    many_to_many (subject, teacher);
                 }
             }
 
