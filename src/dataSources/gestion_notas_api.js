@@ -13,7 +13,7 @@ function NotaMapping(data){
 class notasGestionAPI extends RESTDataSource {
   constructor() {
     super();
-    this.baseURL = `http://${serverConfig.notasUrl}:${serverConfig.notasPort}`;
+    this.baseURL = `http://${serverConfig.gestionNotasUrl}:${serverConfig.gestionNotasPort}`;
     
   }
 
@@ -32,40 +32,27 @@ class notasGestionAPI extends RESTDataSource {
   }
 */
   async getNota(numero){
-    // nota = new Object(JSON.parse(JSON.stringify(notasGestionInput)));
     const response = await this.get(`notas.php?idNota=${numero}`);
     return NotaMapping(response);
   }
 
   async createNota(notasGestionInput){
-    nota = new Object(JSON.parse(JSON.stringify(notasGestionInput)));
-    const response = await this.post('notas.php', notasGestionInput);
-    return response;
+    var nota = new Object(JSON.parse(JSON.stringify(notasGestionInput)));
+    var response = await this.post('notas.php', nota);
+   return response.id;
   }
 
-
-  async updateUser(id, notasUpdateInput){
-    user = new Object(JSON.parse(JSON.stringify(notasUpdateInput)));
-    const response = await this.put(`notas.php?idNota=${id}`, notasUpdateInput);
-    return response;
+  async updateNota(id, notasUpdateInput){
+    var notaUpdate = new Object(JSON.parse(JSON.stringify(notasUpdateInput)));
+    const response = await this.put(`notas.php?idNota=${id}`, notaUpdate);
+    return response.notasId;
+   // return NotaMapping(response);
   }
 
-  async deleteUser(id){
+  async deleteNota(id){
     const response = await this.delete(`notas.php?idNota=${id}`);
-    return response;
+    return response.id;
   }
-/*
-  //Le da el formato necesario a la salida
-  userReducer(user) {
-    return {
-      id: user.id || 0,
-      firstName: user.firstName,  
-      lastName: user.lastName,
-      username: user.username,
-      password: user.password
-    };
-  }
-*/
   
 }
 

@@ -12,6 +12,8 @@ module.exports = gql`
         allStudents: [Student]!
         studentById(id: String!): Student!
         authRequest(token: String!): String!
+        #query ferney
+        getNota(id: Int!): notasGestion! 
         
 
         PromedioEstudianteMateriaPeriodo(datosEstudianteMateriaPeriodo : datosEstudianteMateriaPeriodo!): Float!
@@ -46,4 +48,9 @@ module.exports = gql`
         putContent(id: Int!, content: String!): SubjectResponse!
         postTeacher(data: TeacherInput!): SubjectResponse!
         deleteTeacher(data: TeacherInput!): SubjectResponse!
+
+        #ferney mutations
+        createNota(notasGestionInput: notasGestionInput!): Int! 
+        updateNota(id: Int!, notasUpdateInput: notasUpdateInput!): Int!
+        deleteNota(id: Int!): Int! 
     }`;
