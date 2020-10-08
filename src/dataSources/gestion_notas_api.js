@@ -3,10 +3,17 @@ const { RESTDataSource } = require('apollo-datasource-rest');
 const serverConfig = require('../server');
 
 
+function NotaMapping(data){
+  return { notasId: data.notasId, notasIdCursoEstudiante: data.notasIdCursoEstudiante
+    , idMateria: data.notasIdMateria, idProfesor:data.notasIdProfesor
+    , notasValor: data.notasValor, notasPorcentaje: data.notasPorcentaje, notasPeriodo: data.notasPeriodo
+    , notasComentarios: data.NotasComentarios};
+}
+
 class notasGestionAPI extends RESTDataSource {
   constructor() {
     super();
-    this.baseURL = `http://${serverConfig.url}:${serverConfig.port}`;
+    this.baseURL = `http://${serverConfig.notasUrl}:${serverConfig.notasPort}`;
     
   }
 
@@ -24,6 +31,12 @@ class notasGestionAPI extends RESTDataSource {
     return this.userReducer(response);
   }
 */
+  async getNota(numero){
+    // nota = new Object(JSON.parse(JSON.stringify(notasGestionInput)));
+    const response = await this.get(`notas.php?idNota=${numero}`);
+    return NotaMapping(response);
+  }
+
   async createNota(notasGestionInput){
     nota = new Object(JSON.parse(JSON.stringify(notasGestionInput)));
     const response = await this.post('notas.php', notasGestionInput);

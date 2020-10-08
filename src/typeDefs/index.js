@@ -1,8 +1,8 @@
 //Se llama al typedef (esquema) de cada submodulo
-const userTypeDefs = require('./user_type_defs');
+const notasTypeDefs = require('./gestion_notas_type_defs');
 
 //Se unen
-const schemasArrays = [userTypeDefs];
+const schemasArrays = [notasTypeDefs];
 
 //Se exportan
 module.exports = schemasArrays; 

@@ -1,12 +1,12 @@
 //Permite crear el servidor -> Similar a lo que hace express pero mas limitado
 const { ApolloServer } = require('apollo-server');
-const data = require('./resolvers');
+
 
 const typeDefs = require('./typeDefs');
-
-const gestion_notas_api = require('./dataSources/gestion_notas_api');
-
 const resolvers = require('./resolvers');
+
+const notasGestionAPI = require('./dataSources/gestion_notas_api');
+
 
 const server = new ApolloServer({
     typeDefs,
@@ -16,6 +16,6 @@ const server = new ApolloServer({
     })
 });
 
-server.listen({ port: data.port }).then(({ url }) => {
+server.listen({ port: 5000 }).then(({ url }) => {
     console.log(`🚀 Server ready at ${url}`);
 });

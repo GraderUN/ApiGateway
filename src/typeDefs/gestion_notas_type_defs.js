@@ -3,13 +3,14 @@ const { gql } = require('apollo-server');
 const gestion_notas_type_def = gql`
   
     type notasGestion {
+        idNotas: Int!
         idCursoEstudiante: String!
         idMateria: String!
         idProfesor: String!
-        notaValor: String!
-        notaPorcentaje:String!
-        notaPeriodo:String!
-        notaComentario:String!
+        notasValor: Float!
+        notasPorcentaje:String!
+        notasPeriodo:String!
+        notasComentario:String!
     }
 
     input notasGestionInput {
@@ -27,6 +28,10 @@ const gestion_notas_type_def = gql`
         notaPeriodo:String!
         notaComentario:String!
     }
+    type Query{
+        getNota(id: Int!): notasGestion!
+    }    
+
     type Mutation {
         createNota(notasGestionInput: notasGestionInput!): Int! 
         updateNota(id: Int!, notasUpdateInput: notasUpdateInput!): notasGestion!

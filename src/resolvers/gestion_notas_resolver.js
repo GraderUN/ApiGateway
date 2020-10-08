@@ -1,5 +1,8 @@
 const gestion_notas_resolver = {
     Query: {
+        getNota: function(_, { id }, { dataSources }) {
+            return dataSources.notasGestionAPI.getNota(id);
+        },
      },
     Mutation: {
         createNota: function(_, { notasGestionInput }, { dataSources }) {
