@@ -266,7 +266,7 @@ component_and_connector_view ::
                                 attachment (rest: api_gateway, autenticacion);
                         }
                 ::
-		
+
 		data_model_view ::
 
 			nosql data_model cursos_salones {
@@ -314,6 +314,37 @@ component_and_connector_view ::
 					aggregation (salones, salones_asignados);
 					association (estudiantes, cursos);
 				}
-        } 
+        }
+        
+        	relational data_model auth_database{
+        		
+        		elements {
+        		
+        			data_entity auth_data{
+						attributes {
+							string email;
+							string password;
+						}
+					}
+					
+        			data_entity session{
+						attributes {
+							string email;
+							string uid;
+							string token;
+							string created_at;
+						}
+					}
+					relations {
+						aggregation (auth_data, session);
+					}
+					
+        		
+    		}
+
+    	
+    	}
+
+        
 } 
  
