@@ -4,7 +4,9 @@ const data = require('./resolvers');
 
 const typeDefs = require('./typeDefs');
 
-const UserAPI = require('./dataSources/user_api');
+const EstudianteAPI = require('./dataSources/estudiante_api');
+const ProfesorAPI = require('./dataSources/profesor_api');
+const AdministrativoAPI = require('./dataSources/administrativo_api');
 
 const resolvers = require('./resolvers');
 
@@ -12,7 +14,8 @@ const server = new ApolloServer({
     typeDefs,
     resolvers,
     dataSources: () => ({
-        userAPI: new UserAPI()
+        estudianteAPI: new EstudianteAPI(), profesorAPI: new ProfesorAPI(),
+        administrativoAPI: new AdministrativoAPI()
     })
 });
 
