@@ -24,17 +24,6 @@ const profesorTypeDefs = gql`
         emailTutor: String!
     }
 
-    type Query {
-        allProfesores: [Profesor]!
-        profesorById(id: Int!): Profesor!
-    }
-
-    type Mutation {
-        createProfesor(profesor: ProfesorInput!): Profesor!
-        updateProfesor(id: Int!, profesor: ProfesorInput!): Profesor!
-        deleteProfesor(id: Int!): Boolean
-    }
-    
 `;
 
 module.exports = profesorTypeDefs;

@@ -23,17 +23,6 @@ const estudianteTypeDefs = gql`
         telefonoTutor: String!
         emailTutor: String!
     }
-
-    type Query {
-        allEstudiantes: [Estudiante]!
-        estudianteById(id: Int!): Estudiante!
-    }
-
-    type Mutation {
-        createEstudiante(estudiante: EstudianteInput!): Estudiante!
-        updateEstudiante(id: Int!, estudiante: EstudianteInput!): Estudiante!
-        deleteEstudiante(id: Int!): Boolean
-    }
     
 `;
 

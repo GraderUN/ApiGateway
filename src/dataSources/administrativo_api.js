@@ -19,8 +19,8 @@ function CreateAdministrativeMapping(data) {
 }
 
 function AdministrativeCreatedMapping(data) {
-  return { id: data.id_administrativo, nombre: data.nombre, apellido: data.apellido, edad: data.edad, telefono: data.telefono,
-    email: data.email };
+  console.log(data.data);
+  return true;
 }
 
 class AdministrativoAPI extends RESTDataSource {
@@ -31,24 +31,24 @@ class AdministrativoAPI extends RESTDataSource {
   }
 
   async getAdministrativoById(id) {
-    return AdministrativeMapping(await this.get(`/administrativo/${id}`));
+    return AdministrativeMapping(await this.get(`/v1/administrativo/${id}`));
   }
 
   async getAllAdministrativos() {
-    return AdministrativesMapping(await this.get(`/administrativos`));
+    return AdministrativesMapping(await this.get(`/v1/administrativos`));
   }
 
   async createAdministrativo(administrativo) {
-    return AdministrativeCreatedMapping(await this.post(`/administrativo`, CreateAdministrativeMapping(administrativo)));
+    return AdministrativeCreatedMapping(await this.post(`/v1/administrativo`, CreateAdministrativeMapping(administrativo)));
   }
 
   //completar
-  async updateAdministrativo(administrativo) {
-    return AdministrativeMapping(await this.put(`/administrativo/${administrativo.id}`));
+  async updateAdministrativo(id, administrativo) {
+    return AdministrativeMapping(await this.put(`/v1/administrativo/${id}`, CreateAdministrativeMapping(administrativo)));
   }
 
   async deleteAdministrativo(id) {
-    return AdministrativeMapping(await this.delete(`/administrativo/${id}`));
+    return AdministrativeMapping(await this.delete(`/v1/administrativo/${id}`));
   }
 
 }

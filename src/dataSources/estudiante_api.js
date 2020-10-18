@@ -33,27 +33,27 @@ class EstudianteAPI extends RESTDataSource {
 
   constructor() {
     super();
-    this.baseURL = `http://${serverConfig.estudianteUrl}:${serverConfig.estudiantePort}`;
+    this.baseURL = `http://${serverConfig.administrativoUrl}:${serverConfig.administrativoPort}`;
   }
 
   async getEstudianteById(id) {
-    return StudentMapping(await this.get(`/estudiante/${id}`));
+    return StudentMapping(await this.get(`/v1/estudiante/${id}`));
   }
 
   async getAllEstudiantes() {
-    return StudentsMapping(await this.get(`/estudiantes`));
+    return StudentsMapping(await this.get(`/v1/estudiantes`));
   }
 
   async createEstudiante(estudiante) {
-    return StudentCreatedMapping(await this.post(`/estudiante`, CreateStudentMapping(estudiante)));
+    return StudentCreatedMapping(await this.post(`/v1/estudiante`, CreateStudentMapping(estudiante)));
   }
   //completar
-  async updateEstudiante(estudiante) {
-    return StudentMapping(await this.put(`/estudiante/${estudiante.id}`));
+  async updateEstudiante(id, estudiante) {
+    return StudentMapping(await this.put(`/v1/estudiante/${id}`, CreateStudentMapping(estudiante)));
   }
 
   async deleteEstudiante(id) {
-    return StudentMapping(await this.delete(`/estudiante/${id}`));
+    return StudentMapping(await this.delete(`/v1/estudiante/${id}`));
   }
 
 }
