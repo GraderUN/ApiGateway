@@ -1,4 +1,7 @@
 const authResolver = {
+    Query: {
+        authRequest: (_, { token }, { dataSources }) => dataSources.authAPI.authRequest( token ),
+    },
     Mutation: {
         createUser: function(_, { user }, { dataSources }) {
             return dataSources.authAPI.createUser(user);
