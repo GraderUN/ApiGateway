@@ -26,12 +26,31 @@ const coursesResolver = {
         },
         courseStudents: async function(_, { id }, { dataSources }) {
         	//permisos cualquiera (TAL VEZ etudiante no)
-            const estudiantes = await (dataSources.coursesAPI.getCourseById(id));//.id_students;
-            console.log(estudiantes)
+            const estudiantes = (await (dataSources.coursesAPI.getCourseById(id))).id_students;
             var res = [];
-            // for(var i=0; i<estudiantes.length; i++){
-            //     res.push(dataSources.studentsAPI.getStudentById(estudiantes[i].id));
-            // }
+            for(var i=0; i<estudiantes.length; i++){
+                const estudiante = await dataSources.estudianteAPI.getEstudianteById(estudiantes[i])
+                res.push(estudiante);
+            }
+        	return res;
+        },
+        studentsWithoutCourse: async function(_, __, { dataSources }) {
+        	//permisos administrador
+            var estudiantes = await dataSources.estudianteAPI.getAllEstudiantes();
+            var noDisp = await dataSources.coursesAPI.getAllStudents();
+            var res = []
+            for(var i=0; i<estudiantes.length; i++){
+                var isAvailable = true
+                for(var j=0; j<noDisp.length; j++){
+                    if(estudiantes[i].id == noDisponible[j].id){
+                        isAvailable = false
+                        break;
+                    }
+                }
+                if(isAvailable){
+                    res.push(estudiantes[i])
+                }			
+            }
         	return res;
         }
     },

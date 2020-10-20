@@ -52,7 +52,7 @@ class ProfesorAPI extends RESTDataSource {
   }
 
   async createProfesor(profesor) {
-    return await this.post(`/v1/profesor`, CreateProfessorMapping(profesor));
+    return await this.put(`/v1/profesor`, CreateProfessorMapping(profesor));
   }
 
   //completar

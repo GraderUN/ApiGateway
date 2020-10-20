@@ -11,7 +11,7 @@ module.exports = gql `
         courseById(id: String!): Course!
         allStudents: [Student]!
         studentById(id: String!): Student!
-        courseStudents(id: String!): [Estudiante]
+        courseStudents(id: String!): [Estudiante]!
 	    studentsWithoutCourse:[Estudiante]!
         #query ferney
         getNota(id: Int!): notasGestion!

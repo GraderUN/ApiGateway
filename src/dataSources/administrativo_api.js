@@ -52,7 +52,7 @@ class AdministrativoAPI extends RESTDataSource {
   }
 
   async createAdministrativo(administrativo) {
-    return await this.post(`/v1/administrativo`, CreateAdministrativeMapping(administrativo));
+    return await this.put(`/v1/administrativo`, CreateAdministrativeMapping(administrativo));
   }
 
   //completar
