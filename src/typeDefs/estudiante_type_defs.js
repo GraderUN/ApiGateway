@@ -9,7 +9,7 @@ const estudianteTypeDefs = gql`
         sexo: String!
         nombreTutor: String!
         apellidoTutor: String!
-        telefonoTutor: String!
+        telefonoTutor: Int!
         emailTutor: String!
     }
     
@@ -20,7 +20,7 @@ const estudianteTypeDefs = gql`
         sexo: String!
         nombreTutor: String!
         apellidoTutor: String!
-        telefonoTutor: String!
+        telefonoTutor: Int!
         emailTutor: String!
     }
     

@@ -39,16 +39,16 @@ class ProfesorAPI extends RESTDataSource {
   }
 
   async createProfesor(profesor) {
-    return ProfessorCreatedMapping(await this.post(`/v1/profesor`, CreateProfessorMapping(profesor)));
+    return await this.post(`/v1/profesor`, CreateProfessorMapping(profesor));
   }
 
   //completar
   async updateProfesor(id, profesor) {
-    return ProfessorMapping(await this.put(`/v1/profesor/${id}`, CreateProfessorMapping(profesor)));
+    return await this.put(`/v1/profesor/${id}`, CreateProfessorMapping(profesor));
   }
 
   async deleteProfesor(id) {
-    return ProfessorMapping(await this.delete(`/v1/profesor/${id}`));
+    return await this.delete(`/v1/profesor/${id}`);
   }
 
 }

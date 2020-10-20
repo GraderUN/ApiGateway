@@ -64,13 +64,13 @@ module.exports = gql `
         deleteNota(id: Int!): Int! 
 
         #Francisco
-        createAdministrativo(administrativo: AdministrativoInput!): Administrativo!
-        updateAdministrativo(id: Int!, administrativo: AdministrativoInput!): Administrativo!
+        createAdministrativo(administrativo: AdministrativoInput!): Boolean!
+        updateAdministrativo(id: Int!, administrativo: AdministrativoInput!): Boolean!
         deleteAdministrativo(id: Int!): Boolean!
-        createProfesor(profesor: ProfesorInput!): Profesor!
-        updateProfesor(id: Int!, profesor: ProfesorInput!): Profesor!
+        createProfesor(profesor: ProfesorInput!): Boolean!
+        updateProfesor(id: Int!, profesor: ProfesorInput!): Boolean!
         deleteProfesor(id: Int!): Boolean!
-        createEstudiante(estudiante: EstudianteInput!): Estudiante!
-        updateEstudiante(id: Int!, estudiante: EstudianteInput!): Estudiante!
+        createEstudiante(estudiante: EstudianteInput!): Boolean!
+        updateEstudiante(id: Int!, estudiante: EstudianteInput!): Boolean!
         deleteEstudiante(id: Int!): Boolean!
     }`;
