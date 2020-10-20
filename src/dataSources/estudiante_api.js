@@ -5,30 +5,30 @@ function StudentsMapping(data) {
     var newData = [];
     for (i = 0; i < data.length; i++)
         newData[i] = {
-            id: data[i].id_estudiante,
+            id: data[i].id,
             nombre: data[i].nombre,
             apellido: data[i].apellido,
             edad: data[i].edad,
             sexo: data[i].sexo,
-            nombreTutor: data[i].nombre_tutor,
-            apellidoTutor: data[i].apellido_tutor,
-            telefonoTutor: data[i].telefono_tutor,
-            emailTutor: data[i].email_tutor
+            nombreTutor: data[i].nombreTutor,
+            apellidoTutor: data[i].apellidoTutor,
+            telefonoTutor: data[i].telefonoTutor,
+            emailTutor: data[i].emailTutor
         };
     return newData;
 }
 
 function StudentMapping(data) {
     return {
-        id: data.id_estudiante,
+        id: data.id,
         nombre: data.nombre,
         apellido: data.apellido,
         edad: data.edad,
         sexo: data.sexo,
-        nombreTutor: data.nombre_tutor,
-        apellidoTutor: data.apellido_tutor,
-        telefonoTutor: data.telefono_tutor,
-        emailTutor: data.email_tutor
+        nombreTutor: data.nombreTutor,
+        apellidoTutor: data.apellidoTutor,
+        telefonoTutor: data.telefonoTutor,
+        emailTutor: data.emailTutor
     };
 }
 
@@ -53,7 +53,7 @@ class EstudianteAPI extends RESTDataSource {
     }
 
     async getEstudianteById(id) {
-        return StudentMapping(await this.get(`/v1/estudiante/${id}`));
+        return StudentMapping(await this.get(`/v1/estudiante/${id}`))
     }
 
     async getAllEstudiantes() {
@@ -61,10 +61,9 @@ class EstudianteAPI extends RESTDataSource {
     }
 
     async createEstudiante(estudiante) {
-      console.log(CreateStudentMapping(estudiante))
-      return await this.post(`/v1/estudiante`, CreateStudentMapping(estudiante));
+        console.log(CreateStudentMapping(estudiante))
+        return await this.post(`/v1/estudiante`, CreateStudentMapping(estudiante));
     }
-    //completar
 
     async updateEstudiante(id, estudiante) {
         return await this.put(`/v1/estudiante/${id}`, CreateStudentMapping(estudiante));

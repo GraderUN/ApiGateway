@@ -27,7 +27,7 @@ class ProfesorAPI extends RESTDataSource {
 
   constructor() {
     super();
-    this.baseURL = `http://${serverConfig.profesorUrl}:${serverConfig.profesorPort}`;
+    this.baseURL = `http://${serverConfig.administrativoUrl}:${serverConfig.administrativoPort}`;
   }
 
   async getProfesorById(id) {
