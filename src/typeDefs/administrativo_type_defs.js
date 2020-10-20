@@ -6,22 +6,16 @@ const administrativoTypeDefs = gql `
         nombre: String!
         apellido: String!
         edad: Int!
-        sexo: String!
-        nombreTutor: String!
-        apellidoTutor: String!
-        telefonoTutor: String!
-        emailTutor: String!
+        telefono: Int!
+        email: String!
     }
     
     input AdministrativoInput {
         nombre: String!
         apellido: String!
         edad: Int!
-        sexo: String!
-        nombreTutor: String!
-        apellidoTutor: String!
-        telefonoTutor: String!
-        emailTutor: String!
+        telefono: Int!
+        email: String!
     }
     
 `;

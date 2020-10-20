@@ -4,23 +4,36 @@ const serverConfig = require('../server');
 function ProfessorsMapping(data) {
   var newData = [];
   for (i = 0; i < data.length; i++)
-    newData[i] = { id: data[i].id_profesor, nombre: data[i].nombre, apellido: data[i].apellido, edad: data[i].edad,
-      telefono: data[i].telefono, email: data[i].email };
+    newData[i] = {
+      id: data[i].id_profesor,
+      nombre: data[i].nombre,
+      apellido: data[i].apellido,
+      edad: data[i].edad,
+      telefono: data[i].telefono,
+      email: data[i].email
+  };
   return newData;
 }
 
 function ProfessorMapping(data) {
-  return { id: data.id_profesor, nombre: data.nombre, apellido: data.apellido, edad: data.edad, telefono: data.telefono,
-    email: data.email };
+  return {
+    id: data.id_profesor,
+    nombre: data.nombre,
+    apellido: data.apellido,
+    edad: data.edad,
+    telefono: data.telefono,
+    email: data.email
+  };
 }
 
 function CreateProfessorMapping(data) {
-  return { nombre: data.nombre, apellido: data.apellido, edad: data.edad, telefono: data.telefono, email: data.email };
-}
-
-function ProfessorCreatedMapping(data) {
-  return { id: data.id_profesor, nombre: data.nombre, apellido: data.apellido, edad: data.edad, telefono: data.telefono,
-    email: data.email };
+  return {
+    nombre: data.nombre,
+    apellido: data.apellido,
+    edad: data.edad,
+    telefono: data.telefono,
+    email: data.email
+  };
 }
 
 class ProfesorAPI extends RESTDataSource {

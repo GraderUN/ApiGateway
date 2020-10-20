@@ -6,22 +6,16 @@ const profesorTypeDefs = gql`
         nombre: String!
         apellido: String!
         edad: Int!
-        sexo: String!
-        nombreTutor: String!
-        apellidoTutor: String!
-        telefonoTutor: String!
-        emailTutor: String!
+        telefono: Int!
+        email: String!
     }
     
     input ProfesorInput {
         nombre: String!
         apellido: String!
         edad: Int!
-        sexo: String!
-        nombreTutor: String!
-        apellidoTutor: String!
-        telefonoTutor: String!
-        emailTutor: String!
+        telefono: Int!
+        email: String!
     }
 
 `;
