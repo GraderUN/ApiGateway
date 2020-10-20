@@ -11,5 +11,6 @@ module.exports = {
     notasPort:           process.env.NOTAS_PORT       ,
     subjectUrl:          process.env.SUBJECT_URL      ,
     subjectPort:         process.env.SUBJECT_PORT     ,
-    //AGREGAR AQUI NOTAS_NOTAS_URL Y PUERTO
+    administrativoUrl:  process.env.ADMINISTRATIVO_URL,
+    administrativoPort: process.env.ADMINISTRATIVO_PORT
 }
