@@ -1,6 +1,6 @@
 const { gql } = require('apollo-server');
 
-module.exports = gql`
+module.exports = gql `
     type Query {
         allClassrooms: [Classroom]!
         allAssignements: [Assignement]!
@@ -11,7 +11,7 @@ module.exports = gql`
         courseById(id: String!): Course!
         allStudents: [Student]!
         studentById(id: String!): Student!
-        authRequest(token: String!): String!
+        courseStudents(id: String!): [Estudiante]!
         #query ferney
         getNota(id: Int!): notasGestion! 
         
@@ -27,6 +27,14 @@ module.exports = gql`
         getContent(id: Int!): Subject!
         getSubjectTeachers(id: Int!): [Teacher]!
         getTeacherSubjects(id: Int!): [Teacher]!
+
+        #Francisco
+        allAdministrativos: [Administrativo]!
+        administrativoById(id: Int!): Administrativo!
+        allProfesores: [Profesor]!
+        profesorById(id: Int!): Profesor!
+        allEstudiantes: [Estudiante]!
+        estudianteById(id: Int!): Estudiante!
     }
 
     type Mutation {
@@ -53,4 +61,15 @@ module.exports = gql`
         createNota(notasGestionInput: notasGestionInput!): Int! 
         updateNota(id: Int!, notasUpdateInput: notasUpdateInput!): Int!
         deleteNota(id: Int!): Int! 
+
+        #Francisco
+        createAdministrativo(administrativo: AdministrativoInput!): Administrativo!
+        updateAdministrativo(id: Int!, administrativo: AdministrativoInput!): Administrativo!
+        deleteAdministrativo(id: Int!): Boolean!
+        createProfesor(profesor: ProfesorInput!): Profesor!
+        updateProfesor(id: Int!, profesor: ProfesorInput!): Profesor!
+        deleteProfesor(id: Int!): Boolean!
+        createEstudiante(estudiante: EstudianteInput!): Estudiante!
+        updateEstudiante(id: Int!, estudiante: EstudianteInput!): Estudiante!
+        deleteEstudiante(id: Int!): Boolean!
     }`;
