@@ -38,10 +38,10 @@ function CreateStudentMapping(data) {
         apellido: data.apellido,
         edad: data.edad,
         sexo: data.sexo,
-        nombre_tutor: data.nombreTutor,
-        apellido_tutor: data.apellidoTutor,
-        telefono_tutor: data.telefonoTutor,
-        email_tutor: data.emailTutor
+        nombreTutor: data.nombreTutor,
+        apellidoTutor: data.apellidoTutor,
+        telefonoTutor: data.telefonoTutor,
+        emailTutor: data.emailTutor
     };
 }
 
@@ -62,7 +62,7 @@ class EstudianteAPI extends RESTDataSource {
 
     async createEstudiante(estudiante) {
         console.log(CreateStudentMapping(estudiante))
-        return await this.post(`/v1/estudiante`, CreateStudentMapping(estudiante));
+        return await this.put(`/v1/estudiante`, CreateStudentMapping(estudiante));
     }
 
     async updateEstudiante(id, estudiante) {

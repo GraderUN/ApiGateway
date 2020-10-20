@@ -23,6 +23,16 @@ const coursesResolver = {
         studentById: function(_, { id }, { dataSources }) {
             //permisos cualquiera
             return dataSources.coursesAPI.getStudentById(id);
+        },
+        courseStudents: async function(_, { id }, { dataSources }) {
+        	//permisos cualquiera (TAL VEZ etudiante no)
+            const estudiantes = await (dataSources.coursesAPI.getCourseById(id));//.id_students;
+            console.log(estudiantes)
+            var res = [];
+            // for(var i=0; i<estudiantes.length; i++){
+            //     res.push(dataSources.studentsAPI.getStudentById(estudiantes[i].id));
+            // }
+        	return res;
         }
     },
     Student: {
