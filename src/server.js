@@ -11,6 +11,6 @@ module.exports = {
     notasPort: process.env.NOTAS_PORT || "3000",
     subjectUrl: process.env.SUBJECT_URL || "ec2-3-85-218-20.compute-1.amazonaws.com",
     subjectPort: process.env.SUBJECT_PORT || "4000",
-    administrativoUrl: process.env.ADMINISTRATIVO_URL,
-    administrativoPort: process.env.ADMINISTRATIVO_PORT
+    administrativoUrl: process.env.ADMINISTRATIVO_URL || "ec2-100-26-180-84.compute-1.amazonaws.com",
+    administrativoPort: process.env.ADMINISTRATIVO_PORT || "8080"
 }
