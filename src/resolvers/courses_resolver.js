@@ -42,7 +42,7 @@ const coursesResolver = {
             for(var i=0; i<estudiantes.length; i++){
                 var isAvailable = true
                 for(var j=0; j<noDisp.length; j++){
-                    if(estudiantes[i].id == noDisponible[j].id){
+                    if(estudiantes[i].id == noDisp[j].id){
                         isAvailable = false
                         break;
                     }
