@@ -57,7 +57,7 @@ class AdministrativoAPI extends RESTDataSource {
 
   //completar
   async updateAdministrativo(id, administrativo) {
-    return await this.put(`/v1/administrativo/${id}`, CreateAdministrativeMapping(administrativo));
+    return await this.post(`/v1/administrativo/${id}`, CreateAdministrativeMapping(administrativo));
   }
 
   async deleteAdministrativo(id) {

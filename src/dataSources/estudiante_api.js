@@ -66,7 +66,7 @@ class EstudianteAPI extends RESTDataSource {
     }
 
     async updateEstudiante(id, estudiante) {
-        return await this.put(`/v1/estudiante/${id}`, CreateStudentMapping(estudiante));
+        return await this.post(`/v1/estudiante/${id}`, CreateStudentMapping(estudiante));
     }
 
     async deleteEstudiante(id) {
