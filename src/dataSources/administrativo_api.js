@@ -17,7 +17,7 @@ function AdministrativesMapping(data) {
 
 function AdministrativeMapping(data) {
   return {
-    id: data.id_administrativo,
+    id: data.id,
     nombre: data.nombre,
     apellido: data.apellido,
     edad: data.edad,

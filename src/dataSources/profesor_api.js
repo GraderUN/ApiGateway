@@ -17,7 +17,7 @@ function ProfessorsMapping(data) {
 
 function ProfessorMapping(data) {
   return {
-    id: data.id_profesor,
+    id: data.id,
     nombre: data.nombre,
     apellido: data.apellido,
     edad: data.edad,

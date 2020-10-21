@@ -24,10 +24,14 @@ const classroomResolver = {
             let curso = (await dataSources.coursesAPI.getStudentById(id)).id_course;
             let  clase = await dataSources.classroomAPI.getallAssignemetsByCourse(curso);
             for (let i = 0 ; i<clase.length; i++){
-                let materia = await dataSources.subjectAPI.getSubject(parseInt(clase[i].materia));
-                clase[i].materia = materia.name;
+
+                //let materia = await dataSources.subjectAPI.getSubject(parseInt(clase[i].materia));
+                //clase[i].materia = materia.name;
+
                 let profesor = await dataSources.profesorAPI.getProfesorById(parseInt(clase[i].profesor));
                 clase[i].profesor = profesor.name;
+                console.log(profesor.name)
+
             }
 
             return clase;
