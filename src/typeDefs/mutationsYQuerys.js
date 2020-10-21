@@ -1,19 +1,21 @@
 const { gql } = require('apollo-server');
 
-module.exports = gql`
+module.exports = gql `
     type Query {
         allClassrooms: [Classroom]!
         allAssignements: [Assignement]!
         AssignementsByProfessor(professor: String!): [Assignement]!
-        AssignementsByCourse(course: String!): [Assignement]!
+        AssignementsByCourse(courseID: String!): [Assignement]!
         AssignementsByClassroom(classroom: String!): [Assignement]!
         allCourses: [Courses]!
         courseById(id: String!): Course!
         allStudents: [Student]!
         studentById(id: String!): Student!
-        authRequest(token: String!): String!
+        courseStudents(id: String!): [Estudiante]!
+	    studentsWithoutCourse:[Estudiante]!
         #query ferney
-        getNota(id: Int!): notasGestion! 
+        getNota(id: Int!): notasGestion!
+        authRequest(token: String!): String!
         
 
         PromedioEstudianteMateriaPeriodo(datosEstudianteMateriaPeriodo : datosEstudianteMateriaPeriodo!): Float!
@@ -27,6 +29,14 @@ module.exports = gql`
         getContent(id: Int!): Subject!
         getSubjectTeachers(id: Int!): [Teacher]!
         getTeacherSubjects(id: Int!): [Teacher]!
+
+        #Francisco
+        allAdministrativos: [Administrativo]!
+        administrativoById(id: Int!): Administrativo!
+        allProfesores: [Profesor]!
+        profesorById(id: Int!): Profesor!
+        allEstudiantes: [Estudiante]!
+        estudianteById(id: Int!): Estudiante!
     }
 
     type Mutation {
@@ -53,4 +63,15 @@ module.exports = gql`
         createNota(notasGestionInput: notasGestionInput!): Int! 
         updateNota(id: Int!, notasUpdateInput: notasUpdateInput!): Int!
         deleteNota(id: Int!): Int! 
+
+        #Francisco
+        createAdministrativo(administrativo: AdministrativoInput!): Boolean!
+        updateAdministrativo(id: Int!, administrativo: AdministrativoInput!): Boolean!
+        deleteAdministrativo(id: Int!): Boolean!
+        createProfesor(profesor: ProfesorInput!): Boolean!
+        updateProfesor(id: Int!, profesor: ProfesorInput!): Boolean!
+        deleteProfesor(id: Int!): Boolean!
+        createEstudiante(estudiante: EstudianteInput!): Boolean!
+        updateEstudiante(id: Int!, estudiante: EstudianteInput!): Boolean!
+        deleteEstudiante(id: Int!): Boolean!
     }`;

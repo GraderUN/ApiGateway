@@ -8,6 +8,9 @@ const ClassroomAPI = require('./dataSources/classroom_api');
 const SubjectAPI = require('./dataSources/subject_api');
 const AuthAPI = require('./dataSources/auth_api');
 const notasGestionAPI = require('./dataSources/gestion_notas_api');
+const EstudianteAPI = require('./dataSources/estudiante_api');
+const ProfesorAPI = require('./dataSources/profesor_api');
+const AdministrativoAPI = require('./dataSources/administrativo_api');
 
 const server = new ApolloServer({
     typeDefs,
@@ -19,6 +22,9 @@ const server = new ApolloServer({
         NotasAPI: new NotasAPI(),
         authAPI: new AuthAPI(),
         subjectAPI: new SubjectAPI(),
+        estudianteAPI: new EstudianteAPI(),
+        profesorAPI: new ProfesorAPI(),
+        administrativoAPI: new AdministrativoAPI()
     })
 });
 

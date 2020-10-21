@@ -11,6 +11,4 @@ const authResolver = {
     }
 };
 
-
-
 module.exports = authResolver;

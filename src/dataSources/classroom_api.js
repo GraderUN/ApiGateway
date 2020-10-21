@@ -3,6 +3,7 @@ const serverConfig = require('../server');
 
 function ClassroomsMapping(data) {
     var newData = [];
+    console.log(data);
     for (i = 0; i < data.length; i++)
         newData[i] = { capacidad: data[i].capacidad, description: data[i].description }
     return newData;
@@ -13,10 +14,13 @@ function ClassroomMapping(data) {
 }
 function AssignementsMapping(data) {
     var newData = [];
-    for (i = 0; i < data.length; i++)
-        newData[i] = { id: data[i].id, curso: data[i].curso, salon: data[i].salon,
-        profesor: data[i].profesor , horario: data[i].horario, materia: data[i].materia
+
+    for (let i = 0; i < data.length; i++) {
+        newData[i] = {
+            id: data[i].id, curso: data[i].curso, salon: data[i].salon,
+            profesor: data[i].profesor, horario: data[i].horario, materia: data[i].materia
         }
+    }
     return newData;
 }
 
