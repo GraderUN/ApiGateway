@@ -13,6 +13,7 @@ const classroomResolver = {
         },
 
         AssignementsByCourse: function(_, {courseID}, { dataSources }) {
+            console.log(courseID)
             return dataSources.classroomAPI.getallAssignemetsByCourse(courseID);
         },
         AssignementsByClassroom: function(_, {classroomID}, { dataSources }) {

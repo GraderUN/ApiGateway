@@ -15,21 +15,35 @@
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
-    </expand>
-    <select>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:Entrega_3" type="e8cecc67:BranchNodeDescriptor" />
       </path>
-    </select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:Entrega_3" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:jdacostabe" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:sanhernandezmon" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="30a4c6d2-b2bb-48f2-b27c-a7c8a957830f" name="Default Changelist" comment="ports and urls only from env variables">
-      <change beforePath="$PROJECT_DIR$/src/dataSources/administrativo_api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataSources/administrativo_api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dataSources/profesor_api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataSources/profesor_api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/typeDefs/administrativo_type_defs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/typeDefs/administrativo_type_defs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/typeDefs/profesor_type_defs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/typeDefs/profesor_type_defs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dataSources/classroom_api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataSources/classroom_api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resolvers/classroom_resolver.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/resolvers/classroom_resolver.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/typeDefs/mutationsYQuerys.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/typeDefs/mutationsYQuerys.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +53,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="samoralespu/notas" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -97,7 +111,7 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="false" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -279,11 +293,11 @@
     </state>
     <state x="393" y="179" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1602106444238" />
     <state x="552" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602034803642" />
-    <state x="553" y="306" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602104744453">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="777" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603250394026">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="553" y="306" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1602104744453" />
-    <state x="777" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602012560550" />
+    <state x="777" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603250394026" />
     <state x="996" y="0" width="931" height="1047" key="dock-window-1" timestamp="1601964268330">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
