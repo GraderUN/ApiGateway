@@ -38,13 +38,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30a4c6d2-b2bb-48f2-b27c-a7c8a957830f" name="Default Changelist" comment="ports and urls only from env variables">
+    <list default="true" id="30a4c6d2-b2bb-48f2-b27c-a7c8a957830f" name="Default Changelist" comment="Samoralespu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dataSources/notas_api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataSources/notas_api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resolvers/notas_resolver.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/resolvers/notas_resolver.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/typeDefs/mutationsYQuerys.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/typeDefs/mutationsYQuerys.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/typeDefs/notas_type_defs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/typeDefs/notas_type_defs.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,7 +52,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="samoralespu/notas" />
+        <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -78,7 +75,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../web-frontend" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
@@ -89,13 +86,13 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\universidad\S8\Arqui\Api_Gateway\src\dataSources" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\universidad\S8\Arqui\Api_Gateway\src\dataSources" />
       <recent name="D:\universidad\S8\Arqui\Api_Gateway\src\resolvers" />
       <recent name="D:\universidad\S8\Arqui\Api_Gateway\src\typeDefs" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\universidad\S8\Arqui\Api_Gateway\src\dataSources" />
     </key>
   </component>
   <component name="RunManager">
@@ -111,10 +108,11 @@
       <list>
         <item itemvalue="Docker.Dockerfile" />
         <item itemvalue="Docker.Dockerfile" />
+        <item itemvalue="Docker.Dockerfile" />
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="false" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -131,6 +129,8 @@
       <workItem from="1602097050242" duration="3174000" />
       <workItem from="1602104254713" duration="2957000" />
       <workItem from="1603225587421" duration="350000" />
+      <workItem from="1603265688901" duration="2051000" />
+      <workItem from="1603307043110" duration="7402000" />
     </task>
     <task id="LOCAL-00001" summary="notas filse added">
       <created>1601953338120</created>
@@ -230,11 +230,18 @@
       <option name="project" value="LOCAL" />
       <updated>1602106436127</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Fixed Notas queries">
+      <created>1603265279893</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1603265279893</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -275,11 +282,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="137" y="0" width="1092" height="728" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1602101677902" />
-    <state x="704" y="195" key="FileChooserDialogImpl" timestamp="1602101655814">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="990" y="278" key="FileChooserDialogImpl" timestamp="1603311889853">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="704" y="195" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1602101655814" />
-    <state x="990" y="278" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601950544608" />
+    <state x="990" y="278" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603311889853" />
     <state x="109" y="125" key="MergeDialog" timestamp="1601953875598">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -292,16 +299,16 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601945962590" />
-    <state x="393" y="179" key="Vcs.Push.Dialog.v2" timestamp="1602106444238">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="552" y="256" key="Vcs.Push.Dialog.v2" timestamp="1603265420865">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="393" y="179" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1602106444238" />
-    <state x="552" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602034803642" />
-    <state x="777" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603250394026">
+    <state x="552" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603265420865" />
+    <state x="777" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603265476677">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="553" y="306" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1602104744453" />
-    <state x="777" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603250394026" />
+    <state x="777" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603265476677" />
     <state x="996" y="0" width="931" height="1047" key="dock-window-1" timestamp="1601964268330">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
