@@ -13,16 +13,21 @@ module.exports = gql `
         studentById(id: String!): Student!
         courseStudents(id: String!): [Estudiante]!
 	    studentsWithoutCourse:[Estudiante]!
+
         #query ferney
         getNota(id: Int!): notasGestion!
         authRequest(token: String!): String!
-        
 
+        #query Morales
+        NotasEstudianteClasePeriodo(datosEstudianteClasePeriodo:datosEstudianteClasePeriodo!): [notaDatos]!
+        NotasEstudianteClase(datosEstudianteClase:datosEstudianteClase!): [notaDatos]!
+        
         PromedioEstudianteMateriaPeriodo(datosEstudianteMateriaPeriodo : datosEstudianteMateriaPeriodo!): Float!
         PromedioEstudianteMateria(datosEstudianteMateria : datosEstudianteMateria!): Float!
         PromedioEstudiante(datosEstudiante : datosEstudiante!): Float!
         promedioCurso(datosCurso: datosCurso!): Float!
         estadisticasCurso(notasIdCurso: datosCurso!): estadisticas!
+        
         # Subject queries
         getSubjects: [Subject]!
         getSubject(id: Int!): Subject!

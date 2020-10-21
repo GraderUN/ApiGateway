@@ -99,6 +99,50 @@ mutation{
   )
 }
 ```
+**Get Notas queries**:
+```
+Devuelve la nota de un estudiante en un periodo especifico
+query{
+    NotasEstudianteClasePeriodo(
+    	datosEstudianteClasePeriodo:{
+      estudianteId: 1074187999,
+      claseId: 1,
+      periodo: 2
+    }
+    ){
+    notasId,
+    notasIdEstudiante,
+    notastipoNotasId,
+    notasValor,
+    notasPorcentaje,
+    notasPeriodo,
+    NotasComentarios,
+    tipoNotasId,
+    tipoNotasNombre,
+    tipoNotasIdClase
+  }
+}
+Devuelve la nota de un estudiante en todos los periodos
+query{
+    NotasEstudianteClase(
+    	datosEstudianteClase:{
+      estudianteId: 1074187999,
+      claseId: 1
+    }
+    ){
+    notasId,
+    notasIdEstudiante,
+    notastipoNotasId,
+    notasValor,
+    notasPorcentaje,
+    notasPeriodo,
+    NotasComentarios,
+    tipoNotasId,
+    tipoNotasNombre,
+    tipoNotasIdClase
+  }
+}
+```
 
 **Notes queries**: (after users and courses)
 ```

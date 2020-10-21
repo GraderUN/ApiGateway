@@ -9,6 +9,16 @@ class NotasAPI extends RESTDataSource {
     this.baseURL = `http://${serverConfig.notasUrl}:${serverConfig.notasPort}`;
   }
 
+  async getNotasEstudianteClasePeriodo(datosEstudianteClasePeriodo) {
+    return (await this.get(`/notasEstudianteClasePeriodo/${datosEstudianteClasePeriodo.estudianteId}
+    /${datosEstudianteClasePeriodo.claseId}/${datosEstudianteClasePeriodo.periodo}`));
+  }
+
+  async getNotasEstudianteClase(datosEstudianteClase) {
+    console.log(await this.get(`/notasEstudianteClase/${datosEstudianteClase.estudianteId}/${datosEstudianteClase.claseId}`));
+    return (await this.get(`/notasEstudianteClase/${datosEstudianteClase.estudianteId}/${datosEstudianteClase.claseId}`));
+  }
+
   async getPromedioEstudianteMateriaPeriodo(datosEstudianteMateriaPeriodo) {
     return (await this.get(`/promedioEstudianteMateriaPeriodo/${datosEstudianteMateriaPeriodo.notasIdEstudiante}
     /${datosEstudianteMateriaPeriodo.notasIdMateria}/${datosEstudianteMateriaPeriodo.notasPeriodo}`));

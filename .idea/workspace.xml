@@ -40,10 +40,12 @@
   <component name="ChangeListManager">
     <list default="true" id="30a4c6d2-b2bb-48f2-b27c-a7c8a957830f" name="Default Changelist" comment="ports and urls only from env variables">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dataSources/classroom_api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataSources/classroom_api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resolvers/classroom_resolver.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/resolvers/classroom_resolver.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dataSources/notas_api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataSources/notas_api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resolvers/notas_resolver.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/resolvers/notas_resolver.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/typeDefs/mutationsYQuerys.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/typeDefs/mutationsYQuerys.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/typeDefs/notas_type_defs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/typeDefs/notas_type_defs.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,13 +89,13 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\universidad\S8\Arqui\Api_Gateway\src\dataSources" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\universidad\S8\Arqui\Api_Gateway\src\dataSources" />
       <recent name="D:\universidad\S8\Arqui\Api_Gateway\src\resolvers" />
       <recent name="D:\universidad\S8\Arqui\Api_Gateway\src\typeDefs" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\universidad\S8\Arqui\Api_Gateway\src\dataSources" />
     </key>
   </component>
   <component name="RunManager">
@@ -261,7 +263,8 @@
     <MESSAGE value="intento dockerizar 3 :rocket:" />
     <MESSAGE value="morales cagandola" />
     <MESSAGE value="ports and urls only from env variables" />
-    <option name="LAST_COMMIT_MESSAGE" value="ports and urls only from env variables" />
+    <MESSAGE value="workspace" />
+    <option name="LAST_COMMIT_MESSAGE" value="workspace" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Docker" timestamp="1602101551391">

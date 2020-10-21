@@ -12,9 +12,34 @@ const notasTypeDefs = gql`
         notasPeriodo: Int!
         NotasComentarios: String
     }
+    
     type estadisticas {
         UltimoPuesto: Float!
         PrimerPuesto: Float!
+    }
+    
+    type notaDatos {
+        notasId: Int!
+        notasIdEstudiante: Int!
+        notastipoNotasId: Int!
+        notasValor: Float!
+        notasPorcentaje: Int!
+        notasPeriodo: Int!
+        NotasComentarios: String
+        tipoNotasId: Int!
+        tipoNotasNombre: String!
+        tipoNotasIdClase: String!
+    }
+    
+    input datosEstudianteClasePeriodo {
+        estudianteId: Int!
+        claseId: Int!
+        periodo: Int!
+    }
+
+    input datosEstudianteClase{
+        estudianteId: Int!
+        claseId: Int!
     }
     
     input datosEstudianteMateriaPeriodo {
