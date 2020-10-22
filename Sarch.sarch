@@ -258,7 +258,7 @@ architecture {
         data_model_view  ::
 
 
-            nosql data_model cursos_salones {
+            nosql data_model cursos_y_salones_db {
 
                 elements {
 
@@ -478,9 +478,9 @@ architecture {
 				layer AuthController
 				layer Auth_FirebaseConnection
 
-				layer usuarioRepository
-				layer usuarioService
-				layer usuarioController
+				layer GestionarusuarioRepository
+				layer GestionarusuarioService
+				layer GestionarusuarioController
 
 				layer_segment webtemplate;
 				layer_segment webScript;
@@ -493,19 +493,10 @@ architecture {
 				t: integration allowed_to_use logic
 				t: logic allowed_to_use t: data;
 
-				t: presentation contains c: ss_web;
-				t: presentation contains c: ss_mobile;
+				t: presentation contains c: Router;
+				t: presentation contains c: WebComponent;
 
 				t: integration contains c:api_gateway;
-
-				consultarNotas);
-                attachment (rest: api_gateway, gestionarNotas);
-                attachment (rest: api_gateway, gestionarCursos);
-                attachment (rest: api_gateway, gestionarSalones);
-                attachment (rest: api_gateway, gestionarMaterias);
-                attachment (rest: api_gateway, gestionarUsuarios);
-                attachment (rest: api_gateway, gestionarSolicitudes);
-                attachment (rest: api_gateway, autenticacion);
 
 				t: logic contains c: consultarNotas;
 				t: logic contains c: gestionarNotas;
@@ -517,40 +508,107 @@ architecture {
 				t: logic contains c: autenticacion;
 
 
-				t: data contains c: ss_x_db;
-				t: data contains c: ss_y_db;
+				t: data contains c: graderNotasDB;
+				t: data contains c: cursos_y_salones_db;
+				t: data contains c: gestion_de_materias_db;
+				t: data contains c: gestionar_usuarios_db;
+				t: data contains c: solicitudes_database;
+				t: data contains c: auth_database;
 
-				c: ss_wa contains l: gui;
-				c: ss_wa contains l: server;
 
-				l: gui contains ls: model;
-				l: gui contains ls: view;
-				l: gui contains ls: controller;
 
-				l: gui allowed_to_use l: server;
 
-				c: ss_ma contains l: activity;
-				c: ss_ma contains l: repository;
-				c: ss_ma contains l: server;
+				c: mobile_app contains l: mobileApp;
+				c: mobile_app contains l: mobilecomponents;
+				c: mobile_app contains l: mobileStyle;
 
-				l: activity allowed_to_use l: repository;
-				l: repository allowed_to_use l: server;
+				ls: mobileApp allowed_to_use l: mobilecomponents
+				ls: mobilecomponents allowed_to_use l: mobileStyle
 
-				c: ss_api contains l: schema;
-				c: ss_api contains l: resolver;
-				c: ss_api contains l: server;
+				c: web_app contains l: WebComponent;
+				c: web_app contains l: Router;
 
-				l: schema allowed_to_use l: resolver;
-				l: resolver allowed_to_use l: server;
+				l: WebComponent contains ls: webtemplate
+				l: WebComponent contains ls: webScript
+				l: WebComponent contains ls: webStyle
 
-				c: ss_x_ms contains l: api_view;
-				c: ss_x_ms contains l: serializer;
-				c: ss_x_ms contains l: model;
+				l: Router allowed_to_use WebComponent
+				ls: webtemplate allowed_to_use ls: webScript
+				ls: webScript allowed_to_use ls: webStyle
 
-				l: api_view allowed_to_use_below l: serializer;
-				l: serializer allowed_to_use l: model;
+				c: api_gateway contains l: apiGatewayresolvers
+				c: api_gateway contains l: apiGatewayschema
+				c: api_gateway contains l: apiGatewayConnection
 
-				c: ss_x_db contains l: database;
+				l: apiGatewayschema allowed_to_use apiGatewayresolvers
+				l: apiGatewayresolvers allowed_to_use apiGatewayConnection
+
+				c: consultarNotas contains l: consultarNotasApi
+				c: consultarNotas contains l: consultarNotasmodel
+				c: consultarNotas contains l: consultarNotasconnection
+
+				l: consultarNotasApi allowed_to_use consultarNotasmodel
+				l: consultarNotasmodel allowed_to_use consultarNotasconnection
+
+
+				c: gestionarNotas contains l: gestionar_Notas_Api;
+                c: gestionarNotas contains l: gestionar_Notas_model;
+                c: gestionarNotas contains l: gestionar_Notas_connection;
+
+				l: gestionar_Notas_Api allowed_to_use l: gestionar_Notas_model;
+                l: gestionar_Notas_model allowed_to_use l: gestionar_Notas_connection;
+
+				c: gestionarCursos contains l: gestionarCursosService
+				c: gestionarCursos contains l: gestionarCursosController
+				c: gestionarCursos contains l: gestionarCursosRepository
+
+				l: gestionarCursosService allowed_to_use l: gestionarCursosController;
+                l: gestionarCursosController allowed_to_use l: gestionarCursosRepository ;
+
+				c: gestionarSalones contains l: gestionarSaloneApi
+				c: gestionarSalones contains l: gestionarSalonescontroller
+				c: gestionarSalones contains l: gestionarSalonesmodel
+
+				l: gestionarSaloneApi allowed_to_use l: gestionarSalonescontroller;
+                l: gestionarSalonescontroller allowed_to_use l: gestionarSalonesmodel ;
+
+
+				c: gestionarMaterias contains l: gestionarMateriasRESTServer
+				c: gestionarMaterias contains l: gestionarMateriasRequestHandler
+				c: gestionarMaterias contains l: gestionarMateriasDriver
+				c: gestionarMaterias contains l: gestionarMateriasSchema
+				c: gestionarMaterias contains l: gestionarMateriasModel
+
+				l: gestionarMateriasRESTServer allowed_to_use l: gestionarMateriasRequestHandler;
+                l: gestionarMateriasRequestHandler allowed_to_use l: gestionarMateriasModel ;
+				l: gestionarMateriasRequestHandler allowed_to_use l: gestionarMateriasDriver;
+                l: gestionarMateriasDriver allowed_to_use l: gestionarMateriasSchema ;
+
+				c: gestionarUsuarios contains l:GestionarusuarioRepository
+				c: gestionarUsuarios contains l:GestionarusuarioService
+				c: gestionarUsuarios contains l:GestionarusuarioController
+
+				l: GestionarusuarioService allowed_to_use l: GestionarusuarioController;
+                l: GestionarusuarioController allowed_to_use l: GestionarusuarioRepository ;
+
+
+				c: gestionarSolicitudes contains l:gestionarSolicitudesService
+				c: gestionarSolicitudes contains l:gestionarSolicitudesController
+				c: gestionarSolicitudes contains l:gestionarSolicitudesRepository
+
+				l: gestionarSolicitudesService allowed_to_use l: gestionarSolicitudesController;
+                l: gestionarSolicitudesController allowed_to_use l: gestionarSolicitudesRepository ;
+
+				c: autenticacion contains l: authAPI
+				c: autenticacion contains l: AuthController
+				c: autenticacion contains l: Auth_FirebaseConnection
+
+				l: authAPI allowed_to_use l: AuthController;
+                l: AuthController allowed_to_use l: Auth_FirebaseConnection ;
+
+
+
+
 			}
 		::
     }
