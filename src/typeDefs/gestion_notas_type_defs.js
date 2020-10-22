@@ -4,24 +4,34 @@ const gestion_notas_type_def = gql`
   
     type notasGestion {
         notasId: Int!
-        notasIdCursoEstudiante : String!
-        idMateria: String!
-        idProfesor: String!
+        notasIdEstudiante : String!
+        notastipoNotasId: String!
         notasValor: Float!
-        notasPorcentaje:String!
-        notasPeriodo:String!
-        notasComentarios:String!
+        notasPorcentaje: String!
+        notasPeriodo: String!
+        notasComentarios: String!
+    }
+
+    type tipoNotasGestion {
+        tipoNotasId : Int!
+        tipoNotasNombre : String!
+        tipoNotasIdClase : String!
     }
 
     input notasGestionInput {
-        idCursoEstudiante: Int!
-        idMateria: Int!
-        idProfesor: Int!
+        notaIdEstudiante : String!
+        notaTipoNotasId: String!
         notaValor: Float!
         notaPorcentaje:Int!
         notaPeriodo:Int!
         notaComentario:String!
     }
+
+    input tipoNotasGestionInput {
+        tipoNotasNombre : String!
+        tipoNotasIdClase: String!
+    }
+
     input notasUpdateInput {
         notaValor: Float!
         notaPorcentaje: Int!
@@ -29,6 +39,10 @@ const gestion_notas_type_def = gql`
         notaComentario: String!
     }
 
+    input tipoNotasUpdateInput {
+        tipoNotasNombre: String!
+        tipoNotasIdClase: String!
+    }
 `;
 
 module.exports = gestion_notas_type_def; 
