@@ -122,7 +122,7 @@ architecture {
                 f: VerMateria is_part_of sm: ClasesProfesores;
 
                 f: GestionarSalones is_part_of sm: ClasesAdministrativos;
-                f: GestionarCursos is_part_of sm: ClasesAdminaistrativos;
+                f: GestionarCursos is_part_of sm: ClasesAdministrativos;
                 f: GestionarContenidos is_part_of sm: ClasesAdministrativos;
                 f: GestionarMateria is_part_of sm: ClasesAdministrativos;
                 f: AsignarProfesorMateria is_part_of sm: ClasesAdministrativos;
@@ -191,7 +191,7 @@ architecture {
                 component backend consultarNotas(programming_language javascript);
                 component backend gestionarNotas(programming_language php);
                 component database notas_db(db_system mysql);
-                
+
                 component backend gestionarSalones(programming_language golang);
                 component backend gestionarCursos(programming_language c_sharp);
                 component database cursos_y_salones_db (db_system mongodb);
@@ -203,7 +203,7 @@ architecture {
                 component database gestionar_usuarios_db(db_system mysql);
 
                 component backend gestionarSolicitudes(programming_language ruby);
-                component database gestionar_solicitudes_db(db_system ****NO SE SABE*****);
+                component database gestionar_solicitudes_db(db_system mongodb);
 
                 component backend autenticacion(programming_language python);
                 component database autenticacion_db(db_system firebase);
@@ -251,9 +251,12 @@ architecture {
                 attachment (rest: api_gateway, gestionarSolicitudes);
                 attachment (rest: api_gateway, autenticacion);
             }
+
+
         ::
 
-        data_model_view ::
+        data_model_view  ::
+
 
             nosql data_model cursos_salones {
 
@@ -263,7 +266,8 @@ architecture {
                         attributes {
                             string id;
                         }
-                    }
+                	}
+
 
                     data_entity cursos{
                         attributes {
@@ -395,67 +399,190 @@ architecture {
                     aggregation (profesores, solicitud_profesores);
                 }
             }
-            
-            relational data_model graderNotasDB { 
- 
-				elements { 
-					data_entity tablaCurso { 
-						attributes { 
-							int cursoId ; 
-						} 
-					} 
-					data_entity tablaMateria { 
-						attributes { 
-							int materiaId ; 
-							string materiaNombre ; 
-							int materiaPeriodo ; 
-						} 
-					} 
-					data_entity tablaEstudiante { 
-						attributes { 
-							int estudianteId  ; 
-						} 
-					} 
-					data_entity tablaProfesor { 
-						attributes { 
-							int profesorId ; 
-							int profesorIdMateria ; 
-							int profesorIdCurso ; 
-							 
-						} 
-					} 
-					data_entity tablaCursoXEstudiante { 
-						attributes { 
-							int cursoXEstudianteId  ; 
-							int cursoXEstudianteIdCurso ; 
-							int cursoXEstudianteIdEstudiante ; 
-						} 
-					} 
-					data_entity tablaNotas { 
-						attributes { 
-							int notasId  ; 
-							int notasIdCursoEstudiante ; 
-							int notasIdMateria ; 
-							int notasIdProfesor ; 
-							float notasValor ; 
-							int notasPorcentaje ; 
-							int notasPeriodo ; 
-							string notasComentarios ; 
-						} 
-					} 
-				} 
- 
-				relations { 
-					one_to_many (tablaCursoXEstudiante, tablaNotas); 
-					one_to_many (tablaMateria, tablaNotas); 
-					one_to_many (tablaProfesor, tablaNotas); 
-					one_to_many (tablaCurso, tablaCursoXEstudiante); 
-					one_to_many (tablaCurso, tablaProfesor); 
-					one_to_many (tablaMateria, tablaProfesor); 
-					one_to_many (tablaEstudiante, tablaCursoXEstudiante); 
-				} 
-				 
+
+            relational data_model graderNotasDB {
+
+				elements {
+					data_entity tablaCurso {
+						attributes {
+							int cursoId ;
+						}
+					}
+					data_entity tablaMateria {
+						attributes {
+							int materiaId ;
+							string materiaNombre ;
+							int materiaPeriodo ;
+						}
+					}
+					data_entity tablaEstudiante {
+						attributes {
+							int estudianteId  ;
+						}
+					}
+					data_entity tablaProfesor {
+						attributes {
+							int profesorId ;
+							int profesorIdMateria ;
+							int profesorIdCurso ;
+
+						}
+					}
+					data_entity tablaCursoXEstudiante {
+						attributes {
+							int cursoXEstudianteId  ;
+							int cursoXEstudianteIdCurso ;
+							int cursoXEstudianteIdEstudiante ;
+						}
+					}
+					data_entity tablaNotas {
+						attributes {
+							int notasId  ;
+							int notasIdCursoEstudiante ;
+							int notasIdMateria ;
+							int notasIdProfesor ;
+							float notasValor ;
+							int notasPorcentaje ;
+							int notasPeriodo ;
+							string notasComentarios ;
+						}
+					}
+				}
+
+				relations {
+					one_to_many (tablaCursoXEstudiante, tablaNotas);
+					one_to_many (tablaMateria, tablaNotas);
+					one_to_many (tablaProfesor, tablaNotas);
+					one_to_many (tablaCurso, tablaCursoXEstudiante);
+					one_to_many (tablaCurso, tablaProfesor);
+					one_to_many (tablaMateria, tablaProfesor);
+					one_to_many (tablaEstudiante, tablaCursoXEstudiante);
+				}
+
 			}
         ::
+
+        layered_view ::
+
+			elements {
+
+				tier presentation;
+				tier integration;
+				tier logic;
+				tier data;
+
+				layer WebApp ;
+				layer WebComponent;
+
+				layer mobileApp;
+				layer mobilecomponents;
+				layer mobileStyle;
+
+				layer apiGatewayschema;
+				layer apiGatewayresolvers;
+				layer apiGatewayConection
+
+				layer consultarNotasApi
+				layer consultarNotasmodel
+				layer consultarNotasconnection
+
+				layer gestionarNotasApi
+				layer gestionarNotasmodel
+				layer gestionarNotasconnection
+
+				layer gestionarSaloneApi
+				layer gestionarSalonescontroller
+				layer gestionarSalonesmodel
+
+				layer gestionarMateriasRESTServer
+				layer gestionarMateriasRequestHandler
+				layer gestionarMateriasDriver
+				layer gestionarMateriasSchema
+				layer gestionarMateriasModel
+
+				layer gestionarCursosService
+				layer gestionarCursosController
+				layer gestionarCursosRepository
+
+				layer gestionarSolicitudesService
+				layer gestionarSolicitudesController
+				layer gestionarSolicitudesRepository
+
+
+
+				layer usuarioRepository
+				layer usuarioService
+				layer usuarioController
+
+				layer_segment webtemplate;
+				layer_segment webScript;
+				layer_segment webStyle ;
+			}
+
+			relations {
+
+				t: presentation allowed_to_use t: integration;
+				t: integration allowed_to_use logic
+				t: logic allowed_to_use t: data;
+
+				t: presentation contains c: ss_web;
+				t: presentation contains c: ss_mobile;
+
+				t: integration contains c:api_gateway;
+
+				consultarNotas);
+                attachment (rest: api_gateway, gestionarNotas);
+                attachment (rest: api_gateway, gestionarCursos);
+                attachment (rest: api_gateway, gestionarSalones);
+                attachment (rest: api_gateway, gestionarMaterias);
+                attachment (rest: api_gateway, gestionarUsuarios);
+                attachment (rest: api_gateway, gestionarSolicitudes);
+                attachment (rest: api_gateway, autenticacion);
+
+				t: logic contains c: gestionarNotas;
+				t: logic contains c: gestionarCursos;
+				t: logic contains c: gestionarSalones;
+				t: logic contains c: gestionarMaterias;
+				t: logic contains c: gestionarSalones;
+				t: logic contains c: gestionarSalones;
+				t: logic contains c: gestionarSalones;
+				t: logic contains c: gestionarSalones;
+
+				t: data contains c: ss_x_db;
+				t: data contains c: ss_y_db;
+
+				c: ss_wa contains l: gui;
+				c: ss_wa contains l: server;
+
+				l: gui contains ls: model;
+				l: gui contains ls: view;
+				l: gui contains ls: controller;
+
+				l: gui allowed_to_use l: server;
+
+				c: ss_ma contains l: activity;
+				c: ss_ma contains l: repository;
+				c: ss_ma contains l: server;
+
+				l: activity allowed_to_use l: repository;
+				l: repository allowed_to_use l: server;
+
+				c: ss_api contains l: schema;
+				c: ss_api contains l: resolver;
+				c: ss_api contains l: server;
+
+				l: schema allowed_to_use l: resolver;
+				l: resolver allowed_to_use l: server;
+
+				c: ss_x_ms contains l: api_view;
+				c: ss_x_ms contains l: serializer;
+				c: ss_x_ms contains l: model;
+
+				l: api_view allowed_to_use_below l: serializer;
+				l: serializer allowed_to_use l: model;
+
+				c: ss_x_db contains l: database;
+			}
+		::
     }
 }

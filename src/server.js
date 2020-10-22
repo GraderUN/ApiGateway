@@ -9,7 +9,7 @@ module.exports = {
     classromPort: process.env.CLASSROOM_PORT || "8080",
     notasUrl: process.env.NOTAS_URL || "ec2-3-215-186-67.compute-1.amazonaws.com",
     notasPort: process.env.NOTAS_PORT || "3000",
-    subjectUrl: process.env.SUBJECT_URL || "ec2-3-85-218-20.compute-1.amazonaws.com",
+    subjectUrl: process.env.SUBJECT_URL || "ec2-18-208-186-102.compute-1.amazonaws.com",
     subjectPort: process.env.SUBJECT_PORT || "4000",
     administrativoUrl: process.env.ADMINISTRATIVO_URL || "ec2-3-235-225-52.compute-1.amazonaws.com",
     administrativoPort: process.env.ADMINISTRATIVO_PORT || "8080"

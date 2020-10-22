@@ -1,32 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
-    <select>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </select>
+    <expand />
+    <select />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="30a4c6d2-b2bb-48f2-b27c-a7c8a957830f" name="Default Changelist" comment="correccion de errores :lipstick:">
-      <change beforePath="$PROJECT_DIR$/src/resolvers/classroom_resolver.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/resolvers/classroom_resolver.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,6 +102,7 @@
       <workItem from="1603253489683" duration="1642000" />
       <workItem from="1603255624263" duration="5931000" />
       <workItem from="1603305960566" duration="8511000" />
+      <workItem from="1603323132484" duration="2059000" />
     </task>
     <task id="LOCAL-00001" summary="notas filse added">
       <created>1601953338120</created>
@@ -300,12 +282,12 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601945962590" />
-    <state x="393" y="177" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1603322086986">
+    <state x="393" y="177" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1603323142332">
       <screen x="0" y="27" width="1366" height="685" />
     </state>
     <state x="393" y="179" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1602106444238" />
     <state x="552" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602034803642" />
-    <state x="393" y="177" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1366.685@0.27.1366.685" timestamp="1603322086986" />
+    <state x="393" y="177" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1366.685@0.27.1366.685" timestamp="1603323142332" />
     <state x="553" y="315" width="428" height="184" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603321962169">
       <screen x="0" y="27" width="1366" height="685" />
     </state>
