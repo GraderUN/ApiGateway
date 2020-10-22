@@ -40,7 +40,6 @@ architecture {
                 functionality ConsolidarNotasDefinitivas;
 
                 functionality GenerarBoletines;
-                functionality GenerarEstadisticas;
 
                 functionality VerHorario;
                 functionality VerContenidos;
@@ -52,6 +51,7 @@ architecture {
                 functionality GestionarContenidos;
                 functionality GestionarMateria;
                 functionality AsignarProfesorMateria;
+		functionality GestionarClases;
 
                 functionality VerInformacionProfesores;
                 functionality BuscarProfesores;
@@ -109,7 +109,6 @@ architecture {
                 f: ConsolidarNotasDefinitivas is_part_of sm: NotasProfesores;
 
                 f: GenerarBoletines is_part_of sm: NotasAdministrativos;
-                f: GenerarEstadisticas is_part_of sm: NotasAdministrativos;
 
                 f: VerHorario is_part_of sm: ClasesEstudiantes;
                 f: VerContenidos is_part_of sm: ClasesEstudiantes;
@@ -126,6 +125,7 @@ architecture {
                 f: GestionarContenidos is_part_of sm: ClasesAdministrativos;
                 f: GestionarMateria is_part_of sm: ClasesAdministrativos;
                 f: AsignarProfesorMateria is_part_of sm: ClasesAdministrativos;
+				f: GestionarClases is_part_of sm: ClasesAdministrativos;
 
                 f: VerInformacionProfesores is_part_of sm: InformacionEstudiantes;
                 f: BuscarProfesores is_part_of sm: InformacionEstudiantes;
@@ -402,64 +402,30 @@ architecture {
 
             relational data_model graderNotasDB {
 
-				elements {
-					data_entity tablaCurso {
-						attributes {
-							int cursoId ;
-						}
-					}
-					data_entity tablaMateria {
-						attributes {
-							int materiaId ;
-							string materiaNombre ;
-							int materiaPeriodo ;
-						}
-					}
-					data_entity tablaEstudiante {
-						attributes {
-							int estudianteId  ;
-						}
-					}
-					data_entity tablaProfesor {
-						attributes {
-							int profesorId ;
-							int profesorIdMateria ;
-							int profesorIdCurso ;
-
-						}
-					}
-					data_entity tablaCursoXEstudiante {
-						attributes {
-							int cursoXEstudianteId  ;
-							int cursoXEstudianteIdCurso ;
-							int cursoXEstudianteIdEstudiante ;
-						}
-					}
-					data_entity tablaNotas {
-						attributes {
-							int notasId  ;
-							int notasIdCursoEstudiante ;
-							int notasIdMateria ;
-							int notasIdProfesor ;
-							float notasValor ;
-							int notasPorcentaje ;
-							int notasPeriodo ;
-							string notasComentarios ;
-						}
-					}
-				}
-
-				relations {
-					one_to_many (tablaCursoXEstudiante, tablaNotas);
-					one_to_many (tablaMateria, tablaNotas);
-					one_to_many (tablaProfesor, tablaNotas);
-					one_to_many (tablaCurso, tablaCursoXEstudiante);
-					one_to_many (tablaCurso, tablaProfesor);
-					one_to_many (tablaMateria, tablaProfesor);
-					one_to_many (tablaEstudiante, tablaCursoXEstudiante);
-				}
-
-			}
+                elements {
+                    data_entity tablaTipoNotas {
+                        attributes {
+                            int tipoNotasId  ;
+                            string tipoNotasNombre  ;
+                            string tipoNotasIdClase  ;
+                        }
+                    }
+                    data_entity tablaNotas {
+                        attributes {
+                            int notasId  ;
+                            int notasIdEstudiante  ;
+                            int notastipoNotasId ;
+                            float notasValor ;
+                            int notasPorcentaje ;
+                            int notasPeriodo ;
+                            string notasComentarios ;
+                        }
+                    }
+                }
+                relations {
+                    one_to_many (tablaNotas, tablaTipoNotas);
+                }
+            }
         ::
 
         layered_view ::
@@ -508,7 +474,9 @@ architecture {
 				layer gestionarSolicitudesController
 				layer gestionarSolicitudesRepository
 
-
+				layer authAPI
+				layer AuthController
+				layer Auth_FirebaseConnection
 
 				layer usuarioRepository
 				layer usuarioService
@@ -539,14 +507,15 @@ architecture {
                 attachment (rest: api_gateway, gestionarSolicitudes);
                 attachment (rest: api_gateway, autenticacion);
 
+				t: logic contains c: consultarNotas;
 				t: logic contains c: gestionarNotas;
 				t: logic contains c: gestionarCursos;
 				t: logic contains c: gestionarSalones;
 				t: logic contains c: gestionarMaterias;
-				t: logic contains c: gestionarSalones;
-				t: logic contains c: gestionarSalones;
-				t: logic contains c: gestionarSalones;
-				t: logic contains c: gestionarSalones;
+				t: logic contains c: gestionarUsuarios;
+				t: logic contains c: gestionarSolicitudes;
+				t: logic contains c: autenticacion;
+
 
 				t: data contains c: ss_x_db;
 				t: data contains c: ss_y_db;
