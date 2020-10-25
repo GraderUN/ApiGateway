@@ -15,7 +15,6 @@ class NotasAPI extends RESTDataSource {
   }
 
   async getNotasEstudianteClase(datosEstudianteClase) {
-    console.log(await this.get(`/notasEstudianteClase/${datosEstudianteClase.estudianteId}/${datosEstudianteClase.claseId}`));
     return (await this.get(`/notasEstudianteClase/${datosEstudianteClase.estudianteId}/${datosEstudianteClase.claseId}`));
   }
 

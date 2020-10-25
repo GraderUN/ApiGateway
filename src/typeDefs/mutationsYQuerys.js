@@ -17,6 +17,8 @@ module.exports = gql `
         #query ferney
         getNota(id: Int!): notasGestion!
         authRequest(token: String!): String!
+        assignementsbyStudent(id: String!): [Assignement]!
+
 
         #query Morales
         NotasEstudianteClasePeriodo(datosEstudianteClasePeriodo:datosEstudianteClasePeriodo!): [notaDatos]!

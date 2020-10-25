@@ -122,7 +122,7 @@ architecture {
                 f: VerMateria is_part_of sm: ClasesProfesores;
 
                 f: GestionarSalones is_part_of sm: ClasesAdministrativos;
-                f: GestionarCursos is_part_of sm: ClasesAdministrativos;
+                f: GestionarCursos is_part_of sm: ClasesAdminaistrativos;
                 f: GestionarContenidos is_part_of sm: ClasesAdministrativos;
                 f: GestionarMateria is_part_of sm: ClasesAdministrativos;
                 f: AsignarProfesorMateria is_part_of sm: ClasesAdministrativos;

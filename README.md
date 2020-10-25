@@ -3,7 +3,24 @@ In this repo is being developed the business logic for the app
 
 ```
 docker build -t apigateway .
-docker run -p 5000:5000 -e AUTH_URL='ec2-3-235-31-132.compute-1.amazonaws.com' -e  COURSES_URL='ec2-3-236-58-227.compute-1.amazonaws.com' -e CLASSROOM_URL='ec2-3-235-172-88.compute-1.amazonaws.com' -e NOTAS_URL='ec2-34-229-63-32.compute-1.amazonaws.com' -e SUBJECT_URL='ec2-3-236-108-217.compute-1.amazonaws.com' -e AUTH_PORT='8000' -e COURSES_PORT='80' -e CLASSROOM_PORT='8080' -e NOTAS_PORT='3000' -e SUBJECT_PORT='4000' apigateway```
+docker run -p 5000:5000 \
+-e AUTH_URL='ec2-18-206-12-122.compute-1.amazonaws.com' \
+-e AUTH_PORT='8000' \
+-e COURSES_URL='ec2-3-227-239-199.compute-1.amazonaws.com' \
+-e COURSES_PORT='80' \
+-e CLASSROOM_URL='ec2-3-238-118-201.compute-1.amazonaws.com' \
+-e CLASSROOM_PORT='8080' \
+-e NOTAS_URL='ec2-34-239-178-179.compute-1.amazonaws.com' \
+-e NOTAS_PORT='3000' \
+-e SUBJECT_URL='ec2-3-85-218-20.compute-1.amazonaws.com' \
+-e SUBJECT_PORT='4000' \
+-e NOTAS_API_URL='ec2-100-26-180-84.compute-1.amazonaws.com' \
+-e NOTAS_API_PORT='4000' \
+-e ADMINISTRATIVO_URL='ec2-3-227-239-199.compute-1.amazonaws.com' \
+-e ADMINISTRATIVO_PORT='8080'
+--name gateway \
+apigateway
+
 ```
 
 **Subject queries**: (after users and courses)

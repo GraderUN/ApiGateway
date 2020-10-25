@@ -30,7 +30,6 @@ class authAPI extends RESTDataSource {
     }
 
     async createUser(user) {
-        console.log(UserMapping(user));
         return (await this.post(`/register/`, UserMapping(user)));
     }
 

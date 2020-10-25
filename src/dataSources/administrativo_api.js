@@ -5,7 +5,7 @@ function AdministrativesMapping(data) {
   var newData = [];
   for (i = 0; i < data.length; i++)
     newData[i] = {
-      id: data[i].id_administrativo,
+      id: data[i].id,
       nombre: data[i].nombre,
       apellido: data[i].apellido,
       edad: data[i].edad,
@@ -17,7 +17,7 @@ function AdministrativesMapping(data) {
 
 function AdministrativeMapping(data) {
   return {
-    id: data.id_administrativo,
+    id: data.id,
     nombre: data.nombre,
     apellido: data.apellido,
     edad: data.edad,
