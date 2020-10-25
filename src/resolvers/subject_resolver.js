@@ -4,6 +4,8 @@ module.exports = {
             dataSources.subjectAPI.getSubjects(),
         getSubject: (_, { id }, { dataSources }) =>
             dataSources.subjectAPI.getSubject(id),
+        getSubjectsByGrade: (_, { id }, { dataSources }) =>
+            dataSources.subjectAPI.getGrade(id),
         getContent: (_, { id }, { dataSources }) =>
             dataSources.subjectAPI.getContent(id),
         getSubjectTeachers: (_, { id }, { dataSources }) =>
@@ -12,22 +14,22 @@ module.exports = {
             dataSources.subjectAPI.getTeacherSubjects(id),
     },
     Mutation: {
-        postSubject: function(_, { data }, { dataSources }) {
+        postSubject: function (_, { data }, { dataSources }) {
             return dataSources.subjectAPI.postSubject(data);
         },
-        putSubject: function(_, { id, data }, { dataSources }) {
+        putSubject: function (_, { id, data }, { dataSources }) {
             return dataSources.subjectAPI.putSubject(id, data);
         },
-        deleteSubject: function(_, { id }, { dataSources }) {
+        deleteSubject: function (_, { id }, { dataSources }) {
             return dataSources.subjectAPI.deleteSubject(id);
         },
-        putContent: function(_, { id, content }, { dataSources }) {
+        putContent: function (_, { id, content }, { dataSources }) {
             return dataSources.subjectAPI.putContent(id, content);
         },
-        postTeacher: function(_, { data }, { dataSources }) {
+        postTeacher: function (_, { data }, { dataSources }) {
             return dataSources.subjectAPI.postTeacher(data);
         },
-        deleteTeacher: function(_, { data }, { dataSources }) {
+        deleteTeacher: function (_, { data }, { dataSources }) {
             return dataSources.subjectAPI.deleteTeacher(data);
         },
     }

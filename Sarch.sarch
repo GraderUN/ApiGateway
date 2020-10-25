@@ -1,6 +1,6 @@
 architecture {
     software_system: GraderUN;
-    author: Everyone;
+    author: Team 2E;
 
     architectural_views {
 
@@ -52,6 +52,7 @@ architecture {
                 functionality GestionarContenidos;
                 functionality GestionarMateria;
                 functionality AsignarProfesorMateria;
+		functionality GestionarClases;
 
                 functionality VerInformacionProfesores;
                 functionality BuscarProfesores;
@@ -109,7 +110,6 @@ architecture {
                 f: ConsolidarNotasDefinitivas is_part_of sm: NotasProfesores;
 
                 f: GenerarBoletines is_part_of sm: NotasAdministrativos;
-                f: GenerarEstadisticas is_part_of sm: NotasAdministrativos;
 
                 f: VerHorario is_part_of sm: ClasesEstudiantes;
                 f: VerContenidos is_part_of sm: ClasesEstudiantes;
@@ -122,10 +122,11 @@ architecture {
                 f: VerMateria is_part_of sm: ClasesProfesores;
 
                 f: GestionarSalones is_part_of sm: ClasesAdministrativos;
-                f: GestionarCursos is_part_of sm: ClasesAdminaistrativos;
+                f: GestionarCursos is_part_of sm: ClasesAdministrativos;
                 f: GestionarContenidos is_part_of sm: ClasesAdministrativos;
                 f: GestionarMateria is_part_of sm: ClasesAdministrativos;
                 f: AsignarProfesorMateria is_part_of sm: ClasesAdministrativos;
+				f: GestionarClases is_part_of sm: ClasesAdministrativos;
 
                 f: VerInformacionProfesores is_part_of sm: InformacionEstudiantes;
                 f: BuscarProfesores is_part_of sm: InformacionEstudiantes;
@@ -191,7 +192,7 @@ architecture {
                 component backend consultarNotas(programming_language javascript);
                 component backend gestionarNotas(programming_language php);
                 component database notas_db(db_system mysql);
-                
+
                 component backend gestionarSalones(programming_language golang);
                 component backend gestionarCursos(programming_language c_sharp);
                 component database cursos_y_salones_db (db_system mongodb);
@@ -203,7 +204,7 @@ architecture {
                 component database gestionar_usuarios_db(db_system mysql);
 
                 component backend gestionarSolicitudes(programming_language ruby);
-                component database gestionar_solicitudes_db(db_system ****NO SE SABE*****);
+                component database gestionar_solicitudes_db(db_system mongodb);
 
                 component backend autenticacion(programming_language python);
                 component database autenticacion_db(db_system firebase);
@@ -211,7 +212,7 @@ architecture {
                 component backend api_gateway(programming_language javascript);
 
                 component frontend ss_web(programming_language vue);
-                component frontend ss_mobile(programming_language flutter);
+                component frontend ss_mobile(programming_language ionic);
 
                 connector mongodb_driver;
                 connector php_sql;
@@ -255,7 +256,8 @@ architecture {
 
         data_model_view ::
 
-            nosql data_model cursos_salones {
+
+            nosql data_model cursos_y_salones_db {
 
                 elements {
 
@@ -264,6 +266,7 @@ architecture {
                             string id;
                         }
                     }
+
 
                     data_entity cursos{
                         attributes {
@@ -395,67 +398,384 @@ architecture {
                     aggregation (profesores, solicitud_profesores);
                 }
             }
-            
-            relational data_model graderNotasDB { 
- 
-				elements { 
-					data_entity tablaCurso { 
-						attributes { 
-							int cursoId ; 
-						} 
-					} 
-					data_entity tablaMateria { 
-						attributes { 
-							int materiaId ; 
-							string materiaNombre ; 
-							int materiaPeriodo ; 
-						} 
-					} 
-					data_entity tablaEstudiante { 
-						attributes { 
-							int estudianteId  ; 
-						} 
-					} 
-					data_entity tablaProfesor { 
-						attributes { 
-							int profesorId ; 
-							int profesorIdMateria ; 
-							int profesorIdCurso ; 
-							 
-						} 
-					} 
-					data_entity tablaCursoXEstudiante { 
-						attributes { 
-							int cursoXEstudianteId  ; 
-							int cursoXEstudianteIdCurso ; 
-							int cursoXEstudianteIdEstudiante ; 
-						} 
-					} 
-					data_entity tablaNotas { 
-						attributes { 
-							int notasId  ; 
-							int notasIdCursoEstudiante ; 
-							int notasIdMateria ; 
-							int notasIdProfesor ; 
-							float notasValor ; 
-							int notasPorcentaje ; 
-							int notasPeriodo ; 
-							string notasComentarios ; 
-						} 
-					} 
-				} 
- 
-				relations { 
-					one_to_many (tablaCursoXEstudiante, tablaNotas); 
-					one_to_many (tablaMateria, tablaNotas); 
-					one_to_many (tablaProfesor, tablaNotas); 
-					one_to_many (tablaCurso, tablaCursoXEstudiante); 
-					one_to_many (tablaCurso, tablaProfesor); 
-					one_to_many (tablaMateria, tablaProfesor); 
-					one_to_many (tablaEstudiante, tablaCursoXEstudiante); 
-				} 
-				 
+
+            relational data_model graderNotasDB {
+
+                elements {
+                    data_entity tablaTipoNotas {
+                        attributes {
+                            int tipoNotasId  ;
+                            string tipoNotasNombre  ;
+                            string tipoNotasIdClase  ;
+                        }
+                    }
+                    data_entity tablaNotas {
+                        attributes {
+                            int notasId  ;
+                            int notasIdEstudiante  ;
+                            int notastipoNotasId ;
+                            float notasValor ;
+                            int notasPorcentaje ;
+                            int notasPeriodo ;
+                            string notasComentarios ;
+                        }
+                    }
+                }
+                relations {
+                    one_to_many (tablaNotas, tablaTipoNotas);
+                }
+            }
+        ::
+
+        layered_view ::
+
+			elements {
+
+				tier presentation;
+				tier integration;
+				tier logic;
+				tier data;
+
+				layer WebApp ;
+				layer WebComponent;
+
+				layer mobileApp;
+				layer mobilecomponents;
+				layer mobileStyle;
+
+				layer apiGatewayschema;
+				layer apiGatewayresolvers;
+				layer apiGatewayConection
+
+				layer consultarNotasApi
+				layer consultarNotasmodel
+				layer consultarNotasconnection
+
+				layer gestionarNotasApi
+				layer gestionarNotasmodel
+				layer gestionarNotasconnection
+
+				layer gestionarSaloneApi
+				layer gestionarSalonescontroller
+				layer gestionarSalonesmodel
+
+				layer gestionarMateriasRESTServer
+				layer gestionarMateriasRequestHandler
+				layer gestionarMateriasDriver
+				layer gestionarMateriasSchema
+				layer gestionarMateriasModel
+
+				layer gestionarCursosService
+				layer gestionarCursosController
+				layer gestionarCursosRepository
+
+				layer gestionarSolicitudesService
+				layer gestionarSolicitudesController
+				layer gestionarSolicitudesRepository
+
+				layer authAPI
+				layer AuthController
+				layer Auth_FirebaseConnection
+
+				layer GestionarusuarioRepository
+				layer GestionarusuarioService
+				layer GestionarusuarioController
+
+				layer_segment webtemplate;
+				layer_segment webScript;
+				layer_segment webStyle ;
 			}
+
+			relations {
+
+				t: presentation allowed_to_use t: integration;
+				t: integration allowed_to_use logic
+				t: logic allowed_to_use t: data;
+
+				t: presentation contains c: Router;
+				t: presentation contains c: WebComponent;
+
+				t: integration contains c:api_gateway;
+
+				t: logic contains c: consultarNotas;
+				t: logic contains c: gestionarNotas;
+				t: logic contains c: gestionarCursos;
+				t: logic contains c: gestionarSalones;
+				t: logic contains c: gestionarMaterias;
+				t: logic contains c: gestionarUsuarios;
+				t: logic contains c: gestionarSolicitudes;
+				t: logic contains c: autenticacion;
+
+
+				t: data contains c: graderNotasDB;
+				t: data contains c: cursos_y_salones_db;
+				t: data contains c: gestion_de_materias_db;
+				t: data contains c: gestionar_usuarios_db;
+				t: data contains c: solicitudes_database;
+				t: data contains c: auth_database;
+
+
+
+
+				c: mobile_app contains l: mobileApp;
+				c: mobile_app contains l: mobilecomponents;
+				c: mobile_app contains l: mobileStyle;
+
+				ls: mobileApp allowed_to_use l: mobilecomponents
+				ls: mobilecomponents allowed_to_use l: mobileStyle
+
+				c: web_app contains l: WebComponent;
+				c: web_app contains l: Router;
+
+				l: WebComponent contains ls: webtemplate
+				l: WebComponent contains ls: webScript
+				l: WebComponent contains ls: webStyle
+
+				l: Router allowed_to_use WebComponent
+				ls: webtemplate allowed_to_use ls: webScript
+				ls: webScript allowed_to_use ls: webStyle
+
+				c: api_gateway contains l: apiGatewayresolvers
+				c: api_gateway contains l: apiGatewayschema
+				c: api_gateway contains l: apiGatewayConnection
+
+				l: apiGatewayschema allowed_to_use apiGatewayresolvers
+				l: apiGatewayresolvers allowed_to_use apiGatewayConnection
+
+				c: consultarNotas contains l: consultarNotasApi
+				c: consultarNotas contains l: consultarNotasmodel
+				c: consultarNotas contains l: consultarNotasconnection
+
+				l: consultarNotasApi allowed_to_use consultarNotasmodel
+				l: consultarNotasmodel allowed_to_use consultarNotasconnection
+
+
+				c: gestionarNotas contains l: gestionar_Notas_Api;
+                c: gestionarNotas contains l: gestionar_Notas_model;
+                c: gestionarNotas contains l: gestionar_Notas_connection;
+
+				l: gestionar_Notas_Api allowed_to_use l: gestionar_Notas_model;
+                l: gestionar_Notas_model allowed_to_use l: gestionar_Notas_connection;
+
+				c: gestionarCursos contains l: gestionarCursosService
+				c: gestionarCursos contains l: gestionarCursosController
+				c: gestionarCursos contains l: gestionarCursosRepository
+
+				l: gestionarCursosService allowed_to_use l: gestionarCursosController;
+                l: gestionarCursosController allowed_to_use l: gestionarCursosRepository ;
+
+				c: gestionarSalones contains l: gestionarSaloneApi
+				c: gestionarSalones contains l: gestionarSalonescontroller
+				c: gestionarSalones contains l: gestionarSalonesmodel
+
+				l: gestionarSaloneApi allowed_to_use l: gestionarSalonescontroller;
+                l: gestionarSalonescontroller allowed_to_use l: gestionarSalonesmodel ;
+
+
+				c: gestionarMaterias contains l: gestionarMateriasRESTServer
+				c: gestionarMaterias contains l: gestionarMateriasRequestHandler
+				c: gestionarMaterias contains l: gestionarMateriasDriver
+				c: gestionarMaterias contains l: gestionarMateriasSchema
+				c: gestionarMaterias contains l: gestionarMateriasModel
+
+				l: gestionarMateriasRESTServer allowed_to_use l: gestionarMateriasRequestHandler;
+                l: gestionarMateriasRequestHandler allowed_to_use l: gestionarMateriasModel ;
+				l: gestionarMateriasRequestHandler allowed_to_use l: gestionarMateriasDriver;
+                l: gestionarMateriasDriver allowed_to_use l: gestionarMateriasSchema ;
+
+				c: gestionarUsuarios contains l:GestionarusuarioRepository
+				c: gestionarUsuarios contains l:GestionarusuarioService
+				c: gestionarUsuarios contains l:GestionarusuarioController
+
+				l: GestionarusuarioService allowed_to_use l: GestionarusuarioController;
+                l: GestionarusuarioController allowed_to_use l: GestionarusuarioRepository ;
+
+
+				c: gestionarSolicitudes contains l:gestionarSolicitudesService
+				c: gestionarSolicitudes contains l:gestionarSolicitudesController
+				c: gestionarSolicitudes contains l:gestionarSolicitudesRepository
+
+				l: gestionarSolicitudesService allowed_to_use l: gestionarSolicitudesController;
+                l: gestionarSolicitudesController allowed_to_use l: gestionarSolicitudesRepository ;
+
+				c: autenticacion contains l: authAPI
+				c: autenticacion contains l: AuthController
+				c: autenticacion contains l: Auth_FirebaseConnection
+
+				l: authAPI allowed_to_use l: AuthController;
+                l: AuthController allowed_to_use l: Auth_FirebaseConnection ;
+
+			}
+        ::
+
+        deployment_view ::
+
+            elements {
+
+                environmental_element_types {
+                    ec2_node;
+                    rds_node;
+                    container;
+                    mobile_phone;
+                    gh_pages;
+                }
+
+                operating_systems {
+                    ubuntu;
+                    android;
+                }
+
+                execution_environments {
+                    clr; // Common Language Runtime
+                    jvm; // Java Virtual Machine
+                    python_exec;
+                    go;
+                    ruby_exec;
+                    nodejs;
+                    php;
+                    binary;
+
+                    mysql;
+                    mongodb;
+                    mariadb;
+                    firebase;
+                }
+
+                software_element consultarNotas_ms (component consultarNotas){}
+                software_element gestionarNotas_ms (component gestionarNotas){}
+                software_element gestionarSalones_ms (component gestionarSalones){}
+                software_element gestionarCursos_ms (component gestionarCursos){}
+                software_element gestionarMaterias_ms(component gestionarMaterias){}
+                software_element gestionarUsuarios_ms (component gestionarUsuarios){}
+                software_element gestionarSolicitudes_ms (component gestionarSolicitudes){}
+                software_element autenticacion_ms (component autenticacion){}
+
+                software_element api_gateway_ms (component api_gateway){}
+
+                softwate_element ss_web_prod (component ss_web){}
+                software_element ss_mobile_prod (component ss_mobile){}
+
+
+                environmental_element node node1 {
+                    ip: 'NODE1_IP';
+                    dns: 'NODE1_DNS';
+                    operating_system: ubuntu;
+                    cpu: '2xcore';
+                    ram: 4 gB;
+                    storage_storage: 8 gB;
+                    provider: 'AWS';
+                }
+
+                environmental_element node node2 {
+                    ip: 'NODE2_IP';
+                    dns: 'NODE2_DNS';
+                    operating_system: ubuntu;
+                    cpu: '2xcore';
+                    ram: 4 gB;
+                    storage_storage: 8 gB;
+                    provider: 'AWS';
+                }
+
+                environmental_element node node3 {
+                    ip: 'NODE3_IP';
+                    dns: 'NODE3_DNS';
+                    operating_system: ubuntu;
+                    cpu: '2xcore';
+                    ram: 4 gB;
+                    storage_storage: 8 gB;
+                    provider: 'AWS';
+                }
+
+                environmental_element node node4 {
+                    ip: 'NODE4_IP';
+                    dns: 'NODE4_DNS';
+                    operating_system: ubuntu;
+                    cpu: '2xcore';
+                    ram: 4 gB;
+                    storage_storage: 8 gB;
+                    provider: 'AWS';
+                }
+
+                environmental_element node node5 {
+                    ip: 'NODE5_IP';
+                    dns: 'NODE5_DNS';
+                    operating_system: ubuntu;
+                    cpu: '2xcore';
+                    ram: 4 gB;
+                    storage_storage: 8 gB;
+                    provider: 'AWS';
+                }
+
+                environmental_element node node6 {
+                    ip: 'NODE6_IP';
+                    dns: 'NODE6_DNS';
+                    operating_system: ubuntu;
+                    cpu: '2xcore';
+                    ram: 4 gB;
+                    storage_storage: 8 gB;
+                    provider: 'AWS';
+                }
+
+                environmental_element node node7 {
+                    ip: 'NODE7_IP';
+                    dns: 'NODE7_DNS';
+                    operating_system: ubuntu;
+                    cpu: '2xcore';
+                    ram: 4 gB;
+                    storage_storage: 8 gB;
+                    provider: 'AWS';
+                }
+
+                environmental_element node node8 {
+                    ip: 'NODE8_IP';
+                    dns: 'NODE8_DNS';
+                    operating_system: ubuntu;
+                    cpu: '2xcore';
+                    ram: 4 gB;
+                    storage_storage: 8 gB;
+                    provider: 'AWS';
+                }
+
+                environmental_element container container1 {}
+                environmental_element container container2 {}
+                environmental_element container container3 {}
+                environmental_element container container4 {}
+                environmental_element container container5 {}
+                environmental_element container container6 {}
+                environmental_element container container7 {}
+                environmental_element container container8 {}
+                environmental_element container container9 {}
+
+                environmental_element mobile_phone my_phone {
+                    operating_systems: android;
+                }
+            }
+
+            relations {
+
+                ee: node1 contains ee: container1;
+                ee: node2 contains ee: container2;
+                ee: node3 contains ee: container3;
+                ee: node4 contains ee: container4;
+                ee: node5 contains ee: container5;
+                ee: node6 contains ee: container6;
+                ee: node7 contains ee: container7;
+                ee: node8 contains ee: container8;
+                ee: node1 contains ee: container9;
+
+                se: consultarNotas_ms deployed_in ee: container1 (execution_environment nodejs)(port 3000);
+                se: gestionarNotas_ms deployed_in ee: container2 (execution_environment php)(port 4000);
+                se: gestionarSalones_ms deployed_in ee: container3 (execution_environment go)(port 8080);
+                se: gestionarCursos_ms deployed_in ee: container7 (execution_environment clr)(port 80);
+                se: gestionarMaterias_ms deployed_in ee: container5 (execution_environment binary)(port 4000);
+                se: gestionarUsuarios_ms deployed_in ee: container8 (execution_environment jvm)(port 80);
+                se: gestionarSolicitudes_ms deployed_in ee: container6 (execution_environment ruby_exec)(port 80);
+                se: autenticacion_ms deployed_in ee: container4 (execution_environment python_exec)(port 8000);
+                se: api_gateway_ms deployed_in ee: container9 (execution_environment nodejs)(port 8000);
+                se: ss_mobile_prod deployed_in ee: my_phone;
+                se: ss_web_prod deployed_in ee: gh_pages;
+            }
+
         ::
     }
 }

@@ -44,6 +44,9 @@ const classroomResolver = {
         createAssignement: function(_, { assignement }, { dataSources }) {
             return dataSources.classroomAPI.createAssignement(assignement);
         },
+        deleteAssignement: function(_, { id }, { dataSources }) {
+            return dataSources.classroomAPI.deleteAssignement(id);
+        },
     }
 };
 
