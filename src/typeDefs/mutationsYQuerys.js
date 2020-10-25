@@ -88,5 +88,5 @@ module.exports = gql `
         deleteTipoNota(id: Int!): Int!
         
         deleteAssignement(id: String!): String!
- 
+        deleteClassroom(id: String!): String!
     }`;

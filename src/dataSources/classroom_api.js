@@ -64,6 +64,10 @@ class ClassroomApi extends RESTDataSource {
     async deleteAssignement(id) {
         return await this.delete(`/assignations/${id}`);
     }
+    async deleteClassroom(id) {
+        return await this.delete(`/classroom/${id}`);
+    }
+
 }
 
 module.exports = ClassroomApi;
