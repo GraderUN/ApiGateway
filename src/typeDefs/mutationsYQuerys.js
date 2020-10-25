@@ -1,6 +1,6 @@
 const { gql } = require('apollo-server');
 
-module.exports = gql `
+module.exports = gql`
     type Query {
         allClassrooms: [Classroom]!
         allAssignements: [Assignement]!
@@ -35,6 +35,7 @@ module.exports = gql `
         # Subject queries
         getSubjects: [Subject]!
         getSubject(id: Int!): Subject!
+        getSubjectsByGrade(id: Int!): [Subject]!
         getContent(id: Int!): Subject!
         getSubjectTeachers(id: Int!): [Teacher]!
         getTeacherSubjects(id: Int!): [Teacher]!

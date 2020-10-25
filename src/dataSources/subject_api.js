@@ -13,6 +13,9 @@ class SubjectAPI extends RESTDataSource {
     async getSubject(id) {
         return await this.get(`/subject/${id}`);
     }
+    async getGrade(id) {
+        return await this.get(`/grade/${id}`);
+    }
     async getContent(id) {
         return await this.get(`/subject/${id}/content`);
     }
