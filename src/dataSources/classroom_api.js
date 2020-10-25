@@ -5,7 +5,7 @@ function ClassroomsMapping(data) {
     var newData = [];
     console.log(data);
     for (i = 0; i < data.length; i++)
-        newData[i] = { capacidad: data[i].capacidad, description: data[i].description }
+        newData[i] = { id : data[i].id, capacidad: data[i].capacidad, description: data[i].description }
     return newData;
 }
 
