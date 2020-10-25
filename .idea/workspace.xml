@@ -1,32 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
-    <select>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </select>
+    <expand />
+    <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30a4c6d2-b2bb-48f2-b27c-a7c8a957830f" name="Default Changelist" comment="correccion de errores :lipstick:">
+    <list default="true" id="30a4c6d2-b2bb-48f2-b27c-a7c8a957830f" name="Default Changelist" comment="Sarch.sarch v3">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dataSources/classroom_api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataSources/classroom_api.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resolvers/classroom_resolver.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/resolvers/classroom_resolver.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/typeDefs/mutationsYQuerys.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/typeDefs/mutationsYQuerys.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +23,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="samoralespu/notas" />
+        <entry key="$PROJECT_DIR$" value="sanhernandezmon/classroomMs" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -62,6 +46,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -98,6 +83,9 @@
       <list>
         <item itemvalue="Docker.Dockerfile" />
         <item itemvalue="Docker.Dockerfile" />
+        <item itemvalue="Docker.Dockerfile" />
+        <item itemvalue="Docker.Dockerfile" />
+        <item itemvalue="Docker.Dockerfile" />
       </list>
     </recent_temporary>
   </component>
@@ -121,6 +109,8 @@
       <workItem from="1603253489683" duration="1642000" />
       <workItem from="1603255624263" duration="5931000" />
       <workItem from="1603305960566" duration="8511000" />
+      <workItem from="1603576444461" duration="700000" />
+      <workItem from="1603588237821" duration="378000" />
     </task>
     <task id="LOCAL-00001" summary="notas filse added">
       <created>1601953338120</created>
@@ -234,7 +224,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603322063981</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Sarch.sarch v3">
+      <created>1603336845575</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1603336845575</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -270,7 +267,8 @@
     <MESSAGE value="workspace" />
     <MESSAGE value="hernandez query added" />
     <MESSAGE value="correccion de errores :lipstick:" />
-    <option name="LAST_COMMIT_MESSAGE" value="correccion de errores :lipstick:" />
+    <MESSAGE value="Sarch.sarch v3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sarch.sarch v3" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Docker" timestamp="1602101551391">
@@ -287,31 +285,32 @@
     <state x="704" y="195" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1602101655814" />
     <state x="990" y="278" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601950544608" />
     <state x="704" y="210" width="424" height="491" key="FileChooserDialogImpl/0.27.1366.685@0.27.1366.685" timestamp="1603255676338" />
-    <state x="78" y="109" width="1092" height="585" key="MergeDialog" timestamp="1603321271779">
+    <state x="78" y="109" width="1092" height="585" key="MergeDialog" timestamp="1603344369146">
       <screen x="0" y="27" width="1366" height="685" />
     </state>
     <state x="109" y="125" key="MergeDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601953875598" />
-    <state x="78" y="109" width="1092" height="585" key="MergeDialog/0.27.1366.685@0.27.1366.685" timestamp="1603321271779" />
-    <state x="1054" y="285" key="MultipleFileMergeDialog" timestamp="1602012600285">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="78" y="109" width="1092" height="585" key="MergeDialog/0.27.1366.685@0.27.1366.685" timestamp="1603344369146" />
+    <state x="628" y="215" width="728" height="482" key="MultipleFileMergeDialog" timestamp="1603344369148">
+      <screen x="0" y="27" width="1366" height="685" />
     </state>
     <state x="1054" y="285" key="MultipleFileMergeDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602012600285" />
+    <state x="628" y="215" width="728" height="482" key="MultipleFileMergeDialog/0.27.1366.685@0.27.1366.685" timestamp="1603344369148" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1601945962590">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601945962590" />
-    <state x="393" y="177" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1603322086986">
+    <state x="393" y="177" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1603336854694">
       <screen x="0" y="27" width="1366" height="685" />
     </state>
     <state x="393" y="179" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1602106444238" />
     <state x="552" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602034803642" />
-    <state x="393" y="177" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1366.685@0.27.1366.685" timestamp="1603322086986" />
-    <state x="553" y="315" width="428" height="184" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603321962169">
+    <state x="393" y="177" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1366.685@0.27.1366.685" timestamp="1603336854694" />
+    <state x="553" y="315" width="438" height="184" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603344194079">
       <screen x="0" y="27" width="1366" height="685" />
     </state>
     <state x="553" y="306" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1602104744453" />
     <state x="777" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603250394026" />
-    <state x="553" y="315" width="428" height="184" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.27.1366.685@0.27.1366.685" timestamp="1603321962169" />
+    <state x="553" y="315" width="438" height="184" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.27.1366.685@0.27.1366.685" timestamp="1603344194079" />
     <state x="996" y="0" width="931" height="1047" key="dock-window-1" timestamp="1601964268330">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

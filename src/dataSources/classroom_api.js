@@ -61,6 +61,9 @@ class ClassroomApi extends RESTDataSource {
     async getallAssignemetsByClassroom(classroomID) {
         return AssignementsMapping(await this.get(`/assignations/course/${classroomID}`));
     }
+    async deleteAssignement(id) {
+        return await this.delete(`/assignations/${id}`);
+    }
 }
 
 module.exports = ClassroomApi;

@@ -59,7 +59,7 @@ module.exports = gql `
         deleteUser(user: deleteUser!): String!
         createUser(user: User!): String!
         updateEmail(update: updateEmail!): Boolean!
-
+        
         # Subject mutations
         postSubject(data: SubjectInput!): SubjectResponse!
         putSubject(data: SubjectInput!): SubjectResponse!
@@ -85,5 +85,8 @@ module.exports = gql `
         deleteEstudiante(id: Int!): Boolean!
         createTipoNota(tipoNotasGestionInput: tipoNotasGestionInput!): Int! 
         updateTipoNota(id: Int!, tipoNotasUpdateInput: tipoNotasUpdateInput!): Int!
-        deleteTipoNota(id: Int!): Int! 
+        deleteTipoNota(id: Int!): Int!
+        
+        deleteAssignement(id: String!): String!
+ 
     }`;
