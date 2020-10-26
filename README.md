@@ -237,7 +237,8 @@ query{
   }
 }
 ```
-**Notas Api queries - Ferney **: (after users and courses)
+
+**Notas Api queries - Ferney**: 
 ```
 Crea una nueva nota, pero el notaTipoNotasId debe existir en la tabla tipoNotas.
 mutation{
