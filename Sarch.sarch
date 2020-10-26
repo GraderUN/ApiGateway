@@ -1,6 +1,6 @@
 architecture {
     software_system: GraderUN;
-    author: Everyone;
+    author: Team 2E;
 
     architectural_views {
 
@@ -40,6 +40,7 @@ architecture {
                 functionality ConsolidarNotasDefinitivas;
 
                 functionality GenerarBoletines;
+                functionality GenerarEstadisticas;
 
                 functionality VerHorario;
                 functionality VerContenidos;
@@ -211,7 +212,7 @@ architecture {
                 component backend api_gateway(programming_language javascript);
 
                 component frontend ss_web(programming_language vue);
-                component frontend ss_mobile(programming_language flutter);
+                component frontend ss_mobile(programming_language ionic);
 
                 connector mongodb_driver;
                 connector php_sql;
@@ -251,11 +252,9 @@ architecture {
                 attachment (rest: api_gateway, gestionarSolicitudes);
                 attachment (rest: api_gateway, autenticacion);
             }
-
-
         ::
 
-        data_model_view  ::
+        data_model_view ::
 
 
             nosql data_model cursos_y_salones_db {
@@ -266,7 +265,7 @@ architecture {
                         attributes {
                             string id;
                         }
-                	}
+                    }
 
 
                     data_entity cursos{
@@ -606,10 +605,177 @@ architecture {
 				l: authAPI allowed_to_use l: AuthController;
                 l: AuthController allowed_to_use l: Auth_FirebaseConnection ;
 
-
-
-
 			}
-		::
+        ::
+
+        deployment_view ::
+
+            elements {
+
+                environmental_element_types {
+                    ec2_node;
+                    rds_node;
+                    container;
+                    mobile_phone;
+                    gh_pages;
+                }
+
+                operating_systems {
+                    ubuntu;
+                    android;
+                }
+
+                execution_environments {
+                    clr; // Common Language Runtime
+                    jvm; // Java Virtual Machine
+                    python_exec;
+                    go;
+                    ruby_exec;
+                    nodejs;
+                    php;
+                    binary;
+
+                    mysql;
+                    mongodb;
+                    mariadb;
+                    firebase;
+                }
+
+                software_element consultarNotas_ms (component consultarNotas){}
+                software_element gestionarNotas_ms (component gestionarNotas){}
+                software_element gestionarSalones_ms (component gestionarSalones){}
+                software_element gestionarCursos_ms (component gestionarCursos){}
+                software_element gestionarMaterias_ms(component gestionarMaterias){}
+                software_element gestionarUsuarios_ms (component gestionarUsuarios){}
+                software_element gestionarSolicitudes_ms (component gestionarSolicitudes){}
+                software_element autenticacion_ms (component autenticacion){}
+
+                software_element api_gateway_ms (component api_gateway){}
+
+                softwate_element ss_web_prod (component ss_web){}
+                software_element ss_mobile_prod (component ss_mobile){}
+
+
+                environmental_element node node1 {
+                    ip: 'NODE1_IP';
+                    dns: 'NODE1_DNS';
+                    operating_system: ubuntu;
+                    cpu: '2xcore';
+                    ram: 4 gB;
+                    storage_storage: 8 gB;
+                    provider: 'AWS';
+                }
+
+                environmental_element node node2 {
+                    ip: 'NODE2_IP';
+                    dns: 'NODE2_DNS';
+                    operating_system: ubuntu;
+                    cpu: '2xcore';
+                    ram: 4 gB;
+                    storage_storage: 8 gB;
+                    provider: 'AWS';
+                }
+
+                environmental_element node node3 {
+                    ip: 'NODE3_IP';
+                    dns: 'NODE3_DNS';
+                    operating_system: ubuntu;
+                    cpu: '2xcore';
+                    ram: 4 gB;
+                    storage_storage: 8 gB;
+                    provider: 'AWS';
+                }
+
+                environmental_element node node4 {
+                    ip: 'NODE4_IP';
+                    dns: 'NODE4_DNS';
+                    operating_system: ubuntu;
+                    cpu: '2xcore';
+                    ram: 4 gB;
+                    storage_storage: 8 gB;
+                    provider: 'AWS';
+                }
+
+                environmental_element node node5 {
+                    ip: 'NODE5_IP';
+                    dns: 'NODE5_DNS';
+                    operating_system: ubuntu;
+                    cpu: '2xcore';
+                    ram: 4 gB;
+                    storage_storage: 8 gB;
+                    provider: 'AWS';
+                }
+
+                environmental_element node node6 {
+                    ip: 'NODE6_IP';
+                    dns: 'NODE6_DNS';
+                    operating_system: ubuntu;
+                    cpu: '2xcore';
+                    ram: 4 gB;
+                    storage_storage: 8 gB;
+                    provider: 'AWS';
+                }
+
+                environmental_element node node7 {
+                    ip: 'NODE7_IP';
+                    dns: 'NODE7_DNS';
+                    operating_system: ubuntu;
+                    cpu: '2xcore';
+                    ram: 4 gB;
+                    storage_storage: 8 gB;
+                    provider: 'AWS';
+                }
+
+                environmental_element node node8 {
+                    ip: 'NODE8_IP';
+                    dns: 'NODE8_DNS';
+                    operating_system: ubuntu;
+                    cpu: '2xcore';
+                    ram: 4 gB;
+                    storage_storage: 8 gB;
+                    provider: 'AWS';
+                }
+
+                environmental_element container container1 {}
+                environmental_element container container2 {}
+                environmental_element container container3 {}
+                environmental_element container container4 {}
+                environmental_element container container5 {}
+                environmental_element container container6 {}
+                environmental_element container container7 {}
+                environmental_element container container8 {}
+                environmental_element container container9 {}
+
+                environmental_element mobile_phone my_phone {
+                    operating_systems: android;
+                }
+            }
+
+            relations {
+
+                ee: node1 contains ee: container1;
+                ee: node2 contains ee: container2;
+                ee: node3 contains ee: container3;
+                ee: node4 contains ee: container4;
+                ee: node5 contains ee: container5;
+                ee: node6 contains ee: container6;
+                ee: node7 contains ee: container7;
+                ee: node8 contains ee: container8;
+                ee: node1 contains ee: container9;
+
+                se: consultarNotas_ms deployed_in ee: container1 (execution_environment nodejs)(port 3000);
+                se: gestionarNotas_ms deployed_in ee: container2 (execution_environment php)(port 4000);
+                se: gestionarSalones_ms deployed_in ee: container3 (execution_environment go)(port 8080);
+                se: gestionarCursos_ms deployed_in ee: container7 (execution_environment clr)(port 80);
+                se: gestionarMaterias_ms deployed_in ee: container5 (execution_environment binary)(port 4000);
+                se: gestionarUsuarios_ms deployed_in ee: container8 (execution_environment jvm)(port 80);
+                se: gestionarSolicitudes_ms deployed_in ee: container6 (execution_environment ruby_exec)(port 80);
+                se: autenticacion_ms deployed_in ee: container4 (execution_environment python_exec)(port 8000);
+                se: api_gateway_ms deployed_in ee: container9 (execution_environment nodejs)(port 8000);
+                se: ss_mobile_prod deployed_in ee: my_phone;
+                se: ss_web_prod deployed_in ee: gh_pages;
+            }
+
+        ::
     }
 }

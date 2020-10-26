@@ -1,6 +1,6 @@
 const { gql } = require('apollo-server');
 
-module.exports = gql `
+module.exports = gql`
     type Query {
         allClassrooms: [Classroom]!
         allAssignements: [Assignement]!
@@ -15,7 +15,9 @@ module.exports = gql `
 	    studentsWithoutCourse:[Estudiante]!
 
         #query ferney
-        getNota(id: Int!): notasGestion!
+        getNotabyId(id: Int!): notasGestion!
+        getTipoNotabyId(id: Int!): tipoNotasGestion!
+        getTipoNotas: [tipoNotasGestion]!
         authRequest(token: String!): String!
         assignementsbyStudent(id: String!): [Assignement]!
 
@@ -33,6 +35,7 @@ module.exports = gql `
         # Subject queries
         getSubjects: [Subject]!
         getSubject(id: Int!): Subject!
+        getSubjectsByGrade(id: Int!): [Subject]!
         getContent(id: Int!): Subject!
         getSubjectTeachers(id: Int!): [Teacher]!
         getTeacherSubjects(id: Int!): [Teacher]!
@@ -57,7 +60,7 @@ module.exports = gql `
         deleteUser(user: deleteUser!): String!
         createUser(user: User!): String!
         updateEmail(update: updateEmail!): Boolean!
-
+        
         # Subject mutations
         postSubject(data: SubjectInput!): SubjectResponse!
         putSubject(data: SubjectInput!): SubjectResponse!
@@ -81,4 +84,10 @@ module.exports = gql `
         createEstudiante(estudiante: EstudianteInput!): Boolean!
         updateEstudiante(id: Int!, estudiante: EstudianteInput!): Boolean!
         deleteEstudiante(id: Int!): Boolean!
+        createTipoNota(tipoNotasGestionInput: tipoNotasGestionInput!): Int! 
+        updateTipoNota(id: Int!, tipoNotasUpdateInput: tipoNotasUpdateInput!): Int!
+        deleteTipoNota(id: Int!): Int!
+        
+        deleteAssignement(id: String!): String!
+        deleteClassroom(id: String!): String!
     }`;
