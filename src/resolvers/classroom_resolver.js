@@ -47,6 +47,9 @@ const classroomResolver = {
         deleteAssignement: function(_, { id }, { dataSources }) {
             return dataSources.classroomAPI.deleteAssignement(id);
         },
+        deleteClassroom: function(_, { id }, { dataSources }) {
+            return dataSources.classroomAPI.deleteClassroom(id);
+        },
     }
 };
 
