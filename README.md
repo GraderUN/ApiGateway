@@ -133,7 +133,7 @@ query{
     notasValor,
     notasPorcentaje,
     notasPeriodo,
-    NotasComentarios,
+    notasComentarios,
     tipoNotasId,
     tipoNotasNombre,
     tipoNotasIdClase

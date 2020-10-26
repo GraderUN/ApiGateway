@@ -10,7 +10,7 @@ const notasTypeDefs = gql`
         notasValor: Float!
         notasPorcentaje: Int!
         notasPeriodo: Int!
-        NotasComentarios: String
+        notasComentarios: String
     }
     
     type estadisticas {
