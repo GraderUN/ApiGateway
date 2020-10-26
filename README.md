@@ -236,5 +236,97 @@ query{
     id_students
   }
 }
+**Notas Api queries - Ferney **: (after users and courses)
+```
+Crea una nueva nota, pero el notaTipoNotasId debe existir en la tabla tipoNotas.
+mutation{
+  createNota(
+     notasGestionInput:{
+      notaIdEstudiante: "4103999"
+      notaTipoNotasId: "3"
+      notaValor: 2.8
+      notaPorcentaje: 25
+      notaPeriodo: 4
+      notaComentario: "nueva nota por recuperación"
+  	}
+  )
+}
+
+
+Devuelve una nota por el id.
+query{
+  getNotabyId(
+    id:1
+  )
+  {
+    notasId
+    notasIdEstudiante
+    notastipoNotasId
+    notasValor
+    notasPorcentaje
+    notasPeriodo
+    notasComentarios
+  }
+}
+
+Actualizar una nota pasando el id y estos 4 campos.
+mutation{
+  updateNota(
+    id:21
+    notasUpdateInput:{
+      notaValor: 5.0
+      notaPorcentaje: 15
+      notaPeriodo: 3
+      notaComentario: "esta es la ultima nota modificada"
+    }    
+  )
+}
+
+Borrar una nota pasando el id.
+mutation{
+  deleteNota(
+    id:12
+  )
+}
+
+Crea una nuevo Tipo nota (nombre, id del curso).
+mutation{
+  createTipoNota(
+     tipoNotasGestionInput:{
+      tipoNotasNombre: "parcial Final"
+      tipoNotasIdClase: "3"
+  	}
+  )
+}
+Devuelve un TipoNota por el id.
+query{
+  getTipoNotabyId(
+    id:3
+  )
+  {
+    tipoNotasId
+    tipoNotasNombre
+    tipoNotasIdClase
+  }
+}
+Actualizar un TipoNota pasando el id y estos campos.
+mutation{
+  updateTipoNota(
+    id:10
+    tipoNotasUpdateInput:{
+      tipoNotasNombre: "parcial0"
+      tipoNotasIdClase: "3"
+    }    
+  )
+}
+
+Borrar una tipo nota pasando el id.
+mutation{
+  deleteTipoNota(
+    id:12
+  )
+}
+
+
 ```
 
