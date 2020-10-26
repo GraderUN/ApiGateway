@@ -32,8 +32,8 @@ class SubjectAPI extends RESTDataSource {
     async putSubject(id, data) {
         return await this.put(`/subject/${id}`, JSON.stringify(data));
     }
-    async deleteSubject(data) {
-        return await this.delete(`/subject/${id}`, JSON.stringify(data));
+    async deleteSubject(id) {
+        return await this.delete(`/subject/${id}`);
     }
     async putContent(id, content) {
         return await this.put(`/subject/${id}/content`, content);

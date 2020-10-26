@@ -63,7 +63,7 @@ module.exports = gql`
         
         # Subject mutations
         postSubject(data: SubjectInput!): SubjectResponse!
-        putSubject(data: SubjectInput!): SubjectResponse!
+        putSubject(id: Int!, data: SubjectInput!): SubjectResponse!
         deleteSubject(id: Int!): SubjectResponse!
         putContent(id: Int!, content: String!): SubjectResponse!
         postTeacher(data: TeacherInput!): SubjectResponse!
