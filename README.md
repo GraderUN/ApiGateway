@@ -236,6 +236,7 @@ query{
     id_students
   }
 }
+```
 **Notas Api queries - Ferney **: (after users and courses)
 ```
 Crea una nueva nota, pero el notaTipoNotasId debe existir en la tabla tipoNotas.
