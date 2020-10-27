@@ -49,8 +49,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30a4c6d2-b2bb-48f2-b27c-a7c8a957830f" name="Default Changelist" comment="Claseid parse to string">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="30a4c6d2-b2bb-48f2-b27c-a7c8a957830f" name="Default Changelist" comment="minor changes">
+      <change beforePath="$PROJECT_DIR$/src/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +63,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="sanhernandezmon/classroomMs" />
+        <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -364,11 +364,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601945962590" />
-    <state x="552" y="256" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1603773655862">
+    <state x="552" y="256" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1603777497810">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="393" y="179" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1602106444238" />
-    <state x="552" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603773655862" />
+    <state x="552" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603777497810" />
     <state x="393" y="177" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1366.685@0.27.1366.685" timestamp="1603667900171" />
     <state x="553" y="315" width="438" height="184" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603588851159">
       <screen x="0" y="27" width="1366" height="685" />
