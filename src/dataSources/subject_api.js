@@ -42,7 +42,7 @@ class SubjectAPI extends RESTDataSource {
         return await this.post('/teacher', JSON.stringify(data));
     }
     async deleteTeacher(data) {
-        return await this.delete('/teacher', JSON.stringify(data));
+        return await this.delete('/teacher', data);// JSON.stringify(data));
     }
 }
 module.exports = SubjectAPI;
