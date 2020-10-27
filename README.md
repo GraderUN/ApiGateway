@@ -329,6 +329,13 @@ mutation{
   )
 }
 
-
+Traer tipos de notas
+query{
+  getTipoNotas{
+    tipoNotasId
+    tipoNotasNombre
+    tipoNotasIdClase
+  }
+}
 ```
 

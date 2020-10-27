@@ -33,13 +33,13 @@ const notasTypeDefs = gql`
     
     input datosEstudianteClasePeriodo {
         estudianteId: Int!
-        claseId: Int!
+        claseId: String!
         periodo: Int!
     }
 
     input datosEstudianteClase{
         estudianteId: Int!
-        claseId: Int!
+        claseId: String!
     }
     
     input datosEstudianteMateriaPeriodo {
