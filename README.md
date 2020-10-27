@@ -133,7 +133,7 @@ query{
     notasValor,
     notasPorcentaje,
     notasPeriodo,
-    NotasComentarios,
+    notasComentarios,
     tipoNotasId,
     tipoNotasNombre,
     tipoNotasIdClase
@@ -153,7 +153,7 @@ query{
     notasValor,
     notasPorcentaje,
     notasPeriodo,
-    NotasComentarios,
+    notasComentarios,
     tipoNotasId,
     tipoNotasNombre,
     tipoNotasIdClase
@@ -329,6 +329,13 @@ mutation{
   )
 }
 
-
+Traer tipos de notas
+query{
+  getTipoNotas{
+    tipoNotasId
+    tipoNotasNombre
+    tipoNotasIdClase
+  }
+}
 ```
 
