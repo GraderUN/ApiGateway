@@ -44,7 +44,7 @@ const classroomResolver = {
 
                 res[i].curso = curso.grade + curso.letter;
                 res[i].profesor = profesor.nombre + " " + profesor.apellido;
-                //res[i].materia = (await dataSources.subjectAPI.getSubject(res[i].materia)).name;
+                res[i].materia = (await dataSources.subjectAPI.getSubject(res[i].materia)).name;
             }
             return res;
         }
