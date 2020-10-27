@@ -8,22 +8,22 @@ const classroomResolver = {
             return dataSources.classroomAPI.getallAssignemets();
         },
 
-        AssignementsByProfessor: function(_, {professor}, { dataSources }) {
+        AssignementsByProfessor: function(_, { professor }, { dataSources }) {
             return dataSources.classroomAPI.getallAssignemetsByProfessor(professor);
         },
 
-        AssignementsByCourse: function(_, {courseID}, { dataSources }) {
+        AssignementsByCourse: function(_, { courseID }, { dataSources }) {
             return dataSources.classroomAPI.getallAssignemetsByCourse(courseID);
         },
-        AssignementsByClassroom: function(_, {classroomID}, { dataSources }) {
+        AssignementsByClassroom: function(_, { classroomID }, { dataSources }) {
             return dataSources.classroomAPI.getallAssignemetsByClassroom(classroomID);
         },
-//----------------------------------------COMPLEX QUERY--------------------------------------------------------
+        //----------------------------------------COMPLEX QUERY--------------------------------------------------------
         assignementsbyStudent: async function(_, { id }, { dataSources }) {
             //permisos cualquiera (TAL VEZ etudiante no)
             let curso = (await dataSources.coursesAPI.getStudentById(id)).id_course;
-            let  clase = await dataSources.classroomAPI.getallAssignemetsByCourse(curso);
-            for (let i = 0 ; i<clase.length; i++){
+            let clase = await dataSources.classroomAPI.getallAssignemetsByCourse(curso);
+            for (let i = 0; i < clase.length; i++) {
 
                 let materia = await dataSources.subjectAPI.getSubject(parseInt(clase[i].materia));
                 clase[i].materia = materia.name;
@@ -35,6 +35,19 @@ const classroomResolver = {
             return clase;
 
         },
+
+        allAssignementsInfo: async function(_, __, { dataSources }) {
+            var res = await dataSources.classroomAPI.getallAssignemets();
+            for (var i = 0; i < res.length; i++) {
+                var curso = await dataSources.coursesAPI.getCourseById(res[i].curso);
+                var profesor = await dataSources.profesorAPI.getProfesorById(res[i].profesor);
+
+                res[i].curso = curso.grade + curso.letter;
+                res[i].profesor = profesor.nombre + " " + profesor.apellido;
+                //res[i].materia = (await dataSources.subjectAPI.getSubject(res[i].materia)).name;
+            }
+            return res;
+        }
     },
 
     Mutation: {
