@@ -10,7 +10,7 @@ const notasTypeDefs = gql`
         notasValor: Float!
         notasPorcentaje: Int!
         notasPeriodo: Int!
-        NotasComentarios: String
+        notasComentarios: String
     }
     
     type estadisticas {
@@ -25,7 +25,7 @@ const notasTypeDefs = gql`
         notasValor: Float!
         notasPorcentaje: Int!
         notasPeriodo: Int!
-        NotasComentarios: String
+        notasComentarios: String
         tipoNotasId: Int!
         tipoNotasNombre: String!
         tipoNotasIdClase: String!
@@ -33,13 +33,13 @@ const notasTypeDefs = gql`
     
     input datosEstudianteClasePeriodo {
         estudianteId: Int!
-        claseId: Int!
+        claseId: String!
         periodo: Int!
     }
 
     input datosEstudianteClase{
         estudianteId: Int!
-        claseId: Int!
+        claseId: String!
     }
     
     input datosEstudianteMateriaPeriodo {
