@@ -1,5 +1,5 @@
 module.exports = {
-    gestionNotasUrl: process.env.NOTAS_API_URL || "ec2-18-205-60-114..compute-1.amazonaws.com",
+    gestionNotasUrl: process.env.NOTAS_API_URL || "ec2-18-205-60-114.compute-1.amazonaws.com",
     gestionNotasPort: process.env.NOTAS_API_PORT || "4000",
     authUrl: process.env.AUTH_URL,
     authPort: process.env.AUTH_PORT,
