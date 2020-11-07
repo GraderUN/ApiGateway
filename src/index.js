@@ -25,7 +25,10 @@ const server = new ApolloServer({
         estudianteAPI: new EstudianteAPI(),
         profesorAPI: new ProfesorAPI(),
         administrativoAPI: new AdministrativoAPI()
-    })
+    }),
+    cors:{
+        origin: false
+    }
 });
 
 server.listen({ port: 5000 }).then(({ url }) => {
