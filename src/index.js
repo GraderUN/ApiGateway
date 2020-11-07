@@ -29,14 +29,6 @@ const server = new ApolloServer({
     }),
 });
 
-server.applyMiddleware({
-    app,
-    cors: {
-      credentials: true,
-      origin: false
-    }
-  })
-
 server.listen({ port: 5000 }).then(({ url }) => {
     console.log(`🚀 Server ready at ${url}`);
 });
