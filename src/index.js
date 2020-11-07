@@ -12,11 +12,6 @@ const EstudianteAPI = require('./dataSources/estudiante_api');
 const ProfesorAPI = require('./dataSources/profesor_api');
 const AdministrativoAPI = require('./dataSources/administrativo_api');
 
-var express = require('express');
-var cors = require('cors');
-var app = express();
-
-app.use(cors());
 
 const server = new ApolloServer({
     typeDefs,
@@ -33,6 +28,14 @@ const server = new ApolloServer({
         administrativoAPI: new AdministrativoAPI()
     }),
 });
+
+server.applyMiddleware({
+    app,
+    cors: {
+      credentials: true,
+      origin: false
+    }
+  })
 
 server.listen({ port: 5000 }).then(({ url }) => {
     console.log(`🚀 Server ready at ${url}`);
