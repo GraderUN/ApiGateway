@@ -11,7 +11,12 @@ const notasGestionAPI = require('./dataSources/gestion_notas_api');
 const EstudianteAPI = require('./dataSources/estudiante_api');
 const ProfesorAPI = require('./dataSources/profesor_api');
 const AdministrativoAPI = require('./dataSources/administrativo_api');
-const cors= require('cors')
+
+var express = require('express');
+var cors = require('cors');
+var app = express();
+
+app.use(cors());
 
 const server = new ApolloServer({
     typeDefs,
@@ -27,7 +32,6 @@ const server = new ApolloServer({
         profesorAPI: new ProfesorAPI(),
         administrativoAPI: new AdministrativoAPI()
     }),
-    cors: false
 });
 
 server.listen({ port: 5000 }).then(({ url }) => {
