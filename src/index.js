@@ -1,4 +1,4 @@
-const { ApolloServer } = require('apollo-server');
+const { ApolloServer } = require("apollo-server-express");
 const typeDefs = require('./typeDefs');
 const resolvers = require('./resolvers');
 
@@ -12,8 +12,14 @@ const EstudianteAPI = require('./dataSources/estudiante_api');
 const ProfesorAPI = require('./dataSources/profesor_api');
 const AdministrativoAPI = require('./dataSources/administrativo_api');
 
+const express = require("express");
+const fs = require("fs");
+const https = require("https");
+const http = require("http");
 
-const server = new ApolloServer({
+const config = { port: 5000, hostname: 'localhost'}
+
+const apollo = new ApolloServer({
     typeDefs,
     resolvers,
     dataSources: () => ({
@@ -28,11 +34,21 @@ const server = new ApolloServer({
         administrativoAPI: new AdministrativoAPI()
     }),
     cors: {
-		origin: '*',	
+        origin: '*',
         credentials: true
     }
 });
 
-server.listen({ port: 5000 }).then(({ url }) => {
-    console.log(`🚀 Server ready at ${url}`);
-});
+const app = express()
+apollo.applyMiddleware({ app })
+
+let server = https.createServer({
+    key: fs.readFileSync(`./cert/api.key`),
+    cert: fs.readFileSync(`./cert/api.crt`)
+    },
+    app
+);
+
+server.listen({ port: config.port }, () =>
+    console.log( '🚀 Server ready at', `https://${config.hostname}:${config.port}${apollo.graphqlPath}`)
+)
