@@ -42,9 +42,12 @@ const apollo = new ApolloServer({
 const app = express()
 apollo.applyMiddleware({ app })
 
+//key: fs.readFileSync(`./cert/api.key`),
+//cert: fs.readFileSync(`./cert/api.crt`)
+
 let server = https.createServer({
-    key: fs.readFileSync(`../cert/api.key`),
-    cert: fs.readFileSync(`../cert/api.crt`)
+    key: fs.readFileSync(`./src/cert/api.key`),
+    cert: fs.readFileSync(`./src/cert/api.crt`)
     },
     app
 );
