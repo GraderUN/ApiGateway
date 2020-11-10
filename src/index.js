@@ -46,11 +46,22 @@ apollo.applyMiddleware({ app })
 //cert: fs.readFileSync(`./cert/api.crt`)
 
 let server = https.createServer({
-    key: fs.readFileSync(`./src/cert/api.key`),
-    cert: fs.readFileSync(`./src/cert/api.crt`)
+        key: fs.readFileSync(`./cert/api.key`),
+        cert: fs.readFileSync(`./cert/api.crt`)
     },
-    app
-);
+    app,
+    function(req,res){
+	res.setHeader('Access-Control-Allow-Origin', '*');
+	res.setHeader('Access-Control-Request-Method', '*');
+	res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+	res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With, X-Api-Key');
+	if ( req.method === 'OPTIONS' ) {
+		res.writeHead(200);
+		res.end();
+		return;
+	}
+});
+ 
 
 server.listen({ port: config.port }, () =>
     console.log( '🚀 Server ready at', `https://${config.hostname}:${config.port}${apollo.graphqlPath}`)
