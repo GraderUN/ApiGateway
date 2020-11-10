@@ -3,7 +3,7 @@ module.exports = {
     gestionNotasPort: process.env.NOTAS_API_PORT || "4000",
     authUrl: process.env.AUTH_URL,
     authPort: process.env.AUTH_PORT,
-    coursesUrl: process.env.COURSES_URL || "c2-3-238-104-144.compute-1.amazonaws.com",
+    coursesUrl: process.env.COURSES_URL || "ec2-3-238-104-144.compute-1.amazonaws.com",
     coursesPort: process.env.COURSES_PORT || "8080",
     classroomUrl: process.env.CLASSROOM_URL || "ec2-3-238-88-158.compute-1.amazonaws.com",
     classromPort: process.env.CLASSROOM_PORT || "8080",
