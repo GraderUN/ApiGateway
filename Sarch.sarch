@@ -436,66 +436,81 @@ architecture {
 				tier logic;
 				tier data;
 
-				layer WebApp ;
+				layer Router;
 				layer WebComponent;
 
 				layer mobileApp;
 				layer mobilecomponents;
 				layer mobileStyle;
 
+				layer resource;
+				layer service;
+				layer dataSource;
+
 				layer apiGatewayschema;
 				layer apiGatewayresolvers;
-				layer apiGatewayConection
+				layer apiGatewayConection;
 
-				layer consultarNotasApi
-				layer consultarNotasmodel
-				layer consultarNotasconnection
+				layer consultarNotasApi;
+				layer consultarNotasmodel;
+				layer consultarNotasconnection;
 
-				layer gestionarNotasApi
-				layer gestionarNotasmodel
-				layer gestionarNotasconnection
+				layer gestionarNotasApi;
+				layer gestionarNotasmodel;
+				layer gestionarNotasconnection;
 
-				layer gestionarSaloneApi
-				layer gestionarSalonescontroller
-				layer gestionarSalonesmodel
+				layer gestionarSaloneApi;
+				layer gestionarSalonescontroller;
+				layer gestionarSalonesmodel;
 
-				layer gestionarMateriasRESTServer
-				layer gestionarMateriasRequestHandler
-				layer gestionarMateriasDriver
-				layer gestionarMateriasSchema
-				layer gestionarMateriasModel
+				layer gestionarMateriasRESTServer;
+				layer gestionarMateriasRequestHandler;
+				layer gestionarMateriasDriver;
+				layer gestionarMateriasSchema;
+				layer gestionarMateriasModel;
 
-				layer gestionarCursosService
-				layer gestionarCursosController
-				layer gestionarCursosRepository
+				layer gestionarCursosService;
+				layer gestionarCursosController;
+				layer gestionarCursosRepository;
 
-				layer gestionarSolicitudesService
-				layer gestionarSolicitudesController
-				layer gestionarSolicitudesRepository
+				layer gestionarSolicitudesService;
+				layer gestionarSolicitudesController;
+				layer gestionarSolicitudesRepository;
 
-				layer authAPI
-				layer AuthController
-				layer Auth_FirebaseConnection
+				layer GestionarusuarioRepository;
+				layer GestionarusuarioController;
+				layer GestionarusuarioService;
 
-				layer GestionarusuarioRepository
-				layer GestionarusuarioService
-				layer GestionarusuarioController
+				layer authAPI;
+				layer AuthController;
+				layer Auth_FirebaseConnection;
 
 				layer_segment webtemplate;
 				layer_segment webScript;
 				layer_segment webStyle ;
+
+				layer_segment schemaSoap;
+				layer_segment routesRest;
+
+				layer_segment operationsSoap;
+				layer_segment controllersRest;
+
+				layer_segment msRequests;
+				layer_segment clientSoap;
 			}
 
 			relations {
 
 				t: presentation allowed_to_use t: integration;
-				t: integration allowed_to_use logic
+				t: integration allowed_to_use logic;
 				t: logic allowed_to_use t: data;
 
-				t: presentation contains c: Router;
-				t: presentation contains c: WebComponent;
+				t: presentation contains c: ss_web;
+				t: presentation contains c: ss_mobile;
 
-				t: integration contains c:api_gateway;
+				t: integration contains c: soap_server;   //---------------------------------verificiar nombre en sarch de componentes---------------------------------//
+				t: integration contains c: proxy_reverse;
+				t: integration contains c: api_gateway;
 
 				t: logic contains c: consultarNotas;
 				t: logic contains c: gestionarNotas;
@@ -506,104 +521,121 @@ architecture {
 				t: logic contains c: gestionarSolicitudes;
 				t: logic contains c: autenticacion;
 
-
 				t: data contains c: graderNotasDB;
 				t: data contains c: cursos_y_salones_db;
 				t: data contains c: gestion_de_materias_db;
 				t: data contains c: gestionar_usuarios_db;
 				t: data contains c: solicitudes_database;
 				t: data contains c: auth_database;
+				t: data contains c: ldap_server;  //---------------------------------verificiar nombre en sarch de componentes---------------------------------//
 
 
-
-
-				c: mobile_app contains l: mobileApp;
-				c: mobile_app contains l: mobilecomponents;
-				c: mobile_app contains l: mobileStyle;
+				c: ss_mobile contains l: mobileApp;
+				c: ss_mobile contains l: mobilecomponents;
+				c: ss_mobile contains l: mobileStyle;
 
 				ls: mobileApp allowed_to_use l: mobilecomponents
 				ls: mobilecomponents allowed_to_use l: mobileStyle
 
-				c: web_app contains l: WebComponent;
-				c: web_app contains l: Router;
+				c: ss_web contains l: WebComponent;
+				c: ss_web contains l: Router;
 
-				l: WebComponent contains ls: webtemplate
-				l: WebComponent contains ls: webScript
-				l: WebComponent contains ls: webStyle
+				l: WebComponent contains ls: webtemplate;
+				l: WebComponent contains ls: webScript;
+				l: WebComponent contains ls: webStyle;
 
 				l: Router allowed_to_use WebComponent
-				ls: webtemplate allowed_to_use ls: webScript
-				ls: webScript allowed_to_use ls: webStyle
+				ls: webtemplate allowed_to_use ls: webScript;
+				ls: webScript allowed_to_use ls: webStyle;
 
-				c: api_gateway contains l: apiGatewayresolvers
-				c: api_gateway contains l: apiGatewayschema
-				c: api_gateway contains l: apiGatewayConnection
+				c: soap_server contains l: resource;  	//---------------------------------verificiar nombre en sarch de componentes---------------------------------//
+				c: soap_server contains l: service;  	//---------------------------------verificiar nombre en sarch de componentes---------------------------------//
+				c: soap_server contains l: dataSource;  //---------------------------------verificiar nombre en sarch de componentes---------------------------------//
 
-				l: apiGatewayschema allowed_to_use apiGatewayresolvers
-				l: apiGatewayresolvers allowed_to_use apiGatewayConnection
+				l: resource contains ls: schemaSoap;
+				l: resource contains ls: routesRest;
 
-				c: consultarNotas contains l: consultarNotasApi
-				c: consultarNotas contains l: consultarNotasmodel
-				c: consultarNotas contains l: consultarNotasconnection
+				l: service contains ls: operationsSoap;
+				l: service contains ls: controllersRest;
 
-				l: consultarNotasApi allowed_to_use consultarNotasmodel
-				l: consultarNotasmodel allowed_to_use consultarNotasconnection
+				l: dataSource contains ls: msRequests;
+				l: dataSource contains ls: clientSoap;
+
+				ls: schemaSoap allowed_to_use ls: operationsSoap;
+				ls: operationsSoap allowed_to_use ls: msRequests;
+
+				ls: routesRest allowed_to_use ls: controllersRest;
+				ls: controllersRest allowed_to_use ls: clientSoap;
+
+				c: api_gateway contains l: apiGatewayresolvers;
+				c: api_gateway contains l: apiGatewayschema;
+				c: api_gateway contains l: apiGatewayConnection;
+
+				l: apiGatewayschema allowed_to_use apiGatewayresolvers;
+				l: apiGatewayresolvers allowed_to_use apiGatewayConnection;
+
+				c: consultarNotas contains l: consultarNotasApi;
+				c: consultarNotas contains l: consultarNotasmodel;
+				c: consultarNotas contains l: consultarNotasconnection;
+
+				l: consultarNotasApi allowed_to_use consultarNotasmodel;
+				l: consultarNotasmodel allowed_to_use consultarNotasconnection;
 
 
 				c: gestionarNotas contains l: gestionar_Notas_Api;
-                c: gestionarNotas contains l: gestionar_Notas_model;
-                c: gestionarNotas contains l: gestionar_Notas_connection;
+                		c: gestionarNotas contains l: gestionar_Notas_model;
+                		c: gestionarNotas contains l: gestionar_Notas_connection;
 
 				l: gestionar_Notas_Api allowed_to_use l: gestionar_Notas_model;
-                l: gestionar_Notas_model allowed_to_use l: gestionar_Notas_connection;
+                		l: gestionar_Notas_model allowed_to_use l: gestionar_Notas_connection;
 
-				c: gestionarCursos contains l: gestionarCursosService
-				c: gestionarCursos contains l: gestionarCursosController
-				c: gestionarCursos contains l: gestionarCursosRepository
+				c: gestionarCursos contains l: gestionarCursosService;
+				c: gestionarCursos contains l: gestionarCursosController;
+				c: gestionarCursos contains l: gestionarCursosRepository;
 
 				l: gestionarCursosService allowed_to_use l: gestionarCursosController;
-                l: gestionarCursosController allowed_to_use l: gestionarCursosRepository ;
+                		l: gestionarCursosController allowed_to_use l: gestionarCursosRepository ;
 
-				c: gestionarSalones contains l: gestionarSaloneApi
-				c: gestionarSalones contains l: gestionarSalonescontroller
-				c: gestionarSalones contains l: gestionarSalonesmodel
+				c: gestionarSalones contains l: gestionarSaloneApi;
+				c: gestionarSalones contains l: gestionarSalonescontroller;
+				c: gestionarSalones contains l: gestionarSalonesmodel;
 
 				l: gestionarSaloneApi allowed_to_use l: gestionarSalonescontroller;
-                l: gestionarSalonescontroller allowed_to_use l: gestionarSalonesmodel ;
+                		l: gestionarSalonescontroller allowed_to_use l: gestionarSalonesmodel ;
 
 
-				c: gestionarMaterias contains l: gestionarMateriasRESTServer
-				c: gestionarMaterias contains l: gestionarMateriasRequestHandler
-				c: gestionarMaterias contains l: gestionarMateriasDriver
-				c: gestionarMaterias contains l: gestionarMateriasSchema
-				c: gestionarMaterias contains l: gestionarMateriasModel
+				c: gestionarMaterias contains l: gestionarMateriasRESTServer;
+				c: gestionarMaterias contains l: gestionarMateriasRequestHandler;
+				c: gestionarMaterias contains l: gestionarMateriasDriver;
+				c: gestionarMaterias contains l: gestionarMateriasSchema;
+				c: gestionarMaterias contains l: gestionarMateriasModel;
 
 				l: gestionarMateriasRESTServer allowed_to_use l: gestionarMateriasRequestHandler;
-                l: gestionarMateriasRequestHandler allowed_to_use l: gestionarMateriasModel ;
+                		l: gestionarMateriasRequestHandler allowed_to_use l: gestionarMateriasModel;
 				l: gestionarMateriasRequestHandler allowed_to_use l: gestionarMateriasDriver;
-                l: gestionarMateriasDriver allowed_to_use l: gestionarMateriasSchema ;
+                		l: gestionarMateriasDriver allowed_to_use l: gestionarMateriasSchema;
 
-				c: gestionarUsuarios contains l:GestionarusuarioRepository
-				c: gestionarUsuarios contains l:GestionarusuarioService
-				c: gestionarUsuarios contains l:GestionarusuarioController
+				c: gestionarUsuarios contains l:GestionarusuarioRepository;
+				c: gestionarUsuarios contains l:GestionarusuarioService;
+				c: gestionarUsuarios contains l:GestionarusuarioController;
 
 				l: GestionarusuarioService allowed_to_use l: GestionarusuarioController;
-                l: GestionarusuarioController allowed_to_use l: GestionarusuarioRepository ;
+                		l: GestionarusuarioController allowed_to_use l: GestionarusuarioRepository ;
 
 
-				c: gestionarSolicitudes contains l:gestionarSolicitudesService
-				c: gestionarSolicitudes contains l:gestionarSolicitudesController
-				c: gestionarSolicitudes contains l:gestionarSolicitudesRepository
+				c: gestionarSolicitudes contains l:gestionarSolicitudesService;
+				c: gestionarSolicitudes contains l:gestionarSolicitudesController;
+				c: gestionarSolicitudes contains l:gestionarSolicitudesRepository;
 
 				l: gestionarSolicitudesService allowed_to_use l: gestionarSolicitudesController;
-                l: gestionarSolicitudesController allowed_to_use l: gestionarSolicitudesRepository ;
+                		l: gestionarSolicitudesController allowed_to_use l: gestionarSolicitudesRepository ;
 
-				c: autenticacion contains l: authAPI
-				c: autenticacion contains l: AuthController
-				c: autenticacion contains l: Auth_FirebaseConnection
+				c: autenticacion contains l: authAPI;
+				c: autenticacion contains l: AuthController;
+				c: autenticacion contains l: Auth_FirebaseConnection;
 
 				l: authAPI allowed_to_use l: AuthController;
-                l: AuthController allowed_to_use l: Auth_FirebaseConnection ;
+                		l: AuthController allowed_to_use l: Auth_FirebaseConnection ;
 
 			}
         ::
