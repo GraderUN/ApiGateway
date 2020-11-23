@@ -33,7 +33,7 @@ const gestion_notas_type_def = gql`
     }
 
     input notasUpdateInput {
-        notaValor: Float!
+        notaValor: Float
         notaPorcentaje: Int!
         notaPeriodo: Int!
         notaComentario: String!

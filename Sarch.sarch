@@ -169,12 +169,11 @@ architecture {
                     golang;
                     ruby;
                     c_sharp;
-		    c;
+		    		c;
                     php;
                     rust;
-                    vue;
-                    flutter;
-                    ionic;
+                    typescript;
+                    nginx;
                 }
 
                 db_systems {
@@ -213,13 +212,16 @@ architecture {
 
                 component backend api_gateway(programming_language javascript);
 
-                component frontend ss_web(programming_language vue);
-                component frontend ss_mobile(programming_language ionic);
-		
-				component backend reverseProxy(programming_language /* FALTA EL LENGUAJE */);
+                component frontend ss_web(programming_language javascript);
+                component frontend ss_mobile(programming_language typescript);
+
+				component backend reverseProxy(programming_language nginx);
 				component backend LDAP_Server(programming_language c);
-				component backend SOAP_interface(programming_language javascript);
-		
+				component backend SOAP_manager(programming_language javascript);
+
+				component backend SSInterfacenext(programming_language javascript);
+				component backend SSInterfaceprevious(programming_language javascript);
+
 
                 connector mongodb_driver;
                 connector php_sql;
@@ -230,6 +232,8 @@ architecture {
 
                 connector rest;
                 connector GraphQL;
+                connector SOAP;
+                connector LDAP;
             }
 
             relations {
@@ -258,6 +262,18 @@ architecture {
                 attachment (rest: api_gateway, gestionarUsuarios);
                 attachment (rest: api_gateway, gestionarSolicitudes);
                 attachment (rest: api_gateway, autenticacion);
+
+                attachment (SOAP:  SOAP_manager,SSInterfacenext);
+                attachment (SOAP:  SSInterfaceprevious , SOAP_manager);
+                attachment (GraphQL:  SOAP_manager,reverseProxy);
+                attachment (rest:  api_gateway,SOAP_manager);
+
+                attachment (LDAP: api_gateway,LDAP_Server);
+
+                attachment (GraphQL: reverseProxy,api_gateway);
+                attachment (GraphQL: ss_web,reverseProxy);
+                attachment (GraphQL: ss_mobile,reverseProxy);
+
             }
         ::
         data_model_view ::

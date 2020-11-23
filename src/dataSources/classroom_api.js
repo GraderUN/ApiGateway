@@ -24,6 +24,7 @@ function AssignementsMapping(data) {
 }
 
 function AssignementMapping(data) {
+    console.log(data)
     return { curso: data.curso, salon: data.salon,
         profesor: data.profesor , horario: data.horario, materia: data.materia };
 }
