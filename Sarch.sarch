@@ -12,6 +12,7 @@ architecture {
                 module InformacionPersonal;
                 module GestionAcademica;
                 module Autenticacion;
+                module Interoperabilidad;
 
                 submodule NotasEstudiantes;
                 submodule NotasProfesores;
@@ -28,6 +29,9 @@ architecture {
                 submodule SolicitudesEstudiantes;
                 submodule SolicitudesProfesores;
                 submodule GestionAdministrativos;
+
+                submodule ExponerDeServicio;
+                submodule ConsumirServicio;
 
                 functionality VerNotasParciales;
                 functionality VerBoletines;
@@ -52,7 +56,7 @@ architecture {
                 functionality GestionarContenidos;
                 functionality GestionarMateria;
                 functionality AsignarProfesorMateria;
-		functionality GestionarClases;
+                functionality GestionarClases;
 
                 functionality VerInformacionProfesores;
                 functionality BuscarProfesores;
@@ -80,6 +84,12 @@ architecture {
                 functionality AutenticarSesion;
                 functionality ActualizarDatosAcceso;
                 functionality BorrarDatosAcceso;
+
+                functionality EnviarUsuariosEstudiantes;
+                functionality EnviarUsuariosProfesores;
+                functionality EnviarUsuariosAdministrativos;
+
+                functionality RecibirPuntajes;
             }
 
             relations {
@@ -98,6 +108,9 @@ architecture {
                 sm: SolicitudesEstudiantes is_part_of m: GestionAcademica;
                 sm: SolicitudesProfesores is_part_of m: GestionAcademica;
                 sm: GestionAdministrativos is_part_of m: GestionAcademica;
+
+                sm: ExponerDeServicio is_part_of m: Interoperabilidad;
+                sm: ConsumirServicio is_part_of m: Interoperabilidad;
 
                 f: VerNotasParciales is_part_of sm: NotasEstudiantes;
                 f: VerBoletines is_part_of sm: NotasEstudiantes;
@@ -155,6 +168,12 @@ architecture {
                 f: AutenticarSesion is_part_of m: Autenticacion;
                 f: ActualizarDatosAcceso is_part_of m: Autenticacion;
                 f: BorrarDatosAcceso is_part_of m: Autenticacion;
+
+                f: AutenticarSesion is_part_of sm: ExponerDeServicio;
+                f: ActualizarDatosAcceso is_part_of sm: ExponerDeServicio;
+                f: BorrarDatosAcceso is_part_of sm: ExponerDeServicio;
+
+                f: EnviarUsuariosEstudiantes is_part_of sm: ConsumirServicio;
             }
         ::
 
