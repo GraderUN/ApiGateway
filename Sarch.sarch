@@ -295,8 +295,9 @@ architecture {
 
             }
         ::
+
         data_model_view ::
-        
+
             nosql data_model cursos_y_salones_db {
 
                 elements {
@@ -548,8 +549,8 @@ architecture {
 				t: presentation contains c: ss_web;
 				t: presentation contains c: ss_mobile;
 
-				t: integration contains c: soap_server;   //---------------------------------verificiar nombre en sarch de componentes---------------------------------//
-				t: integration contains c: proxy_reverse;
+				t: integration contains c: SOAP_manager;
+				t: integration contains c: reverseProxy;
 				t: integration contains c: api_gateway;
 
 				t: logic contains c: consultarNotas;
@@ -567,7 +568,7 @@ architecture {
 				t: data contains c: gestionar_usuarios_db;
 				t: data contains c: solicitudes_database;
 				t: data contains c: auth_database;
-				t: data contains c: ldap_server;  //---------------------------------verificiar nombre en sarch de componentes---------------------------------//
+				t: data contains c: LDAP_Server;
 
 
 				c: ss_mobile contains l: mobileApp;
@@ -588,9 +589,9 @@ architecture {
 				ls: webtemplate allowed_to_use ls: webScript;
 				ls: webScript allowed_to_use ls: webStyle;
 
-				c: soap_server contains l: resource;  	//---------------------------------verificiar nombre en sarch de componentes---------------------------------//
-				c: soap_server contains l: service;  	//---------------------------------verificiar nombre en sarch de componentes---------------------------------//
-				c: soap_server contains l: dataSource;  //---------------------------------verificiar nombre en sarch de componentes---------------------------------//
+				c: SOAP_manager contains l: resource;
+				c: SOAP_manager contains l: service;
+				c: SOAP_manager contains l: dataSource;
 
 				l: resource contains ls: schemaSoap;
 				l: resource contains ls: routesRest;
@@ -726,13 +727,10 @@ architecture {
                 software_element ss_web_prod (component ss_web){}
                 software_element ss_mobile_prod (component ss_mobile){}
                 
-                software_element reverse_proxy (component reverseProxy){}//falta asignar el componente
-                software_element LDAP_server (component LDAP_Server){} //falta asignar el componente
+                software_element reverse_proxy (component reverseProxy){}
+                software_element LDAP_server (component LDAP_Server){}
                 
-                software_element SOAP_interface (component SOAP_interface) {} //falta asignar el componente 
-                
-                
-
+                software_element SOAP_interface (component SOAP_manager){}
 
                 environmental_element node node1 {
                     ip: 'NODE1_IP';
@@ -827,7 +825,6 @@ architecture {
                 environmental_element container container11 {}
                 environmental_element container container12 {}
                 environmental_element container container13 {}
-                
 
                 environmental_element mobile_phone my_phone {
                     operating_systems: android;
@@ -857,12 +854,12 @@ architecture {
                 se: gestionarMaterias_ms deployed_in ee: container5 (execution_environment binary)(port 4000);
                 se: gestionarSolicitudes_ms deployed_in ee: container6 (execution_environment ruby_exec)(port 80);
                 se: gestionarCursos_ms deployed_in ee: container7 (execution_environment clr)(port 80);
-                se: gestionarUsuarios_ms deployed_in ee: container8 (execution_environment jvm)(port 80);              
+                se: gestionarUsuarios_ms deployed_in ee: container8 (execution_environment jvm)(port 80);
                 se: api_gateway_ms deployed_in ee: container9 (execution_environment nodejs)(port 8000);
                 se: ss_web_prod deployed_in ee: container10 (execution_environment nodejs)(port 80);
                 se: LDAP_server deployed_in ee: container11 (execution_environment binary)(port 8085);
                 se: reverse_proxy deployed_in ee: container12 (execution_environment nginx)(port 2000);
-                se: SOAP_interface deployed_in ee: container13 (execution_environment nodejs)(port: 8000)
+                se: SOAP_interface deployed_in ee: container13 (execution_environment nodejs)(port 8000);
                 se: ss_mobile_prod deployed_in ee: my_phone;
             }
 
