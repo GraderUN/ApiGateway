@@ -1,6 +1,6 @@
 architecture {
     software_system: GraderUN;
-    author: Team 2E;
+    author: Team_2E;
 
     architectural_views {
 
@@ -169,10 +169,12 @@ architecture {
                     golang;
                     ruby;
                     c_sharp;
+		    c;
                     php;
                     rust;
                     vue;
                     flutter;
+                    ionic;
                 }
 
                 db_systems {
@@ -213,6 +215,11 @@ architecture {
 
                 component frontend ss_web(programming_language vue);
                 component frontend ss_mobile(programming_language ionic);
+		
+				component backend reverseProxy(programming_language /* FALTA EL LENGUAJE */);
+				component backend LDAP_Server(programming_language c);
+				component backend SOAP_interface(programming_language javascript);
+		
 
                 connector mongodb_driver;
                 connector php_sql;
@@ -253,10 +260,8 @@ architecture {
                 attachment (rest: api_gateway, autenticacion);
             }
         ::
-
         data_model_view ::
-
-
+        
             nosql data_model cursos_y_salones_db {
 
                 elements {
@@ -307,7 +312,7 @@ architecture {
                 }
             }
 
-            relational data_model gestion_de_materias_db{
+            relational data_model gestion_de_materias_db {
 
                 elements{
 
@@ -649,7 +654,6 @@ architecture {
                     rds_node;
                     container;
                     mobile_phone;
-                    gh_pages;
                 }
 
                 operating_systems {
@@ -684,8 +688,15 @@ architecture {
 
                 software_element api_gateway_ms (component api_gateway){}
 
-                softwate_element ss_web_prod (component ss_web){}
+                software_element ss_web_prod (component ss_web){}
                 software_element ss_mobile_prod (component ss_mobile){}
+                
+                software_element reverse_proxy (component reverseProxy){}//falta asignar el componente
+                software_element LDAP_server (component LDAP_Server){} //falta asignar el componente
+                
+                software_element SOAP_interface (component SOAP_interface) {} //falta asignar el componente 
+                
+                
 
 
                 environmental_element node node1 {
@@ -777,6 +788,11 @@ architecture {
                 environmental_element container container7 {}
                 environmental_element container container8 {}
                 environmental_element container container9 {}
+                environmental_element container container10 {}
+                environmental_element container container11 {}
+                environmental_element container container12 {}
+                environmental_element container container13 {}
+                
 
                 environmental_element mobile_phone my_phone {
                     operating_systems: android;
@@ -794,18 +810,25 @@ architecture {
                 ee: node7 contains ee: container7;
                 ee: node8 contains ee: container8;
                 ee: node1 contains ee: container9;
+                ee: node7 contains ee: container10;
+                ee: node4 contains ee: container11;
+                ee: node8 contains ee: container12;
+                ee: node8 contains ee: container13;
 
                 se: consultarNotas_ms deployed_in ee: container1 (execution_environment nodejs)(port 3000);
                 se: gestionarNotas_ms deployed_in ee: container2 (execution_environment php)(port 4000);
                 se: gestionarSalones_ms deployed_in ee: container3 (execution_environment go)(port 8080);
-                se: gestionarCursos_ms deployed_in ee: container7 (execution_environment clr)(port 80);
-                se: gestionarMaterias_ms deployed_in ee: container5 (execution_environment binary)(port 4000);
-                se: gestionarUsuarios_ms deployed_in ee: container8 (execution_environment jvm)(port 80);
-                se: gestionarSolicitudes_ms deployed_in ee: container6 (execution_environment ruby_exec)(port 80);
                 se: autenticacion_ms deployed_in ee: container4 (execution_environment python_exec)(port 8000);
+                se: gestionarMaterias_ms deployed_in ee: container5 (execution_environment binary)(port 4000);
+                se: gestionarSolicitudes_ms deployed_in ee: container6 (execution_environment ruby_exec)(port 80);
+                se: gestionarCursos_ms deployed_in ee: container7 (execution_environment clr)(port 80);
+                se: gestionarUsuarios_ms deployed_in ee: container8 (execution_environment jvm)(port 80);              
                 se: api_gateway_ms deployed_in ee: container9 (execution_environment nodejs)(port 8000);
+                se: ss_web_prod deployed_in ee: container10 (execution_environment nodejs)(port 80);
+                se: LDAP_server deployed_in ee: container11 (execution_environment binary)(port 8085);
+                se: reverse_proxy deployed_in ee: container12 (execution_environment nginx)(port 2000);
+                se: SOAP_interface deployed_in ee: container13 (execution_environment nodejs)(port: 8000)
                 se: ss_mobile_prod deployed_in ee: my_phone;
-                se: ss_web_prod deployed_in ee: gh_pages;
             }
 
         ::
