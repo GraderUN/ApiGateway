@@ -8,6 +8,7 @@ const lodash = require('lodash');
 const estudianteResolver = require('./estudiante_resolver');
 const profesorResolver = require('./profesor_resolver');
 const administrativoResolver = require('./administrativo_resolver');
+const soapResolver = require('./soap_resolver');
 
 module.exports = lodash.merge(
     coursesResolver,
@@ -18,5 +19,6 @@ module.exports = lodash.merge(
     gestion_notas_resolver,
     estudianteResolver,
     administrativoResolver,
-    profesorResolver
+    profesorResolver,
+    soapResolver,
 );

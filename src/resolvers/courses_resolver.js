@@ -1,8 +1,3 @@
-//(_, __, { dataSources }) => dataSources.coursesAPI.getallCourses(),
-
-/*allCourses: function(_, __, { dataSources }) {
-    return dataSources.coursesAPI.getallCourses();*/
-
 const coursesResolver = {
     Query: {
         allCourses: function(_, __, { dataSources }) {

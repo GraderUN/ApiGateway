@@ -11,6 +11,7 @@ const notasGestionAPI = require('./dataSources/gestion_notas_api');
 const EstudianteAPI = require('./dataSources/estudiante_api');
 const ProfesorAPI = require('./dataSources/profesor_api');
 const AdministrativoAPI = require('./dataSources/administrativo_api');
+const SoapAPI = require('./dataSources/soap_api');
 
 
 const server = new ApolloServer({
@@ -25,7 +26,8 @@ const server = new ApolloServer({
         subjectAPI: new SubjectAPI(),
         estudianteAPI: new EstudianteAPI(),
         profesorAPI: new ProfesorAPI(),
-        administrativoAPI: new AdministrativoAPI()
+        administrativoAPI: new AdministrativoAPI(),
+        SoapAPI: new SoapAPI(),
     }),
     cors: {
 		origin: '*',	

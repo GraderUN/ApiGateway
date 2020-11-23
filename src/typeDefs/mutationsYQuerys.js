@@ -48,6 +48,10 @@ module.exports = gql`
         profesorById(id: Int!): Profesor!
         allEstudiantes: [Estudiante]!
         estudianteById(id: Int!): Estudiante!
+        
+        #soap
+        allPuntajes: [puntajeInfo]!
+
     }
 
     type Mutation {

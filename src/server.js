@@ -12,5 +12,7 @@ module.exports = {
     subjectUrl: process.env.SUBJECT_URL || "ec2-34-204-200-213.compute-1.amazonaws.com",
     subjectPort: process.env.SUBJECT_PORT || "4000",
     administrativoUrl: process.env.ADMINISTRATIVO_URL || "ec2-3-238-123-139.compute-1.amazonaws.com",
-    administrativoPort: process.env.ADMINISTRATIVO_PORT || "8080"
+    administrativoPort: process.env.ADMINISTRATIVO_PORT || "8080",
+    soapUrl: process.env.SOAP_URL  || "localhost",
+    soapPort: process.env.SOAP_PORT || "9000",
 }
