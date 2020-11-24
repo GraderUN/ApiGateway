@@ -15,7 +15,7 @@ class SoapAPI extends RESTDataSource {
     }
 
     async getPuntage() {
-        return PuntajeMapping(await this.get(`/`));
+        return PuntajeMapping(await this.get(`/`)); // '/' for production, '/fake' for mocks 
     }
 }
 

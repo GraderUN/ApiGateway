@@ -1,6 +1,9 @@
 {
   "name": "ApiGateway",
   "version": "1.0.0",
+  "scripts": {
+    "start": "node src/index.js"
+  },
   "dependencies": {
     "apollo-server": "^2.18.2",
     "cors": "^2.8.5",
