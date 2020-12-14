@@ -231,8 +231,8 @@ architecture {
 
                 component backend api_gateway(programming_language javascript);
 
-                component frontend ss_web(programming_language javascript);
-                component frontend ss_mobile(programming_language typescript);
+                component frontend fe_web(programming_language javascript);
+                component frontend fe_mobile(programming_language typescript);
 
 				component backend reverseProxy(programming_language nginx);
 				component backend LDAP_Server(programming_language c);
@@ -270,9 +270,6 @@ architecture {
 
                 attachment (firebase: autenticacion , autenticacion_db);
 
-                attachment (GraphQL: ss_web, api_gateway);
-                attachment (GraphQL: ss_mobile, api_gateway);
-
                 attachment (rest: api_gateway, consultarNotas);
                 attachment (rest: api_gateway, gestionarNotas);
                 attachment (rest: api_gateway, gestionarCursos);
@@ -282,16 +279,16 @@ architecture {
                 attachment (rest: api_gateway, gestionarSolicitudes);
                 attachment (rest: api_gateway, autenticacion);
 
-                attachment (SOAP:  SOAP_manager,SSInterfacenext);
-                attachment (SOAP:  SSInterfaceprevious , SOAP_manager);
-                attachment (GraphQL:  SOAP_manager,reverseProxy);
-                attachment (rest:  api_gateway,SOAP_manager);
+                attachment (SOAP:  SOAP_manager, SSInterfacenext);
+                attachment (SOAP:  SSInterfaceprevious, SOAP_manager);
+                attachment (rest:  SOAP_manager, reverseProxy);
+                attachment (rest:  api_gateway, SOAP_manager);
 
-                attachment (LDAP: api_gateway,LDAP_Server);
+                attachment (LDAP: api_gateway, LDAP_Server);
 
-                attachment (GraphQL: reverseProxy,api_gateway);
-                attachment (GraphQL: ss_web,reverseProxy);
-                attachment (GraphQL: ss_mobile,reverseProxy);
+                attachment (GraphQL: reverseProxy, api_gateway);
+                attachment (HTTP: fe_web, reverseProxy);
+                attachment (HTTP: fe_mobile, reverseProxy);
 
             }
         ::
@@ -546,8 +543,8 @@ architecture {
 				t: integration allowed_to_use logic;
 				t: logic allowed_to_use t: data;
 
-				t: presentation contains c: ss_web;
-				t: presentation contains c: ss_mobile;
+				t: presentation contains c: fe_web;
+				t: presentation contains c: fe_mobile;
 
 				t: integration contains c: SOAP_manager;
 				t: integration contains c: reverseProxy;
@@ -571,15 +568,15 @@ architecture {
 				t: data contains c: LDAP_Server;
 
 
-				c: ss_mobile contains l: mobileApp;
-				c: ss_mobile contains l: mobilecomponents;
-				c: ss_mobile contains l: mobileStyle;
+				c: fe_mobile contains l: mobileApp;
+				c: fe_mobile contains l: mobilecomponents;
+				c: fe_mobile contains l: mobileStyle;
 
 				ls: mobileApp allowed_to_use l: mobilecomponents
 				ls: mobilecomponents allowed_to_use l: mobileStyle
 
-				c: ss_web contains l: WebComponent;
-				c: ss_web contains l: Router;
+				c: fe_web contains l: WebComponent;
+				c: fe_web contains l: Router;
 
 				l: WebComponent contains ls: webtemplate;
 				l: WebComponent contains ls: webScript;
@@ -689,6 +686,7 @@ architecture {
                     ec2_node;
                     rds_node;
                     container;
+                    cluster;
                     mobile_phone;
                 }
 
@@ -713,26 +711,38 @@ architecture {
                     firebase;
                 }
 
-                software_element consultarNotas_ms (component consultarNotas){}
-                software_element gestionarNotas_ms (component gestionarNotas){}
-                software_element gestionarSalones_ms (component gestionarSalones){}
-                software_element gestionarCursos_ms (component gestionarCursos){}
-                software_element gestionarMaterias_ms(component gestionarMaterias){}
-                software_element gestionarUsuarios_ms (component gestionarUsuarios){}
-                software_element gestionarSolicitudes_ms (component gestionarSolicitudes){}
-                software_element autenticacion_ms (component autenticacion){}
+                software_element consultarNotas_ms_prod (component consultarNotas){}
+                software_element gestionarNotas_ms_prod (component gestionarNotas){}
+                software_element gestionarSalones_ms_prod (component gestionarSalones){}
+                software_element gestionarCursos_ms_prod (component gestionarCursos){}
+                software_element gestionarMaterias_ms_prod (component gestionarMaterias){}
+                software_element gestionarSolicitudes_ms_prod (component gestionarSolicitudes){}
+                software_element autenticacion_ms_prod (component autenticacion){}
+                software_element gestionarUsuarios_ms_prod (component gestionarUsuarios){
+                    scaling_value: 4;
+                    service_name: "gestionarUsuarios_ms_prod";
+                }
 
-                software_element api_gateway_ms (component api_gateway){}
+                software_element api_gateway_ms_prod (component api_gateway){                    
+                    scaling_value: 2;
+                    service_name: "api_gateway_ms_prod";
+                }
 
-                software_element ss_web_prod (component ss_web){}
-                software_element ss_mobile_prod (component ss_mobile){}
+                software_element fe_mobile_prod (component fe_mobile){}
+                software_element fe_web_prod (component fe_web){
+                    scaling_value: 2;
+                    service_name: "fe_web_prod";
+                }
                 
                 software_element reverse_proxy (component reverseProxy){}
                 software_element LDAP_server (component LDAP_Server){}
                 
-                software_element SOAP_interface (component SOAP_manager){}
+                software_element SOAP_interface_client (component SOAP_manager){}
+                software_element SOAP_interface_server (component SOAP_manager){}
 
-                environmental_element node node1 {
+                environmental_element cluster grader-un {}
+
+                environmental_element ec2_node node1 {
                     ip: 'NODE1_IP';
                     dns: 'NODE1_DNS';
                     operating_system: ubuntu;
@@ -742,7 +752,7 @@ architecture {
                     provider: 'AWS';
                 }
 
-                environmental_element node node2 {
+                environmental_element ec2_node node2 {
                     ip: 'NODE2_IP';
                     dns: 'NODE2_DNS';
                     operating_system: ubuntu;
@@ -752,7 +762,7 @@ architecture {
                     provider: 'AWS';
                 }
 
-                environmental_element node node3 {
+                environmental_element ec2_node node3 {
                     ip: 'NODE3_IP';
                     dns: 'NODE3_DNS';
                     operating_system: ubuntu;
@@ -762,7 +772,7 @@ architecture {
                     provider: 'AWS';
                 }
 
-                environmental_element node node4 {
+                environmental_element ec2_node node4 {
                     ip: 'NODE4_IP';
                     dns: 'NODE4_DNS';
                     operating_system: ubuntu;
@@ -772,7 +782,7 @@ architecture {
                     provider: 'AWS';
                 }
 
-                environmental_element node node5 {
+                environmental_element ec2_node node5 {
                     ip: 'NODE5_IP';
                     dns: 'NODE5_DNS';
                     operating_system: ubuntu;
@@ -782,7 +792,7 @@ architecture {
                     provider: 'AWS';
                 }
 
-                environmental_element node node6 {
+                environmental_element ec2_node node6 {
                     ip: 'NODE6_IP';
                     dns: 'NODE6_DNS';
                     operating_system: ubuntu;
@@ -792,7 +802,7 @@ architecture {
                     provider: 'AWS';
                 }
 
-                environmental_element node node7 {
+                environmental_element ec2_node node7 {
                     ip: 'NODE7_IP';
                     dns: 'NODE7_DNS';
                     operating_system: ubuntu;
@@ -802,13 +812,44 @@ architecture {
                     provider: 'AWS';
                 }
 
-                environmental_element node node8 {
+                environmental_element ec2_node node8 {
                     ip: 'NODE8_IP';
                     dns: 'NODE8_DNS';
                     operating_system: ubuntu;
                     cpu: '2xcore';
                     ram: 4 gB;
                     storage_storage: 8 gB;
+                    provider: 'AWS';
+                }
+
+                environmental_element rds_node node9 {
+                    ip: 'NODE9_IP';
+                    dns: 'NODE9_DNS';
+                    provider: 'AWS';
+                }
+                environmental_element rds_node node10 {
+                    ip: 'NODE10_IP';
+                    dns: 'NODE10_DNS';
+                    provider: 'AWS';
+                }
+                environmental_element rds_node node11 {
+                    ip: 'NODE11_IP';
+                    dns: 'NODE11_DNS';
+                    provider: 'AWS';
+                }
+                environmental_element rds_node node12 {
+                    ip: 'NODE12_IP';
+                    dns: 'NODE12_DNS';
+                    provider: 'AWS';
+                }
+                environmental_element rds_node node13 {
+                    ip: 'NODE13_IP';
+                    dns: 'NODE13_DNS';
+                    provider: 'AWS';
+                }
+                environmental_element rds_node node14 {
+                    ip: 'NODE14_IP';
+                    dns: 'NODE14_DNS';
                     provider: 'AWS';
                 }
 
@@ -833,34 +874,44 @@ architecture {
 
             relations {
 
-                ee: node1 contains ee: container1;
-                ee: node2 contains ee: container2;
-                ee: node3 contains ee: container3;
+                ee: grader-un contains ee: node1;
+                ee: grader-un contains ee: node2;
+                ee: grader-un contains ee: node3;
+                ee: grader-un contains ee: node5;
+                ee: grader-un contains ee: node6;
+                ee: grader-un contains ee: node7;
+
+                ee: grader-un contains ee: container1;
+                ee: grader-un contains ee: container2;
+                ee: grader-un contains ee: container3;
+                ee: grader-un contains ee: container5;
+                ee: grader-un contains ee: container6;
+                ee: grader-un contains ee: container7;
+                ee: grader-un contains ee: container8;
+                ee: grader-un contains ee: container9;
+                ee: grader-un contains ee: container10;
+                ee: grader-un contains ee: container12;
+                
                 ee: node4 contains ee: container4;
-                ee: node5 contains ee: container5;
-                ee: node6 contains ee: container6;
-                ee: node7 contains ee: container7;
-                ee: node8 contains ee: container8;
-                ee: node1 contains ee: container9;
-                ee: node7 contains ee: container10;
                 ee: node4 contains ee: container11;
-                ee: node8 contains ee: container12;
                 ee: node8 contains ee: container13;
 
-                se: consultarNotas_ms deployed_in ee: container1 (execution_environment nodejs)(port 3000);
-                se: gestionarNotas_ms deployed_in ee: container2 (execution_environment php)(port 4000);
-                se: gestionarSalones_ms deployed_in ee: container3 (execution_environment go)(port 8080);
-                se: autenticacion_ms deployed_in ee: container4 (execution_environment python_exec)(port 8000);
-                se: gestionarMaterias_ms deployed_in ee: container5 (execution_environment binary)(port 4000);
-                se: gestionarSolicitudes_ms deployed_in ee: container6 (execution_environment ruby_exec)(port 80);
-                se: gestionarCursos_ms deployed_in ee: container7 (execution_environment clr)(port 80);
-                se: gestionarUsuarios_ms deployed_in ee: container8 (execution_environment jvm)(port 80);
-                se: api_gateway_ms deployed_in ee: container9 (execution_environment nodejs)(port 8000);
-                se: ss_web_prod deployed_in ee: container10 (execution_environment nodejs)(port 80);
+                se: consultarNotas_ms_prod deployed_in ee: container1 (execution_environment nodejs)(port 3000);
+                se: gestionarNotas_ms_prod deployed_in ee: container2 (execution_environment php)(port 4000);
+                se: gestionarSalones_ms_prod deployed_in ee: container3 (execution_environment go)(port 8080);
+                se: autenticacion_ms_prod deployed_in ee: container4 (execution_environment python_exec)(port 8000);
+                se: gestionarMaterias_ms_prod deployed_in ee: container5 (execution_environment binary)(port 4000);
+                se: gestionarSolicitudes_ms_prod deployed_in ee: container6 (execution_environment ruby_exec)(port 80);
+                se: gestionarCursos_ms_prod deployed_in ee: container7 (execution_environment clr)(port 80);
+                se: gestionarUsuarios_ms_prod deployed_in ee: container8 (execution_environment jvm)(port 80);
+                se: api_gateway_ms_prod deployed_in ee: container9 (execution_environment nodejs)(port 8000);
+                se: fe_web_prod deployed_in ee: container10 (execution_environment nodejs)(port 80);
                 se: LDAP_server deployed_in ee: container11 (execution_environment binary)(port 8085);
                 se: reverse_proxy deployed_in ee: container12 (execution_environment nginx)(port 2000);
-                se: SOAP_interface deployed_in ee: container13 (execution_environment nodejs)(port 8000);
-                se: ss_mobile_prod deployed_in ee: my_phone;
+                se: SOAP_interface_server deployed_in ee: container13 (execution_environment nodejs)(port 8000);
+                se: SOAP_interface_client deployed_in ee: container13 (execution_environment nodejs)(port 9000);
+                se: fe_mobile_prod deployed_in ee: my_phone;
+
             }
 
         ::
